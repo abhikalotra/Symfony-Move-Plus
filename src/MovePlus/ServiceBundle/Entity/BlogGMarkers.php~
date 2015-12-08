@@ -1,0 +1,81 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogGMarkers
+ *
+ * @ORM\Table(name="blog_g_markers")
+ * @ORM\Entity
+ */
+class BlogGMarkers
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="map", type="integer", nullable=false)
+     */
+    private $map;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=50, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lat", type="string", length=255, nullable=false)
+     */
+    private $lat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="lng", type="string", length=255, nullable=false)
+     */
+    private $lng;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="animation", type="string", length=255, nullable=false)
+     */
+    private $animation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255, nullable=false)
+     */
+    private $img;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="size", type="string", length=11, nullable=false)
+     */
+    private $size;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

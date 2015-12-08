@@ -1,0 +1,7 @@
+parameters:
+#    move_plus_admin.example.class: MovePlus\AdminBundle\Example
+
+services:
+#    move_plus_admin.example:
+#        class: %move_plus_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

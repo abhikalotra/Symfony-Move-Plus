@@ -1,0 +1,52 @@
+
+{% include '::hf/header_county.html.twig' %}
+
+
+<div class="container-fluid">
+   <div class="containerBanners">
+			<img src="{{ asset('theme/frontend/images') }}/{{ content.banner_img }}" alt="{{ content.banner_img }}" title="{{ content.banner_img }}" >
+	  <div id="cleanings">
+      <div class="row2">
+        <div class="container">
+          <div class="col-lg-12 text-center head_c">
+	         {% if content.banner_text %}
+              <h1>{{ content.banner_text }}</h1>
+          {% endif %}
+          
+          {% if content.banner_sub_text %}
+              <p style="color: white !important">{{ content.banner_sub_text }}</p>
+          {% endif %}
+      				
+          {% render controller('MovePlusServiceBundle:Default:recentServicePopUpBottom',  {'catagory': formdata.catagory }) %}		
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+  </div>
+  
+	
+<div class="left-side-bar">
+<div class="row">
+   <div class="container">
+{{ content.leftsidebar| raw }}
+   </div>
+</div>
+</div>
+<div class="left-sidebar-contnet">	 
+		{% if content.short_description %}
+			{{ content.short_description| raw }}
+		{% endif %}
+	
+	 {% if content.description %}
+		
+		{{ content.description| raw }}
+		 
+		 
+	 {% endif %}
+	
+		
+</div>		
+
+                     
+{% include '::hf/footer_city.html.twig' %}

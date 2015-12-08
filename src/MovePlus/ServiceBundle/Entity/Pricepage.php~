@@ -1,0 +1,53 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Pricepage
+ *
+ * @ORM\Table(name="pricepage")
+ * @ORM\Entity
+ */
+class Pricepage
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price_image", type="string", length=255, nullable=false)
+     */
+    private $priceImage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price_catagory", type="string", length=255, nullable=false)
+     */
+    private $priceCatagory;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

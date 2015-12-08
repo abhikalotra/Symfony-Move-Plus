@@ -1,0 +1,207 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Services
+ *
+ * @ORM\Table(name="services")
+ * @ORM\Entity
+ */
+class Services
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parent_id", type="integer", nullable=true)
+     */
+    private $parentId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_title", type="string", length=255, nullable=true)
+     */
+    private $metaTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_keyword", type="string", length=255, nullable=true)
+     */
+    private $metaKeyword;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_description", type="string", length=255, nullable=true)
+     */
+    private $metaDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="short_description", type="text", nullable=true)
+     */
+    private $shortDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="featured_image", type="string", length=255, nullable=true)
+     */
+    private $featuredImage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255, nullable=true)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="county", type="string", length=255, nullable=true)
+     */
+    private $county;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="region_area", type="string", length=255, nullable=true)
+     */
+    private $regionArea;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="zip_code", type="integer", nullable=true)
+     */
+    private $zipCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_title", type="string", length=255, nullable=true)
+     */
+    private $bannerTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_sort_desc", type="string", length=255, nullable=true)
+     */
+    private $bannerSortDesc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="page_type", type="string", length=255, nullable=true)
+     */
+    private $pageType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="catagory", type="string", length=255, nullable=true)
+     */
+    private $catagory;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="template", type="string", length=255, nullable=false)
+     */
+    private $template;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="leftsidebar", type="text", nullable=false)
+     */
+    private $leftsidebar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rightsidebar", type="text", nullable=false)
+     */
+    private $rightsidebar;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="howitswork_widget", type="integer", nullable=false)
+     */
+    private $howitsworkWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="relatedservices_widget", type="integer", nullable=false)
+     */
+    private $relatedservicesWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="readytobook_widget", type="integer", nullable=false)
+     */
+    private $readytobookWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="blog_widget", type="integer", nullable=false)
+     */
+    private $blogWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="customertestimonial_widget", type="integer", nullable=false)
+     */
+    private $customertestimonialWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

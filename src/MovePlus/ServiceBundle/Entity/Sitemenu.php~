@@ -1,0 +1,60 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sitemenu
+ *
+ * @ORM\Table(name="sitemenu")
+ * @ORM\Entity
+ */
+class Sitemenu
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parent_id", type="integer", nullable=true)
+     */
+    private $parentId;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="order_no", type="integer", nullable=false)
+     */
+    private $orderNo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="menu_type", type="string", length=255, nullable=false)
+     */
+    private $menuType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_url", type="text", nullable=false)
+     */
+    private $linkUrl;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

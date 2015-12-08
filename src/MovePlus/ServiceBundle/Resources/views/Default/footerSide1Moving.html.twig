@@ -1,0 +1,38 @@
+
+  <div class="row">
+      <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay help">
+        <h5>MOVING SERVICE</h5>
+        <ul class="list-unstyled foot">
+			{% for footerSide1Moving in footerSide1MovingRecords %}
+				<li><a href="{{ path('content_services', { 'slug': footerSide1Moving.slug }) }} " title="{{ footerSide1Moving.title|raw }}">{{ footerSide1Moving.title|raw }}  </a></li>
+			{% endfor %}	  	
+        </ul>
+        
+        <div class="small-12 columns"> </div>
+      </div>
+      <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay city">
+        <h5>MOVING SERVICE</h5>
+        <ul class="list-unstyled foot1">
+			{% for footerSide2Moving in footerSide2MovingRecords %}
+				<li><a href="{{ path('content_services', { 'slug': footerSide2Moving.slug }) }}" title="{{ footerSide2Moving.title|raw }}">{{ footerSide2Moving.title|raw }} </a></li>
+			{% endfor %}
+        </ul> 
+      </div>
+      <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay services">
+        <h5  style="margin-right: -32px;">CLEANING SERVICE</h5>
+        <ul class="list-unstyled foot2">
+		{% for footerSide3Cleaning in footerSide3CleaningRecords %}
+				<li><a href="{{ path('content_services', { 'slug': footerSide3Cleaning.slug }) }}" title="{{ footerSide3Cleaning.title|raw }}">{{ footerSide3Cleaning.title|raw }} </a></li>
+			{% endfor %}	
+        </ul>
+      </div>
+    </div>
+    <div class="row footer-social-icon">
+    <div class="footer-social-icon-row small-12 columns col-sm-3 col-sm-offset-5 social"> 
+        
+        {% render controller('MovePlusServiceBundle:Default:socialicon') %}
+		
+		   </div></div>
+		
+	
+		

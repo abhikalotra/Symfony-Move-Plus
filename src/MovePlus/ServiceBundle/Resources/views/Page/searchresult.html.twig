@@ -1,0 +1,115 @@
+
+{% include '::hf/header_service.html.twig' %}
+
+<style>
+.search-section{width:500px;padding:50px 100px;}
+h2{text-align:left;}
+.cleaning_head h2{display:none;}
+.container h2{margin-top:20px !important;}
+.container p{font-weight:normal;}
+.prev{float:left;color: #fff;}
+.next{float:right;color: #fff;}
+.btn a{color:#fff;}
+.navigation{float:left;width:100%;margin-top:20px;}
+.container h1{margin:20px 0px; font-size:35px;color:#000;}
+</style>
+<div class="container_class">
+  <div class="row">
+    <div class="container">
+      {% if pages or countypages or citypages %}
+      <h1>Search Result for: "{{ s }}"</h1>
+      {% for page in pages %}
+      <a href="{{ path('content_services', {'slug':page.slug }) }}" title="{{ page.title }}" >
+      <h6>{{ page.title }}</h6>
+      </a>
+      {{ (page.short_description|substring(0,800))|raw }}
+      {% endfor %}
+      
+      {% for page in countypages %}
+      <a href="{{ path('move_plus_service_county', {'county_slug':page.county_slug,'service_slug':page.service_slug }) }}" title="{{ page.title }}" >
+      <h6>{{ page.title }}</h6>
+      </a>
+      {{ (page.short_description|substring(0,800))|raw }}
+      {% endfor %}
+      
+      {% for page in citypages %}
+      <a href="{{ path('move_plus_city_pages', {'service_slug':page.service_slug,'county_slug':page.county_slug,'city_slug':page.city_slug }) }}" title="{{ page.title }}" >
+      <h6>{{ page.title }}</h6>
+      </a>
+      {{ (page.short_description|substring(0,800))|raw }}
+      {% endfor %}
+      
+      <div class="navigation">
+      {% if tcount > perpage %}
+      {% if preP > 0 %}
+      <a class="prev btn" href="/search/?s={{ s }}&page={{ preP }}">Prev</a>
+      {% else %}
+       <a class="prev btn" href="/search/?s={{ s }}">Prev</a>
+      {% endif %}
+      <a class="next btn" href="/search/?s={{ s }}&page={{ nextP }}">Next</a>
+      {% endif %}
+      </div>
+      {% else %}
+      <div class="search-section">
+      <p> No result found...</p>
+      
+      <form name="search" id="search-form" action="/search" method="get">
+          <input style="width:300px" type="text" name="s" class="form-control" placeholder="Search"/>
+          <button onclick="document.getElementById('search-form').submit();" class="moving box btn btn-default" type="button" >Search</button> 
+     </form>
+     </div>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+
+
+ 
+
+
+                     
+{% include '::footer_service.html.twig' %}
+
+
+
+
+
+
+
+<style>
+.bx-wrapper .testimonials-thumbnail{ margin: 0px 0px 15px; }
+.bx-wrapper .testimonials-title{ text-align: center;  margin: 25px 15px 3px; font-size: 24px; line-height: 1; }
+.bx-wrapper .testimonials-carousel-thumbnail{ max-width: 35%; float: left; margin-right: 20px; }
+.bx-wrapper .testimonials-carousel-thumbnail img{ display: block;   margin-right: 20px;width: 100px;}
+.bx-wrapper .testimonials-carousel-context{ overflow: hidden; }
+.bx-wrapper .testimonials-name{ font-size: 18px; margin-bottom: 15px; color:#000000; font-weight:400;}
+
+.bx-wrapper {position: relative;margin: 30px auto;padding: 0;width:100%;*zoom: 1;}
+.bx-wrapper .slide {padding:0;margin:0;display: block;}
+.bx-wrapper .bx-viewport {padding:10px;margin-left:0;z-index:1;width:100%;}
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {position: absolute;display:none;bottom: -30px;width: 100%;}
+.bx-wrapper .bx-loading {min-height: 50px;background: url(images/bx_loader.gif) center center no-repeat #fff;height: 100%;width: 100%;position: absolute;top: 0;left: 0;z-index: 2000;}
+.bx-wrapper .bx-pager {text-align: center;font-size: .85em;font-weight: bold;color: #666;padding-top: 20px;}
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {display: inline-block;*zoom: 1;*display: inline;}
+.bx-wrapper .bx-pager.bx-default-pager a {background: #666;text-indent: -9999px;display: block;width: 10px;height: 10px;margin: 0 5px;outline: 0;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {background: #000;}
+.bx-wrapper .bx-next {position: absolute;top: 0;right: 0;width: 30px;border-left:1px solid #ddd;height: 30px;cursor: pointer;background: #FC5F04 url(theme/frontend/images/caousel-next.png) no-repeat 0 0 ;}
+.bx-wrapper .bx-prev {position: absolute;top: 0px;right: 30px;border-right:1px solid #ddd;width: 30px;height: 30px;cursor: pointer;background: #FC5F04 url(theme/frontend/images/caousel-prev.png) no-repeat 0 0 ;}
+.bx-wrapper .bx-controls-direction a {position: absolute;top: 0;margin-top: 0;margin-right: 0px;outline: 0;width: 30px;height: 30px;text-indent: -9999px;z-index: 9999;}
+
+ .anna > h4{
+	    color: #696969 !important;
+    font-family: Raleway !important;
+    font-size: 22px !important;
+    margin-top: 50px;
+}
+.annaImage {
+    width: 57%;
+    float: right;
+}
+</style>
+

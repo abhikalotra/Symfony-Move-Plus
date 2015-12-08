@@ -1,0 +1,83 @@
+
+{% include '::header_service.html.twig' %}
+
+  
+    
+    
+    <div id="center_content">
+    		<div class="left_content">
+             
+            
+              
+              
+                    <h1>Welcome to our website</h1> 
+                    <p>
+                    <img src="{{ asset('theme/frontend/images') }}/icon1.gif" alt="" title="" class="left_icon" />
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </p>
+      
+      
+        
+          
+          
+        </br>
+       
+						{% for allService in allServiceDetails  %}
+							<h1> 
+								<a  href="{{ path('move_plus_service_webService', {'slug':allService.slug }) }}" title="{{ allService.title }}"> 	{{ allService.title }} </a>
+							 </h1>
+							<p>
+								<img src="{{ asset('uploads/serviceImage') }}/{{ allService.featuredImage }}"  class="right_icon" />
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+							</p>
+						{% endfor %}	
+              
+                    <h1>Photos</h1>
+                    <div class="photos_block">
+						{% for allService in allServiceDetails  %}
+							<div class="photo_box">
+								
+								<a href="{{ path('move_plus_service_webService', {'slug':allService.slug }) }}" title="{{ allService.title }}" >
+									
+									<img src="{{ asset('uploads/serviceImage') }}/{{ allService.featuredImage }}" alt="{{ allService.featuredImage }}" title="{{ allService.title }}" class="photo" border="0" /></a><br />
+								
+								<!-- <a href="{{ asset('app_dev.php/service') }}/{{ allService.title }}" class="view">{{ allService.title }}</a> -->
+									<!-- slug -->
+								<!-- <a href="{{ path('move_plus_service_webService', {'slug':allService.slug }) }}" title="{{ allService.title }}" >{{ allService.title }}</a> -->
+								
+								<a href="{{ path('move_plus_service_webService', {'slug':allService.slug }) }}" title="{{ allService.title }}" >{{ allService.title }}</a>
+								
+								
+							</div>                    	                 
+                    	 {% endfor %}	                 
+                    </div>
+            
+            
+            </div>
+            
+            
+          
+            
+            
+        
+              
+                     
+{% include '::footer_service.html.twig' %}
+
+
+<style>
+	.left_content h1 a {
+    color: #7e5025;
+    padding: 5px 0 10px 0;
+    margin: 0px;
+    font-size: 19px;
+    font-weight: normal;
+}
+.photo_box {
+    margin: 5px 18px 0px 0px;
+}
+.photo_box img.photo {
+    width: 98px;
+    height: 78px;
+}
+</style>

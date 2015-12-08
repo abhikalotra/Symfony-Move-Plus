@@ -1,0 +1,46 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogOptions
+ *
+ * @ORM\Table(name="blog_options")
+ * @ORM\Entity
+ */
+class BlogOptions
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option_name", type="string", length=64, nullable=false)
+     */
+    private $optionName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="option_value", type="text", nullable=false)
+     */
+    private $optionValue;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="autoload", type="string", length=20, nullable=false)
+     */
+    private $autoload;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="option_id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $optionId;
+
+
+}

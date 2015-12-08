@@ -1,0 +1,121 @@
+{% include '::header_service.html.twig' %}
+  
+
+<div class="container">
+	<div class="main">
+	
+	  <form  action="" method="post" enctype="multipart/form-data" class="form">
+		  {% for services in allServicesDetail  %}	
+			
+					<h2>Edit City Area</h2>
+					
+					<label>Title :</label>
+						<input type="text" name="title" value="{{ services.title }}" >
+					
+					<label>Meta Title :</label>
+						<input type="text" name="metaTitle" value="{{ services.metaTitle }}" >
+					
+					<label>Meta Keyword :</label>
+						<input type="text" name="metaKeyword"  value="{{ services.metaKeyword }}">
+					
+					<label>Meta Description :</label>
+						<input type="text" name="metaDescription" value="{{ services.metaDescription }}" >
+						
+					<label>slug :</label>
+						<input type="text" name="slug" value="{{ services.slug }}" >
+						
+					<label>Short Description :</label>
+						<input type="text" name="shortDescription" value="{{ services.shortDescription	 }}" >
+						
+					<label>Description :</label>
+						<input type="text" name="description" value="{{ services.description	 }}" >
+						
+					<label>Featured Image :</label>
+						<input type="file" name="featuredImage" value="{{ services.featuredImage }}"  >
+					
+	</br></br>
+	
+					<label>County :</label>
+						<input type="text" name="county" value="{{ services.county }}"  >
+					
+					<label>Region Area :</label>
+						<input type="text" name="regionArea" value="{{ services.regionArea }}"  >
+					
+					<label>City Area :</label>
+						<input type="text" name="city" value="{{ services.city }}"  >
+					
+					<label>Post Code :</label>
+						<input type="text" name="zipCode" value="{{ services.zipCode }}"  >
+					
+					<label>Page Type :</label>
+					<input type="text" name="pageType" value="{{ services.pageType	}}" >
+					
+							
+					<input type="submit" name="submit"  value="Update">
+					
+			{% endfor %}
+		</form>
+	</div>
+</div>
+
+
+{% include '::footer_service.html.twig' %}
+
+<style>
+	h2{
+text-align: center;
+font-size: 24px;
+}
+hr{
+margin-bottom: 30px;
+}
+div.container{
+width: 836px;
+height: 610px;
+margin:50px auto;
+font-family: 'Droid Serif', serif;
+position:relative;
+}
+div.main{
+float:left;
+padding: 10px 55px 40px;
+background-color: rgba(187, 255, 184, 0.65);
+border: 15px solid white;
+box-shadow: 0 0 10px;
+border-radius: 2px;
+font-size: 13px;
+}
+input[type=text],[type=password] {
+width: 97.7%;
+height: 34px;
+padding-left: 5px;
+margin-bottom: 20px;
+margin-top: 8px;
+box-shadow: 0 0 5px #00F5FF;
+border: 2px solid #00F5FF;
+color: #4f4f4f;
+font-size: 16px;
+}
+label{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+}
+#register {
+font-size: 20px;
+margin-top: 15px;
+background: linear-gradient(#22abe9 5%, #36caf0 100%);
+border: 1px solid #0F799E;
+padding: 7px 35px;
+color: white;
+text-shadow: 0px 1px 0px #13506D;
+font-weight: bold;
+border-radius: 2px;
+cursor: pointer;
+width: 100%;
+}
+#register:hover{
+background: linear-gradient(#36caf0 5%, #22abe9 100%);
+}
+</style>

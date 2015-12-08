@@ -1,0 +1,123 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Sampleservices
+ *
+ * @ORM\Table(name="sampleservices")
+ * @ORM\Entity
+ */
+class Sampleservices
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="county_name", type="string", length=255, nullable=false)
+     */
+    private $countyName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="service_name", type="string", length=255, nullable=false)
+     */
+    private $serviceName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=false)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_title", type="text", nullable=false)
+     */
+    private $metaTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_keywords", type="text", nullable=false)
+     */
+    private $metaKeywords;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_description", type="text", nullable=false)
+     */
+    private $metaDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="short_description", type="text", nullable=false)
+     */
+    private $shortDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_img", type="text", nullable=false)
+     */
+    private $bannerImg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_text", type="string", length=255, nullable=false)
+     */
+    private $bannerText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_sub_text", type="string", length=255, nullable=false)
+     */
+    private $bannerSubText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="catagory", type="string", length=255, nullable=false)
+     */
+    private $catagory;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

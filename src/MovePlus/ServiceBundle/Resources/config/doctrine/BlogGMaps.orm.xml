@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\BlogGMaps" table="blog_g_maps">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="name" type="string" column="name" length="50" nullable="false"/>
+    <field name="type" type="string" column="type" length="50" nullable="false"/>
+    <field name="zoom" type="integer" column="zoom" nullable="false"/>
+    <field name="minZoom" type="string" column="min_zoom" length="55" nullable="false"/>
+    <field name="maxZoom" type="string" column="max_zoom" length="55" nullable="false"/>
+    <field name="borderRadius" type="integer" column="border_radius" nullable="false"/>
+    <field name="centerLat" type="string" column="center_lat" length="255" nullable="false"/>
+    <field name="panController" type="string" column="pan_controller" length="5" nullable="false"/>
+    <field name="zoomController" type="string" column="zoom_controller" length="5" nullable="false"/>
+    <field name="typeController" type="string" column="type_controller" length="5" nullable="false"/>
+    <field name="scaleController" type="string" column="scale_controller" length="5" nullable="false"/>
+    <field name="streetViewController" type="string" column="street_view_controller" length="5" nullable="false"/>
+    <field name="overviewMapController" type="string" column="overview_map_controller" length="5" nullable="false"/>
+    <field name="centerLng" type="string" column="center_lng" length="255" nullable="false"/>
+    <field name="width" type="string" column="width" length="5" nullable="false"/>
+    <field name="height" type="string" column="height" length="5" nullable="false"/>
+    <field name="align" type="string" column="align" length="11" nullable="false"/>
+    <field name="infoType" type="string" column="info_type" length="9" nullable="false"/>
+    <field name="trafficLayer" type="string" column="traffic_layer" length="55" nullable="false"/>
+    <field name="bikeLayer" type="string" column="bike_layer" length="55" nullable="false"/>
+    <field name="transitLayer" type="string" column="transit_layer" length="55" nullable="false"/>
+    <field name="stylingHue" type="text" column="styling_hue" nullable="false"/>
+    <field name="stylingLightness" type="string" column="styling_lightness" length="55" nullable="false"/>
+    <field name="stylingGamma" type="string" column="styling_gamma" length="55" nullable="false"/>
+    <field name="stylingSaturation" type="string" column="styling_saturation" length="55" nullable="false"/>
+  </entity>
+</doctrine-mapping>

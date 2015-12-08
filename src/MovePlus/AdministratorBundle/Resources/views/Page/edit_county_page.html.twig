@@ -1,0 +1,292 @@
+	{% include '::administartor/header_administartor.html.twig' %}
+ 
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+               <!-- BEGIN SIDEBAR -->
+               <div class="page-sidebar-wrapper">
+			   
+                   {% include '::administartor/sidebar_administartor.html.twig' %}
+
+				 </div>
+               <!-- END SIDEBAR -->
+               <!-- BEGIN CONTENT -->
+		
+               <div class="page-content-wrapper">
+                  <div class="page-content">
+                  
+                     <!-- BEGIN PAGE HEADER-->
+                     <h3 class="page-title" style="margin-bottom: 41px;">
+                        Edit Page:{{ services.title|raw }}<!-- <small>form layouts</small> -->
+                     </h3>
+                     <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                           <li>
+                              <i class="fa fa-home"></i>
+                              <a href="{{ path('move_plus_administrator_dashboard') }}">Dashboard</a>
+                              <i class="fa fa-angle-right"></i>
+                           </li>
+                           <li>
+                              <a href="{{ path( 'move_plus_administrator_editCountyPages', { 'id': services.id  }) }}">Edit Page: {{ services.title|raw }}</a>
+                           </li>                          
+                        </ul>
+                  
+                     </div>
+                     <!-- END PAGE HEADER-->
+                     <!-- BEGIN PAGE CONTENT-->
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="tabbable-line boxless tabbable-reversed">
+                              <ul class="nav nav-tabs">
+                                <li class="active" >
+                                    <a href="#tab_1_1" data-toggle="tab">
+                                  Page Content   </a>
+                                 </li>
+                                 <li >
+                                    <a href="#tab_1_3" data-toggle="tab">
+                                   Page Design  </a>
+                                 </li>
+								 <li>
+								<a href="#tab_1_4" data-toggle="tab">
+									Page Meta </a>
+								</li>
+                             </ul>
+                              <div class="tab-content">
+                           <div class="tab-pane active" id="tab_1_1">
+                
+							<div class="portlet-body form">
+								<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">	
+								<div class="form-body">	
+										<div class="form-group">
+                                                   <label class="col-md-3 control-label">Page Title :</label>
+                                                   <div class="col-md-4">
+												   <input type="hidden" name="pagemeta" value="pagetitle" >
+												   
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Page Title" name="title" value="{{ services.title|raw }}" >                                      
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Service Slug:</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Service Slug"  name="service_slug"  value="{{ services.service_slug }}" >                                      
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">County Slug :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter County Slug"  name="county_slug"  value="{{ services.county_slug }}" >                                      
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">County:</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter County"  name="county"  value="{{ services.county }}" >                                      
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Short Description :</label>
+                                                   <div class="col-md-4" style="width: 100%;">
+														  <textarea class="form-control input-circle description" placeholder="Enter Short Description " id="descTexteditor" name="short_description" >{{ services.short_description|raw }}</textarea>
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Description :</label>
+                                                   <div class="col-md-4" style="width: 100%;">
+														  <textarea class="form-control input-circle description"  id="descTexteditor"  placeholder="Enter Description" name="description" >{{ services.description|raw }}</textarea>
+                                                   </div>
+                                                </div>  
+												
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Banner Image :</label>
+                                                   <div class="col-md-4">
+												   <img style="width:150px" src="{{ asset('theme/frontend/images') }}/{{ services.banner_img }}">
+												   <input type="hidden" name="old_banner_img" value="{{ services.banner_img}}">
+														<input type="file" class="form-control input-circle" name="banner_img" value="" >
+                                                   </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Service Name :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter banner Text" name="service_name" value="{{ services.service_name|raw }}"  >
+                                                   </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Banner Title :</label>
+                                                   <div class="col-md-4">
+														  <textarea class="form-control input-circle" placeholder="Enter banner Text" name="banner_text"  id="descTextEditorNormal"  style="width: 100%;">{{ services.banner_text|raw }}</textarea>
+                                                   </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Banner Sub Title :</label>
+                                                   <div class="col-md-4">
+														  <textarea class="form-control input-circle" placeholder="Enter banner Text" name="banner_sub_text"  id="descTextEditorNormal"  style="width: 100%;">{{ services.banner_sub_text|raw }}</textarea>
+                                                   </div>
+                                                </div>
+								</div>
+									<div class="form-actions">
+										<div class="row">
+										   <div class="col-md-offset-3 col-md-9">
+											  <!-- <button type="submit"  class="btn btn-circle blue">Submit</button> -->
+											   <input class="btn btn-circle blue widthSetAdmin" type="submit" name="submit"  value="Update">
+												<a href="{{ path('move_plus_administrator_staticPages') }}" class="btn btn-circle default">Cancel</a>
+										   </div>
+										</div>
+									 </div>
+								 </form>
+							</div>
+				  </div>
+              <!--tab_1_2-->
+              <div class="tab-pane" id="tab_1_3">
+               <!--  <div class="row profile-account">                
+                  <div class="col-md-9">
+                    <div class="tab-content"> -->
+                       <div id="tab_1-1" class="tab-pane active">
+							<div class="portlet-body form">
+							<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+							
+							<div class="form-body">
+							
+							
+										<div class="form-group">
+                                                   <label class="col-md-3 control-label">Page Layout :</label>
+                                                   <div class="col-md-4">
+												    <input type="hidden"  name="pagemeta"  value="pagedesign"  >
+													
+														<select name="template" class="form-control input-circle">
+														<option value=''>Select Template</option>
+														<option value='full-width' {% if services.template == 'full-width' %}selected {% endif %}>Full Width</option>
+														<option value='left-sidebar'{% if services.template == 'left-sidebar' %}selected {% endif %}>Left Sidebar</option>
+														<option value='right-sidebar' {% if services.template == 'right-sidebar' %}selected {% endif %}>Right Sidebar</option>
+														<option value='left-right-sidebar' {% if services.template == 'left-right-sidebar' %}selected {% endif %}>Left Right Sidebar</option>
+														</select>											    
+                                                   </div>
+                                                </div>							
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Left Side Bar HTML :</label>
+                                                   <div class="col-md-4" style="width: 100%;">
+														  <textarea class="form-control input-circle description"  id="descTexteditor"  placeholder="Enter Left Side Bar HTML" name="leftsidebar" >{{ services.leftsidebar|raw  }}</textarea>
+                                                   </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Right Side Bar HTML :</label>
+                                                   <div class="col-md-4" style="width: 100%;">
+														  <textarea class="form-control input-circle description"  id="descTexteditor"  placeholder="Enter Right Side Bar HTML" name="rightsidebar" >{{ services.rightsidebar|raw  }}</textarea>
+                                                   </div>
+                                                </div>
+													
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">How Its Work Widget:</label>
+                                                   <div class="col-md-4">
+												  	 <input type="checkbox"  name="howitswork_widget"  value="{{ services.howitswork_widget }}" class="form-control input-circle" {% if services.howitswork_widget == 1 %} checked {% endif %} 	 > </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Related Services Widget:</label>
+                                                   <div class="col-md-4">
+												  	 <input type="checkbox"  name="relatedservices_widget"  value="{{ services.relatedservices_widget }}" class="form-control input-circle" {% if services.relatedservices_widget == 1 %} checked {% endif %} 	 > </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Ready To Book Widget:</label>
+                                                   <div class="col-md-4">
+												  	 <input type="checkbox"  name="readytobook_widget"  value="{{ services.readytobook_widget }}" class="form-control input-circle" {% if services.readytobook_widget == 1 %} checked {% endif %} 	 > </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Blog Widget:</label>
+                                                   <div class="col-md-4">
+												  	 <input type="checkbox"  name="blog_widget"  value="{{ services.blog_widget }}" class="form-control input-circle" {% if services.blog_widget == 1 %} checked {% endif %} 	 > </div>
+                                                </div>
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Customer Testimonial Widget:</label>
+                                                   <div class="col-md-4">
+												  	 <input type="checkbox"  name="customertestimonial_widget"  value="{{ services.customertestimonial_widget }}" class="form-control input-circle" {% if services.customertestimonial_widget == 1 %} checked {% endif %} 	 > </div>
+                                                </div>
+												
+									
+							
+							</div>
+								<div class="form-actions">
+									<div class="row">
+									   <div class="col-md-offset-3 col-md-9">
+										  <!-- <button type="submit"  class="btn btn-circle blue">Submit</button> -->
+										   <input class="btn btn-circle blue widthSetAdmin" type="submit" name="submit"  value="Update">
+											<a href="{{ path('move_plus_administrator_staticPages') }}" class="btn btn-circle default">Cancel</a>
+									   </div>
+									</div>
+								 </div>
+							 </form>
+						</div>
+                     	
+						 
+						
+                      </div>
+                  
+                 
+				<!-- </div>
+                  </div>
+                </div> -->
+              </div>
+			  
+			  <!--end tab-pane-->
+							<div class="tab-pane" id="tab_1_4">
+								
+							<div class="portlet-body form">
+							<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">	
+							<div class="form-body">			
+
+													  
+									  <div class="form-group">
+										   <label class="col-md-3 control-label">Meta Title :</label>
+										   <div class="col-md-4">
+										   <input type="hidden" name="pagemeta" value="pagemeta" >
+												 
+												 <input type="text" class="form-control input-circle" placeholder="Enter Meta Title"  name="meta_title" value="{{ services.meta_title|raw  }}" >   												 
+										   </div>
+										</div>
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Meta Keyword :</label>
+										   <div class="col-md-4">
+												   <textarea class="form-control input-circle" placeholder="Enter Meta metaKeyword" name="meta_keywords"   id="descTextEditorNormal"  style="width: 100%;">{{ services.meta_keywords|raw }}</textarea>
+										   </div>
+										</div>
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Meta Description :</label>
+										   <div class="col-md-4">
+												  <textarea class="form-control input-circle" placeholder="Enter Meta Description"  id="descTextEditorNormal"  name="meta_description" style="width: 100%;">{{ services.meta_description|raw }}</textarea>
+										   </div>
+										</div>
+								
+							
+							</div>
+								<div class="form-actions">
+									<div class="row">
+									   <div class="col-md-offset-3 col-md-9">
+										  <!-- <button type="submit"  class="btn btn-circle blue">Submit</button> -->
+										   <input class="btn btn-circle blue widthSetAdmin" type="submit" name="submit"  value="Update">
+											<a href="{{ path('move_plus_administrator_staticPages') }}" class="btn btn-circle default">Cancel</a>
+									   </div>
+									</div>
+								 </div>
+							 </form>
+						</div>
+                     
+							</div>
+							
+			
+							   
+							   </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- END PAGE CONTENT-->
+                  </div>
+               </div>
+   
+
+		   <!-- END CONTENT -->
+            
+            </div>
+            <!-- END CONTAINER -->
+         
+			
+{% include '::administartor/footer_administartor.html.twig' %}
+
+
+	  

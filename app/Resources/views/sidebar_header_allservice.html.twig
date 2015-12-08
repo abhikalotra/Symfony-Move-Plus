@@ -1,0 +1,19 @@
+ {% for allService in allServiceDetails  %}
+							<div class="tip_box"> 
+						
+								<a href="{{ path('move_plus_service_webService', {'slug':allService.slug }) }}"  title="{{ allService.title }}"> <h2>{{ allService.title }}</h2> </a>
+								<p class="tips">								</p>
+								<a href="{{ asset('service') }}/{{ allService.slug }}"  title="{{ allService.title }}" class="read_more">read more</a>						  
+							</div>
+						{% endfor %}	  
+
+
+<style>
+.tip_box a{
+text-decoration: none;
+}
+.tip_box a h2{
+text-transform: capitalize;
+}
+
+</style>

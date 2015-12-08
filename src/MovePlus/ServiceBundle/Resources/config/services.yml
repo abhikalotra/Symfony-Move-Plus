@@ -1,0 +1,13 @@
+parameters:
+#    move_plus_service.example.class: MovePlus\ServiceBundle\Example
+
+
+services:
+    twig.extension.moveplus.service:
+        class: MovePlus\ServiceBundle\Twig\Extension\AppExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+
+
+

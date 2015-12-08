@@ -1,0 +1,36 @@
+<h2>Customer Testimonial </h2>
+<div class="container fontsize38">
+   <h1 class="testimonial test">&nbsp;</h1>
+   <div class="testimonials-slider">
+		 {% for testmonialDetails in testimonial  %}	 
+		 <div class="slide">
+			
+			<div class="testmonialTitle"><h4>{{ testmonialDetails.title }}</h4></div>
+		
+		
+			 <div class="testimonials-carousel-content col-lg-12 text-center testimonial test">
+				<p>{{ testmonialDetails.description|slice(0, 242) }} .. <a href="{{ path( 'move_plus_service_testmonialView') }}">Read More </a></p>
+			 </div>
+			 <div class="anna">
+				<h4> - {{ testmonialDetails.writer_name }}  -  {{ testmonialDetails.date }}  &nbsp;&nbsp;  
+				{% if testmonialDetails.star_rating %}
+					{% for i in 1..testmonialDetails.star_rating %}
+						<img src="{{ asset('theme/frontend/images') }}/Favorites.png" alt="Star Favorites {{ testmonialDetails.title }}" title="{{ testmonialDetails.title }} Star Favorites">
+					{% endfor %}
+					
+				{% endif %}
+				
+				
+				</h4>
+			 </div>
+			 <div class="annaImage"><img width="120" alt="" src="{{ asset('uploads/testimonial') }}/{{ testmonialDetails.image }}"  alt="anna_" title="anna_"> </div>
+		  </div>
+		   {% endfor %}	
+	
+   </div>
+   <!-- END DEMO -->
+   <div class="clearfix"></div>
+</div>
+
+
+

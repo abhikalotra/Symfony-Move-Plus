@@ -1,0 +1,99 @@
+{% include '::header_service.html.twig' %}
+  
+<div class="middleWidth">
+	<div class="middleWidth2">
+		<div class="main">
+	
+	  <form  action="" method="post" enctype="multipart/form-data" class="form">
+
+					<h2> Book for Cleaning </h2>
+					
+					<label>First name :</label>
+						<input type="text" name="firstName"  >
+					
+					<label>Last Name :</label>
+						<input type="text" name="lastName" >
+					
+					<label>Email:</label>
+						<input type="email" name="email"  >
+					
+					<label>Comment:</label>
+						<input type="text" name="comment" >
+						
+					<label>Mobile no.:</label>
+						<input type="text" name="mobile"  >
+						
+											
+					<input type="submit" name="submit" class="btn btn-default" value="Book For Cleaning">
+					
+			
+		</form>
+	</div>
+	</div>
+	</div>
+	<div class="clear">	</div>
+
+
+{% include '::footer_service.html.twig' %}
+
+<style>
+.middleWidth {
+    width: 100%;
+    margin-left: 18%;
+}
+.middleWidth2 {
+    width: 60%;
+}
+.clear {
+    clear: both;
+}
+	h2{
+text-align: center;
+font-size: 24px;
+}
+hr{
+margin-bottom: 30px;
+}
+
+div.main{
+float:left;
+padding: 10px 55px 40px;
+border: 15px solid white;
+box-shadow: 0 0 10px;
+border-radius: 2px;
+font-size: 13px;
+}
+input[type=text],[type=email] {
+width: 97.7%;
+height: 34px;
+padding-left: 5px;
+margin-bottom: 20px;
+margin-top: 8px;
+box-shadow: 0 0 5px #FC5F04;
+border: 2px solid #FC5F04;
+color: #4f4f4f;
+font-size: 16px;
+}
+label{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+}
+#register {
+font-size: 20px;
+margin-top: 15px;
+background: linear-gradient(#22abe9 5%, #36caf0 100%);
+border: 1px solid #0F799E;
+padding: 7px 35px;
+color: white;
+text-shadow: 0px 1px 0px #13506D;
+font-weight: bold;
+border-radius: 2px;
+cursor: pointer;
+width: 100%;
+}
+#register:hover{
+background: linear-gradient(#36caf0 5%, #22abe9 100%);
+}
+</style>

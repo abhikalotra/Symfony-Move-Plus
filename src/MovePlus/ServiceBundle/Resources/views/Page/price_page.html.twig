@@ -1,0 +1,63 @@
+{% include '::hf/header_service.html.twig' %}
+
+
+{% for price in priceContent  %}	
+<div id="slider1_container" style="position: relative; margin: 0 auto;
+   top: 0px; left: 0px; height: 400px; overflow: hidden;">
+   <div u="slides" style="position: absolute; left: 0px; top: 0px; 
+      height: 400px; overflow: hidden;width: 100%;">   
+      <div>
+              <img u="image" src="{{ asset('theme/frontend/images') }}/{{ price.price_image }}" alt="{{ price.title }}" title="{{ price.title }}" />           
+      </div>     
+   </div>
+   </div>
+
+</div> 
+</div>
+
+	{{ price.description|raw }} 
+	
+  {% endfor %}	
+  
+
+
+  
+{% include '::footer_service.html.twig' %}
+
+
+
+<style>
+.row5 {
+    display: none;
+}
+.Table
+{
+display: table;
+width: 100%;
+}
+.Title
+{
+display: table-caption;
+text-align: center;
+font-weight: bold;
+font-size: larger;
+}
+.Heading
+{
+display: table-row;
+font-weight: bold;
+text-align: center;
+}
+.Row
+{
+display: table-row;
+}
+.Cell
+{
+display: table-cell;
+border: solid;
+border-width: thin;
+padding-left: 5px;
+padding-right: 5px;
+}
+</style>

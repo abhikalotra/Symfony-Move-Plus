@@ -1,0 +1,162 @@
+{% include '::header_service.html.twig' %}
+
+<!--  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+	<script type="text/javascript" src="{{ asset('theme/frontend/js/') }}jquery-ias.min.js"></script>
+
+     <script type="text/javascript">
+        $(document).ready(function() {
+        	// Infinite Ajax Scroll configuration
+            jQuery.ias({
+                container : '.countryList', // main container where data goes to append
+                item: '.list', // single items
+                pagination: '.nav', // page navigation
+                next: '.nav a', // next page selector
+                loader: '<img src="{{ asset("theme/frontend/images/") }}loading.gif"/>', // loading gif
+                triggerPageThreshold: 3 // show load more if scroll more than this
+            });
+        });
+    </script>   -->
+              
+    
+    <div id="center_content">
+    		<div class="left_content">
+            
+                    <h1>{{ title }} </h1>
+               {% for service in services  %}      
+						<p>
+						{% if service.featuredImage %}
+								<img src="{{ asset('uploads/serviceImage') }}/{{ service.featuredImage }}" alt="" title="" class="left_icon" />
+						{% else  %}	
+								<img src="{{ asset('theme/frontend/images') }}/81-300x198.jpg" alt="" title="" class="left_icon" />
+						{% endif %}
+							
+							
+						{{ service.shortDescription }}       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+						</p>
+			
+			
+						<h1>{{ service.title }} </h1>
+						<p>
+						
+						{% if service.featuredImage %}						
+								<img src="{{ asset('uploads/serviceImage') }}/{{ service.featuredImage }}" alt="" title="" class="right_icon" />
+						{% else  %}	
+								<img src="{{ asset('theme/frontend/images') }}/81-300x198.jpg" alt="" title="" class="right_icon" />
+							{% endif %}	
+							
+							
+						{{ service.description }}  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+						</p>
+                 {% endfor %}  
+                 
+                 
+                    <h1>Photos --county</h1>
+                    <div class="photos_block">                    
+                    	{% for allService in allServiceDetails  %}
+							<div class="photo_box">
+								<a href="{{ path('move_plus_service_webService', {'slug':allService.slug }) }}" title="{{ allService.title }}" >
+									<img src="{{ asset('uploads/serviceImage') }}/{{ allService.featuredImage }}" title="{{ allService.title }}" class="photo" border="0" /></a><br />
+								
+								<a href="{{ asset('service') }}/{{ allService.slug }}" class="view">{{ allService.title }}</a>
+							</div>                    	                 
+                    	 {% endfor %}	            
+                    </div>
+                    <div class="countryList">
+						
+						{% if servicesId == 4  %}	
+									 
+											<div class="countryListShow" >							
+											<h2 style=" margin: 12px 0px -10px 9px;"> 	Details	</h2> 
+											<h3> 
+											<ul class="list">
+											<li> {{ title }}  </li>
+											
+											</ul></h3>
+											</div>
+										
+						{% else  %}	
+									{% for service in countyListByServiceParentId  %}												
+											<h3><ul class="list" id="list-{{ service.id }}">
+												<li>
+																							
+												 <!-- <a  href="{{ asset('app_dev.php') }}/{{ service.county }}/{{ service.title }}" title="{{ service.county }}"> {{ service.county }} </a>  -->
+												
+												<a href="{{ path('move_plus_service_county', {'county':service.county, 'slug':service.slug  }  ) }}" title="{{ service.title }}" >{{ service.county }} county</a> 
+												</li>
+											</ul></h3>
+										{% endfor %}
+						{% endif %}
+						
+						
+							{% if next   %}
+								{% for service in services  %}      
+									<div class="nav">
+										<a href="{{ path('move_plus_service_webService', {'slug':service.slug }) }}?p={{ next }}">{{ next }}</a>
+									</div>
+								{% endfor %}
+							{% endif %}
+							
+                    </div>
+                                
+            </div>
+          
+          
+            <div class="right_content">
+            
+                     <h1>Services</h1>
+                        
+						{% include '::sidebar_header_allservice.html.twig' %}
+						
+
+                    
+                 
+                  
+                    
+                    
+            
+            </div>
+   
+                
+              
+                     
+                     
+                     
+                     
+{% include '::footer_service.html.twig' %}
+
+
+<style>
+	.left_content h1 a {
+    color: #7e5025;
+    padding: 5px 0 10px 0;
+    margin: 0px;
+    font-size: 19px;
+    font-weight: normal;
+}
+.photo_box {
+    margin: 5px 18px 0px 0px;
+}
+.photo_box img.photo {
+    width: 98px;
+    height: 78px;
+}
+.countryList {
+    float: left;
+    width: 100%;
+}
+
+.tip_box h2{
+    font-size: 17px;
+	}
+	
+.countryList {
+    float: left;
+    width: 100%;
+    background-color: gold;
+    margin: 7px 0px 0px 0px;
+}
+.countryList ul.list {
+    float: left;
+    margin: 2px 7px 2px 10px;
+}
+</style>

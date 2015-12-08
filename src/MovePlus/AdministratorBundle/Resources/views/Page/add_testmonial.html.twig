@@ -1,0 +1,279 @@
+	{% include '::administartor/header_administartor.html.twig' %}
+  
+ <!-- <script type="text/javascript" src="{{asset('bundles/ajax/typeahead.min.js')}}"></script>
+ <script type="text/javascript" src="{{asset('bundles/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+   	 <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea.description"
+        });
+    </script> -->	  
+		  		  
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+               <!-- BEGIN SIDEBAR -->
+               <div class="page-sidebar-wrapper">
+			   
+                   {% include '::administartor/sidebar_administartor.html.twig' %}
+
+				 </div>
+               <!-- END SIDEBAR -->
+               <!-- BEGIN CONTENT -->
+		
+               <div class="page-content-wrapper">
+                  <div class="page-content">
+                     <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                     <!-- <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                 <h4 class="modal-title">Modal title</h4>
+                              </div>
+                              <div class="modal-body">
+                                 Widget settings form goes here
+                              </div>
+                              <div class="modal-footer">
+                                 <button type="button" class="btn blue">Save changes</button>
+                                 <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                              </div>
+                           </div>                         
+                        </div>                      
+                     </div> -->
+                     <!-- /.modal -->
+                     <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                     <!-- BEGIN STYLE CUSTOMIZER -->
+                   <!--   <div class="theme-panel hidden-xs hidden-sm">
+                        <div class="toggler">
+                        </div>
+                        <div class="toggler-close">
+                        </div>
+                        <div class="theme-options">
+                           <div class="theme-option theme-colors clearfix">
+                              <span>
+                              THEME COLOR </span>
+                              <ul>
+                                 <li class="color-default current tooltips" data-style="default" data-container="body" data-original-title="Default">
+                                 </li>
+                                 <li class="color-darkblue tooltips" data-style="darkblue" data-container="body" data-original-title="Dark Blue">
+                                 </li>
+                                 <li class="color-blue tooltips" data-style="blue" data-container="body" data-original-title="Blue">
+                                 </li>
+                                 <li class="color-grey tooltips" data-style="grey" data-container="body" data-original-title="Grey">
+                                 </li>
+                                 <li class="color-light tooltips" data-style="light" data-container="body" data-original-title="Light">
+                                 </li>
+                                 <li class="color-light2 tooltips" data-style="light2" data-container="body" data-html="true" data-original-title="Light 2">
+                                 </li>
+                              </ul>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Theme Style </span>
+                              <select class="layout-style-option form-control input-sm">
+                                 <option value="square" selected="selected">Square corners</option>
+                                 <option value="rounded">Rounded corners</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Layout </span>
+                              <select class="layout-option form-control input-sm">
+                                 <option value="fluid" selected="selected">Fluid</option>
+                                 <option value="boxed">Boxed</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Header </span>
+                              <select class="page-header-option form-control input-sm">
+                                 <option value="fixed" selected="selected">Fixed</option>
+                                 <option value="default">Default</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Top Menu Dropdown</span>
+                              <select class="page-header-top-dropdown-style-option form-control input-sm">
+                                 <option value="light" selected="selected">Light</option>
+                                 <option value="dark">Dark</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Sidebar Mode</span>
+                              <select class="sidebar-option form-control input-sm">
+                                 <option value="fixed">Fixed</option>
+                                 <option value="default" selected="selected">Default</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Sidebar Menu </span>
+                              <select class="sidebar-menu-option form-control input-sm">
+                                 <option value="accordion" selected="selected">Accordion</option>
+                                 <option value="hover">Hover</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Sidebar Style </span>
+                              <select class="sidebar-style-option form-control input-sm">
+                                 <option value="default" selected="selected">Default</option>
+                                 <option value="light">Light</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Sidebar Position </span>
+                              <select class="sidebar-pos-option form-control input-sm">
+                                 <option value="left" selected="selected">Left</option>
+                                 <option value="right">Right</option>
+                              </select>
+                           </div>
+                           <div class="theme-option">
+                              <span>
+                              Footer </span>
+                              <select class="page-footer-option form-control input-sm">
+                                 <option value="fixed">Fixed</option>
+                                 <option value="default" selected="selected">Default</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                   -->   <!-- END STYLE CUSTOMIZER -->
+                     <!-- BEGIN PAGE HEADER-->
+                     <h3 class="page-title" style="margin-bottom: 41px;">
+                        Add Page:<!-- <small>form layouts</small> -->
+                     </h3>
+                     <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                           <li>
+                              <i class="fa fa-home"></i>
+                              <a href="{{ path('move_plus_administrator_dashboard') }}">Dashboard</a>
+                              <i class="fa fa-angle-right"></i>
+                           </li>
+                           <li>
+                              <a href="{{ path( 'move_plus_administrator_addTestimonial') }}">Add Page: </a>
+                           </li>                          
+                        </ul>
+                        <!-- <div class="page-toolbar">
+                           <div class="btn-group pull-right">
+                              <button type="button" class="btn btn-fit-height grey-salt dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="1000" data-close-others="true">
+                              Actions <i class="fa fa-angle-down"></i>
+                              </button>
+                              <ul class="dropdown-menu pull-right" role="menu">
+                                 <li>
+                                    <a href="#">Action</a>
+                                 </li>
+                                 <li>
+                                    <a href="#">Another action</a>
+                                 </li>
+                                 <li>
+                                    <a href="#">Something else here</a>
+                                 </li>
+                                 <li class="divider">
+                                 </li>
+                                 <li>
+                                    <a href="#">Separated link</a>
+                                 </li>
+                              </ul>
+                           </div>
+                        </div> -->
+                     </div>
+                     <!-- END PAGE HEADER-->
+                     <!-- BEGIN PAGE CONTENT-->
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="tabbable-line boxless tabbable-reversed">
+                              <ul class="nav nav-tabs">
+                                 <li class="active">
+                                    <a href="#tab_0" data-toggle="tab">
+                                    Add Testmonial:  </a>
+                                 </li>
+                             </ul>
+                              <div class="tab-content">
+                                 <div class="tab-pane active" id="tab_0">
+                                    <div class="portlet box green">
+                                       <div class="portlet-title">
+                                          <div class="caption">
+                                             <i class="fa fa-gift"></i>Add Testmonial
+                                          </div>
+                                          <div class="tools">
+                                             <a href="javascript:;" class="collapse">
+                                             </a>                                      
+                                          </div>
+                                       </div>
+                                       <div class="portlet-body form">
+                                          <!-- BEGIN FORM-->
+                                          <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                             <div class="form-body">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Page Title :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Page Title" name="title" " >      
+                                                   </div>
+                                                </div>
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Description :</label>
+                                                   <div class="col-md-4" style="width: 100%;" >
+														  <textarea class="form-control input-circle description" placeholder="Enter Description " name="description"  ></textarea>
+                                                   </div>
+                                                </div>
+                                              <div class="form-group">
+                                                   <label class="col-md-3 control-label">Banner Image :</label>
+                                                   <div class="col-md-4">					 
+												   	<input type="file" class="form-control input-circle" name="image" >
+                                                   </div>
+                                                </div>
+												 <div class="form-group">
+                                                   <label class="col-md-3 control-label">Writer Name :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Writer Name" name="writer_name" >      
+                                                   </div>
+                                                </div>
+												 <div class="form-group">
+                                                   <label class="col-md-3 control-label">Star Rating :</label>
+                                                   <div class="col-md-4">
+														  <input type="number" class="form-control input-circle" placeholder="Enter Your Star Rating" name="star_rating" min="0" max="5" > </div>
+                                                </div>
+												 <div class="form-group">
+                                                   <label class="col-md-3 control-label">Date :</label>
+                                                   <div class="col-md-4">
+														  <input type="date" class="form-control input-circle" placeholder="Enter Your date" name="date" > </div>
+                                                </div>
+												
+												
+										 </div>
+                                             <div class="form-actions">
+                                                <div class="row">
+                                                   <div class="col-md-offset-3 col-md-9">
+                                                      <!-- <button type="submit"  class="btn btn-circle blue">Submit</button> --> 
+													   <input class="btn btn-circle blue widthSetAdmin" type="submit" name="submit"  value="Update">
+														<a href="{{ path('move_plus_administrator_testimonial') }}" class="btn btn-circle default">Cancel</a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </form>
+                                          <!-- END FORM-->
+                                       </div>
+                                    </div>
+                                   </div>
+                                </div>
+                           </div>
+                        </div>
+                     </div>
+                     <!-- END PAGE CONTENT-->
+                  </div>
+               </div>
+   
+
+		   <!-- END CONTENT -->
+            
+            </div>
+            <!-- END CONTAINER -->
+         
+			
+{% include '::administartor/footer_administartor.html.twig' %}
+
+
+	  

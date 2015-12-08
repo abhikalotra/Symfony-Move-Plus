@@ -1,0 +1,66 @@
+
+{% include '::header_service.html.twig' %}
+
+      
+    
+    
+   <div class="SliderImage">	
+   
+
+  
+  {% include '::header_banner_links.html.twig' %}
+  
+      
+	   <div class="sliderCenterMid">
+		<form  action="" method="post" enctype="multipart/form-data" >
+		   
+			 <h4> Moving Banner Slider  </h4>	
+			 
+					<div class="slider"> 
+						 <label> Title </label>
+						<input type="text" name="title" placeholder="title" id="title">  
+					</div>
+					<div class="slider"> 
+						 <label> Sort Desc </label>
+						<input type="text" name="sortDesc" placeholder="sortDesc" id="sortDesc">  
+					</div>
+					<div class="slider"> 
+						 <label> Slider Image </label>
+						<input type="file" name="sliderImage" placeholder="sliderImage" id="sliderImage">  
+					</div>
+					
+					
+					</br>
+						
+					<input type="submit" name="submit" value="Submit">
+					
+					
+				
+				
+		</form >
+      </div>
+     </div>
+
+ 
+
+                     
+{% include '::footer_service.html.twig' %}
+
+
+<style>
+.SliderImage {
+width: 100%;
+}
+.sliderCenterMid {
+width: 69%;
+margin-left: 15%;
+}
+.slider {
+width: 22%;
+line-height: 34px;
+}
+label {
+    margin: 3px 4px 1px 4px;
+}
+
+</style>

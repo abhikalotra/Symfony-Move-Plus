@@ -1,0 +1,91 @@
+
+{% extends '::admin-layout.html.twig' %}
+
+{% block body -%}
+	
+	  <form  action="" method="post" enctype="multipart/form-data" class="form">
+		  	
+			
+					<h2>Edit Page: {{ services.title|raw }}</h2>
+					<div class="row">
+					<label>Page Title :</label>
+					<input type="text" name="title" value="{{ services.title|raw }}" >
+					</div>
+					
+					<div class="row">
+					<label>Slug(url) :</label>
+					<input type="text" name="county_slug" disabled value="http://moveplus.co.uk/{{ services.county_slug }}/{{ services.service_slug }}" >
+					</div>
+					
+					<div class="row">
+					<label>Short Description :</label>
+					<textarea  class="description" name="short_description" >{{ services.short_description|raw }}</textarea>
+					</div>
+					
+					<div class="row">	
+					<label>Description :</label>
+					<textarea  class="description" name="description" >{{ services.description|raw }}</textarea>
+					</div>
+					
+					<div class="row">
+					<label>Meta Title :</label>
+					<input type="text" name="meta_title" value="{{ services.meta_title|raw }}" >
+					</div>
+					
+					<div class="row">
+					<label>Meta Keyword :</label>
+					<textarea name="meta_keywords" >{{ services.meta_keywords|raw }}</textarea>
+					</div>
+					
+					<div class="row">
+					<label>Meta Description :</label>
+					<textarea name="meta_description" >{{ services.meta_description|raw }}</textarea>
+					</div>
+					
+					
+							
+					
+					
+		
+	
+	{% endblock %}
+
+{% block rightpanel -%}
+
+  <ul>
+  <li class="button-li">
+  <input class="button" type="submit" name="submit"  value="Update">
+  </li>
+	<li>
+	<label>Featured Image :</label>
+	<select name="template">
+  <option value=''>Select Template</option>
+  <option value='full-width' selected>Full Width</option>
+  <option value='left-sidebar'>Left Sidebar</option>
+  <option value='right-sidevar'>Right Sidebar</option>
+  <option value='left-right-sidevar'>Left Right Sidebar</option>
+  </select>
+  </li>
+  
+  <li>
+	<label>Banner:</label>
+	<img style="width:150px" src="{{ asset('theme/frontend/images') }}/{{ services.banner_img }}">
+	<input type="hidden" name="old_banner_img" value="{{ services.banner_img}}">
+	<input type="file" name="banner_img" value="" >
+	</li>
+	
+	<li>
+	<label>Banner Title:</label>
+		<textarea name="banner_text" >{{ services.banner_text|raw }}</textarea>
+	</li>
+	
+	<li>
+	<label>Banner Sub Title:</label>
+		<textarea name="banner_sub_text" >{{ services.banner_sub_text|raw }}</textarea>
+  </li>
+	
+	</ul>
+	
+	{% endblock %}
+	
+		

@@ -1,0 +1,60 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AllService
+ *
+ * @ORM\Table(name="all_service")
+ * @ORM\Entity
+ */
+class AllService
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="service_name", type="string", length=255, nullable=true)
+     */
+    private $serviceName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sort_desc", type="string", length=255, nullable=true)
+     */
+    private $sortDesc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="full_desc", type="string", length=255, nullable=true)
+     */
+    private $fullDesc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

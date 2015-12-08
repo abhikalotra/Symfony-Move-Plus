@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\BlogGCircles" table="blog_g_circles">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="map" type="integer" column="map" nullable="false"/>
+    <field name="name" type="string" column="name" length="50" nullable="false"/>
+    <field name="centerLat" type="string" column="center_lat" length="255" nullable="false"/>
+    <field name="centerLng" type="string" column="center_lng" length="255" nullable="false"/>
+    <field name="radius" type="string" column="radius" length="255" nullable="false"/>
+    <field name="lineWidth" type="string" column="line_width" length="5" nullable="false"/>
+    <field name="lineOpacity" type="string" column="line_opacity" length="5" nullable="false"/>
+    <field name="lineColor" type="string" column="line_color" length="7" nullable="false"/>
+    <field name="fillColor" type="string" column="fill_color" length="7" nullable="false"/>
+    <field name="fillOpacity" type="string" column="fill_opacity" length="7" nullable="false"/>
+    <field name="hoverLineOpacity" type="string" column="hover_line_opacity" length="5" nullable="false"/>
+    <field name="hoverLineColor" type="string" column="hover_line_color" length="7" nullable="false"/>
+    <field name="hoverFillColor" type="string" column="hover_fill_color" length="7" nullable="false"/>
+    <field name="hoverFillOpacity" type="string" column="hover_fill_opacity" length="7" nullable="false"/>
+    <field name="showMarker" type="integer" column="show_marker" nullable="false"/>
+  </entity>
+</doctrine-mapping>

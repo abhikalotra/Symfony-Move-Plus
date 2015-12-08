@@ -1,0 +1,60 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogTermTaxonomy
+ *
+ * @ORM\Table(name="blog_term_taxonomy")
+ * @ORM\Entity
+ */
+class BlogTermTaxonomy
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="term_id", type="bigint", nullable=false)
+     */
+    private $termId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="taxonomy", type="string", length=32, nullable=false)
+     */
+    private $taxonomy;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="parent", type="bigint", nullable=false)
+     */
+    private $parent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="count", type="bigint", nullable=false)
+     */
+    private $count;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="term_taxonomy_id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $termTaxonomyId;
+
+
+}

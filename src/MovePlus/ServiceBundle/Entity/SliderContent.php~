@@ -1,0 +1,60 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SliderContent
+ *
+ * @ORM\Table(name="slider_content")
+ * @ORM\Entity
+ */
+class SliderContent
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sort_desc", type="string", length=255, nullable=true)
+     */
+    private $sortDesc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slider_image", type="string", length=255, nullable=true)
+     */
+    private $sliderImage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="service_link", type="string", length=255, nullable=true)
+     */
+    private $serviceLink;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=true)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

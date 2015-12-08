@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\Bform" table="bform">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="formId" type="integer" column="form_id" nullable="false"/>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+    <field name="emailSubject" type="text" column="email_subject" nullable="false"/>
+    <field name="emailTo" type="string" column="email_to" length="255" nullable="false"/>
+    <field name="emailCc" type="text" column="email_cc" nullable="false"/>
+    <field name="content" type="text" column="content" nullable="false"/>
+    <field name="sucessMessage" type="text" column="sucess_message" nullable="false"/>
+    <field name="catagory" type="string" column="catagory" length="255" nullable="false"/>
+    <field name="numberSteps" type="integer" column="number_steps" nullable="false"/>
+  </entity>
+</doctrine-mapping>

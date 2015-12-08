@@ -1,0 +1,519 @@
+{% include '::header_service.html.twig' %}
+
+
+
+<div id="slider1_container" style="position: relative; margin: 0 auto;
+   top: 0px; left: 0px; height: 400px; overflow: hidden;">
+   <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; 
+      height: 400px; overflow: hidden;width: 100%;">   
+      <div>
+         <img u="image" src="https://saixpresspackersandmovers.files.wordpress.com/2014/10/banner-image-1.png" alt="banner" title="banner" />        
+      </div>     
+   </div>
+   </div>
+
+</div>
+<div class="container_class">
+   <div class="row">
+      <div class="container">
+         <div class="works">
+            <h2> Book Now !! </h2>
+         </div>
+         <div class="col-md-12 text-center">
+		 {% for advMoving in advsMoving  %}	
+            <div class="col-md-4 col-sm-4 text-center con">
+               <div class="cleaning_outer">		
+				<h3> {{advMoving.title}} </h3>					   
+					<img src="{{ asset('/uploads/adsMoving') }}/{{advMoving.image}}" alt="{{advMoving.title}}" title="{{advMoving.title}}" > 				  	
+             	  <p> {{advMoving.description}} </p>
+			   	</div>
+            </div>
+			 {% endfor %}	
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+<div class="row">
+   <div class="container">
+      <div class="col-lg-12 you">
+         <h2> Moving Price 
+         </h2>
+         <div class="col-lg-12 col-xs-12 text-center">
+            
+			<div id="pricing-table" >
+				<div class="plan" >
+					<h3>Standard<span>$59</span></h3>
+					<a class="signup" href="">Sign up</a>         
+					<ul>
+						<li><b>10GB</b> Disk Space</li>
+						<li><b>100GB</b> Monthly Bandwidth</li>
+						<li><b>20</b> Email Accounts</li>
+					<li><b>Unlimited</b> subdomains</li>            
+					</ul> 
+				</div>
+				
+				<div class="plan clear clearZ" >
+					<h3>Professional<span>$79</span></h3>
+					<a class="signup" href="">Sign up</a>         
+					<ul>
+						<li><b>20GB</b> Disk Space</li>
+						<li><b>200GB</b> Monthly Bandwidth</li>
+						<li><b>50</b> Email Accounts</li>
+					<li><b>Unlimited</b> subdomains</li>            
+					</ul> 
+				</div> 
+				<div class="plan" >
+					<h3>Enterprise<span>$90</span></h3>
+					<a class="signup" href="">Sign up</a>         
+					<ul>
+						<li><b>50GB</b> Disk Space</li>
+						<li><b>500GB</b> Monthly Bandwidth</li>
+						<li><b>150</b> Email Accounts</li>
+					<li><b>Unlimited</b> subdomains</li>            
+					</ul> 
+				</div>
+			</div>
+			
+         </div>
+      </div>
+   </div>
+</div>
+
+ {% for advsMovingLeftSide in advsMovingLeft  %}
+<div id="pricing-tableLeft" >
+				<div class="planLeft" >
+					<h3>Advertisement<span>{{advsMovingLeftSide.title}} </span></h3>				     
+					<ul>
+						 <img src="{{ asset('/uploads/adsMoving') }}/{{advsMovingLeftSide.image}}" alt="{{advsMovingLeftSide.title}}" title="{{advsMovingLeftSide.title}}" >      
+					</ul> 
+				</div>
+</div>
+  {% endfor %}
+  
+  {% for advsMovingRightSide in advsMovingRight  %}
+<div id="pricing-tableRight" >
+				<div class="planRight" >
+					<h3>Advertisement<span>{{advsMovingRightSide.title}} </span></h3>		     
+					<ul>
+						 <img src="{{ asset('/uploads/adsMoving') }}/{{advsMovingRightSide.image}}" alt="{{advsMovingRightSide.title}}" title="{{advsMovingRightSide.title}}" >           
+					</ul> 
+				</div>
+</div>
+    {% endfor %}
+  
+  
+{% include '::footer_service.html.twig' %}
+
+
+
+<style>
+#pricing-table {
+    margin: 100px auto;
+    text-align: center;
+    width: 607px; /* total computed width = 222 x 3 + 226 */
+}
+
+#pricing-table .plan {
+    font: 12px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+    text-shadow: 0 1px rgba(255,255,255,.8);        
+    background: #fff;      
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 20px;
+    width: 202px; /* plan width = 180 + 20 + 20 + 1 + 1 = 222px */      
+    float: left;
+    position: relative;
+}
+
+#pricing-table #most-popular {
+    z-index: 2;
+    top: -13px;
+    border-width: 3px;
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);    
+}
+
+#pricing-table .plan:nth-child(1) {
+    border-radius: 5px 0 0 5px;        
+}
+
+#pricing-table .plan:nth-child(4) {
+    border-radius: 0 5px 5px 0;        
+}
+
+/* --------------- */   
+
+#pricing-table h3 {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 20px;
+    margin: -20px -20px 50px -20px;
+    background-color: #eee;
+    background-image: linear-gradient(#fff, #eee);
+}
+
+#pricing-table #most-popular h3 {
+    background-color: #ddd;
+    background-image: linear-gradient(#eee, #ddd);
+    margin-top: -30px;
+    padding-top: 30px;
+    border-radius: 5px 5px 0 0;         
+}
+
+#pricing-table .plan:nth-child(1) h3 {
+    border-radius: 5px 0 0 0;       
+}
+
+#pricing-table .plan:nth-child(4) h3 {
+    border-radius: 0 5px 0 0;       
+}   
+
+#pricing-table h3 span {
+    display: block;
+    font: bold 25px/100px Georgia, Serif;
+    color: #777;
+    background: #fff;
+    border: 5px solid #fff;
+    height: 100px;
+    width: 100px;
+    margin: 10px auto -65px;
+    border-radius: 100px;
+    box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+}
+
+/* --------------- */
+
+#pricing-table ul {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+#pricing-table li {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* --------------- */
+    
+#pricing-table .signup {
+    position: relative;
+    padding: 8px 20px;
+    margin: 20px 0 0 0;  
+    color: #fff;
+    font: bold 14px Arial, Helvetica;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;       
+    background-color: #72ce3f;
+    background-image: linear-gradient(#72ce3f, #62bc30);
+    border-radius: 3px;     
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);        
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
+}
+
+#pricing-table .signup:hover {
+    background-color: #62bc30;
+    background-image: linear-gradient(#62bc30, #72ce3f); 
+}
+
+#pricing-table .signup:active, #pricing-table .signup:focus {
+    background: #62bc30;       
+    top: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset; 
+}
+
+/* --------------- */
+
+.clear:before, .clear:after {
+  content:"";
+  display:table
+}
+
+.clear:after {
+  clear:both
+}
+
+.clearZ {
+  zoom:1
+}
+</style>
+
+<style>
+#pricing-tableLeft {
+    margin: 100px auto;
+    text-align: center;
+    width: 892px; /* total computed width = 222 x 3 + 226 */
+}
+
+#pricing-tableLeft .planLeft {
+font: 12px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+    text-shadow: 0 1px rgba(255,255,255,.8);
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 20px;
+    width: 263px;
+    top: 1028px;
+    left: 15px;
+    float: left;
+    z-index: 99999999;
+    position: absolute;
+}
+
+#pricing-tableLeft #most-popular {
+    z-index: 2;
+    top: -13px;
+    border-width: 3px;
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);    
+}
+
+#pricing-tableLeft .planLeft:nth-child(1) {
+    border-radius: 5px 0 0 5px;        
+}
+
+#pricing-tableLeft .planLeft:nth-child(4) {
+    border-radius: 0 5px 5px 0;        
+}
+
+/* --------------- */   
+
+#pricing-tableLeft h3 {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 20px;
+    margin: -20px -20px 50px -20px;
+    background-color: #eee;
+    background-image: linear-gradient(#fff, #eee);
+}
+
+#pricing-tableLeft #most-popular h3 {
+    background-color: #ddd;
+    background-image: linear-gradient(#eee, #ddd);
+    margin-top: -30px;
+    padding-top: 30px;
+    border-radius: 5px 5px 0 0;         
+}
+
+#pricing-tableLeft .planLeft:nth-child(1) h3 {
+    border-radius: 5px 0 0 0;       
+}
+
+#pricing-tableLeft .plan:nth-child(4) h3 {
+    border-radius: 0 5px 0 0;       
+}   
+
+#pricing-tableLeft h3 span {
+    display: block;
+    font: bold 25px/100px Georgia, Serif;
+    color: #777;
+    background: #fff;
+    border: 5px solid #fff;
+    height: 100px;
+    width: 100px;
+    margin: 10px auto -65px;
+    border-radius: 100px;
+    box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+}
+
+/* --------------- */
+
+#pricing-tableLeft ul {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+#pricing-tableLeft li {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* --------------- */
+    
+#pricing-tableLeft .signup {
+    position: relative;
+    padding: 8px 20px;
+    margin: 20px 0 0 0;  
+    color: #fff;
+    font: bold 14px Arial, Helvetica;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;       
+    background-color: #72ce3f;
+    background-image: linear-gradient(#72ce3f, #62bc30);
+    border-radius: 3px;     
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);        
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
+}
+
+#pricing-tableLeft .signupAdss:hover {
+    background-color: #62bc30;
+    background-image: linear-gradient(#62bc30, #72ce3f); 
+}
+
+#pricing-tableLeft .signupAdss:active, #pricing-tableLeft .signupAdss:focus {
+    background: #62bc30;       
+    top: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset; 
+}
+
+/* --------------- */
+
+.clear:before, .clear:after {
+  content:"";
+  display:table
+}
+
+.clear:after {
+  clear:both
+}
+
+.clearZ {
+  zoom:1
+}
+</style>
+<style>
+#pricing-tableRight {
+    margin: 100px auto;
+    text-align: center;
+    width: 892px; /* total computed width = 222 x 3 + 226 */
+}
+
+#pricing-tableRight .planRight {
+font: 12px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+    text-shadow: 0 1px rgba(255,255,255,.8);
+    background: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 20px;
+    width: 263px;
+    top: 1028px;
+    right: 15px;
+    float: left;
+    z-index: 99999999;
+    position: absolute;
+}
+
+#pricing-tableRight #most-popular {
+    z-index: 2;
+    top: -13px;
+    border-width: 3px;
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);    
+}
+
+#pricing-tableRight .planRight:nth-child(1) {
+    border-radius: 5px 0 0 5px;        
+}
+
+#pricing-tableRight .planRight:nth-child(4) {
+    border-radius: 0 5px 5px 0;        
+}
+
+/* --------------- */   
+
+#pricing-tableRight h3 {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 20px;
+    margin: -20px -20px 50px -20px;
+    background-color: #eee;
+    background-image: linear-gradient(#fff, #eee);
+}
+
+#pricing-tableRight #most-popular h3 {
+    background-color: #ddd;
+    background-image: linear-gradient(#eee, #ddd);
+    margin-top: -30px;
+    padding-top: 30px;
+    border-radius: 5px 5px 0 0;         
+}
+
+#pricing-tableRight .planRight:nth-child(1) h3 {
+    border-radius: 5px 0 0 0;       
+}
+
+#pricing-tableRight .plan:nth-child(4) h3 {
+    border-radius: 0 5px 0 0;       
+}   
+
+#pricing-tableRight h3 span {
+    display: block;
+    font: bold 25px/100px Georgia, Serif;
+    color: #777;
+    background: #fff;
+    border: 5px solid #fff;
+    height: 100px;
+    width: 100px;
+    margin: 10px auto -65px;
+    border-radius: 100px;
+    box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+}
+
+/* --------------- */
+
+#pricing-tableRight ul {
+    margin: 20px 0 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+#pricing-tableRight li {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+/* --------------- */
+    
+#pricing-tableRight .signup {
+    position: relative;
+    padding: 8px 20px;
+    margin: 20px 0 0 0;  
+    color: #fff;
+    font: bold 14px Arial, Helvetica;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;       
+    background-color: #72ce3f;
+    background-image: linear-gradient(#72ce3f, #62bc30);
+    border-radius: 3px;     
+    text-shadow: 0 1px 0 rgba(0,0,0,.3);        
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
+}
+
+#pricing-tableRight .signupAdss:hover {
+    background-color: #62bc30;
+    background-image: linear-gradient(#62bc30, #72ce3f); 
+}
+
+#pricing-tableRight .signupAdss:active, #pricing-tableRight .signupAdss:focus {
+    background: #62bc30;       
+    top: 2px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, .7) inset; 
+}
+
+/* --------------- */
+
+.clear:before, .clear:after {
+  content:"";
+  display:table
+}
+
+.clear:after {
+  clear:both
+}
+
+.clearZ {
+  zoom:1
+}
+.row5 {
+    display: none;
+}
+</style>
+

@@ -1,0 +1,46 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogUsermeta
+ *
+ * @ORM\Table(name="blog_usermeta")
+ * @ORM\Entity
+ */
+class BlogUsermeta
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="user_id", type="bigint", nullable=false)
+     */
+    private $userId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_key", type="string", length=255, nullable=true)
+     */
+    private $metaKey;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_value", type="text", nullable=true)
+     */
+    private $metaValue;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="umeta_id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $umetaId;
+
+
+}

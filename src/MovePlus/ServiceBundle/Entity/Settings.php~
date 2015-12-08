@@ -1,0 +1,67 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Settings
+ *
+ * @ORM\Table(name="settings")
+ * @ORM\Entity
+ */
+class Settings
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="text", nullable=false)
+     */
+    private $logo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contact_number", type="text", nullable=false)
+     */
+    private $contactNumber;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contact_email", type="text", nullable=false)
+     */
+    private $contactEmail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="copywrite", type="text", nullable=false)
+     */
+    private $copywrite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="socialicon", type="text", nullable=false)
+     */
+    private $socialicon;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="analytic_code", type="text", nullable=false)
+     */
+    private $analyticCode;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

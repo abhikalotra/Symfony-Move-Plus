@@ -1,0 +1,139 @@
+
+
+{% if content.howitsworkWidget == 1 %}
+{% render controller('MovePlusServiceBundle:Default:howitworks') %}
+{% endif %}
+
+
+{% if content.relatedservicesWidget == 1 %}
+ {% if movingSericesRecords %}
+<div class="row1 rowheight">
+  <div class="container">
+    <div class="col-lg-12 text-center footer">
+      <h2 class="related"> Related Services of {{ catagory|title }}</h2>
+      <div class="container footerWrap">
+        <div class="row">        
+        <ul class="list-unstyled colorRelated"> 
+		   {% for movingSericesRecord in movingSericesRecords  %}
+           <li style="width:25%;margin:0px;margin-top:15px;">
+				      <a href="{{ movingSericesRecord.slug }}" title="{{ movingSericesRecord.title }}">  {{ movingSericesRecord.title }}</a>
+		       </li>
+         {% endfor %}	
+        </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ {% endif %}	
+
+{% endif %}
+
+
+
+<!-- blog section start here -->
+{% if countyPages is defined %}
+ {% if countyPages|length  > 0 %}
+<div class="row1">
+  <div class="container">
+    <div class="col-lg-12 text-center footer">
+      <h2> Counties We Cover </h2>
+      <div class="container footerWrap">
+        <div class="row">
+          <ul class="list-unstyled">
+          {% for county in countyPages %}
+          <li style="width:25%;margin:0px;margin-top:15px;"><a href="{{ path('move_plus_service_county', {'county_slug': county.county_slug, 'service_slug': county.service_slug}) }}"> {{county.county}}</a></li>
+          {% endfor %}
+        </ul>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ {% endif %}
+{% endif %}
+
+
+
+{% if content.customertestimonialWidget == 1 %}
+{% render controller('MovePlusServiceBundle:Default:gettestimonial') %}
+{% endif %}
+
+
+{% if content.readytobookWidget == 1 %}
+<div class="row5">
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="col-lg-12 col-xs-12 text-center">
+        <div class="col-lg-6 col-sm-6 col-sm-12 text-center1">
+          <div class="book">
+            <h2> Ready to book now? </h2>
+            <div class="number"> <img src="/theme/frontend/images/phone.png" alt="phone" title="phone"> 07701038629 </div>
+          </div>
+          <div class="btn-group1">
+          {% render controller('MovePlusServiceBundle:Default:recentServicePopUpBottom',  {'catagory': catagory }) %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>	
+</div>
+{% endif %}
+
+
+{% if content.blogWidget == 1 %}
+<div class="row">
+    <div class="container post">
+      <div class="col-md-12 text-center blog_h">
+      <h2>Recent updates from MovePlus Blog </h2>
+      {% if content is defined %}
+		    	{% render controller('MovePlusServiceBundle:Default:recentpostCombined', {'catagory': catagory })%}
+		  {% else %}
+          {% render controller('MovePlusServiceBundle:Default:recentpostCombined', {'catagory': '' })%}
+      {% endif %}
+	    </div>
+    </div>
+</div>
+
+{% endif %}
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+ 
+ <footer>
+  <div class="container footerWrap">
+  	  {% render controller('MovePlusServiceBundle:Default:footerSide1Moving') %}
+	</div>
+  
+  
+  <div class="row pad-top lower-footer">
+    <div class="container sub">
+      <div class="col-md-12">
+        {% render controller('MovePlusServiceBundle:Default:footersection') %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script type="text/javascript" src="{{ asset('theme/frontend/js/jquery.bxslider.min.js') }}"></script>
+
+<script>
+   $('.testimonials-slider').bxSlider({
+   slideWidth: 800,
+   minSlides: 1,
+   maxSlides: 1,
+   slideMargin: 32,
+   auto: true,
+   autoControls: true
+   });
+</script>
+	
+</body>
+</html>

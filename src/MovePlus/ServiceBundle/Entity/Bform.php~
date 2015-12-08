@@ -1,0 +1,88 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Bform
+ *
+ * @ORM\Table(name="bform")
+ * @ORM\Entity
+ */
+class Bform
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="form_id", type="integer", nullable=false)
+     */
+    private $formId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_subject", type="text", nullable=false)
+     */
+    private $emailSubject;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_to", type="string", length=255, nullable=false)
+     */
+    private $emailTo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_cc", type="text", nullable=false)
+     */
+    private $emailCc;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="content", type="text", nullable=false)
+     */
+    private $content;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sucess_message", type="text", nullable=false)
+     */
+    private $sucessMessage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="catagory", type="string", length=255, nullable=false)
+     */
+    private $catagory;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="number_steps", type="integer", nullable=false)
+     */
+    private $numberSteps;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

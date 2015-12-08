@@ -1,0 +1,73 @@
+{% extends '::admin-layout.html.twig' %}
+
+
+{% block body -%}
+<form  action="" method="post" enctype="multipart/form-data" class="form">
+ 			    <h2>Create New Page</h2>
+				
+        	<div class="row">
+					<label>Page Title :</label>
+					<input type="text" name="title" value="" >
+					</div>
+					
+					<div class="row">
+					<label>Slug(url) :</label>
+					<input type="text" name="slug" value="" >
+					</div>
+					
+					<div class="row">
+					<label>Short Description :</label>
+					<textarea class="description" name="shortDescription" ></textarea>
+					</div>
+					
+					<div class="row">
+					<label>Description :</label>
+					<textarea class="description"  name="description" ></textarea>
+					</div>
+					
+					<div class="row">
+					<label>Meta Title :</label>
+					<input type="text" name="metaTitle" value="" >
+					</div>
+					
+					<div class="row">
+					<label>Meta Keyword :</label>
+					<textarea name="metaKeyword" ></textarea>
+					</div>
+					
+					<div class="row">
+					<label>Meta Description :</label>
+					<textarea name="metaDescription" ></textarea>
+				  </div>
+					
+	</form>		
+	
+	{% endblock %}
+	
+	{% block rightpanel -%}
+	<ul>
+	<li class="button-li">
+  <input class="button" type="submit" name="submit"  value="Update">
+  </li>
+
+	<li>
+	<label>Featured Image :</label>
+	<select name="template">
+  <option value=''>Select Template</option>
+  <option value='full-width' selected>Full Width</option>
+  <option value='left-sidebar'>Left Sidebar</option>
+  <option value='right-sidevar'>Right Sidebar</option>
+  <option value='left-right-sidevar'>Left Right Sidebar</option>
+  </select>
+  </li>
+	<li>
+	<label>Banner:</label>
+	<input type="file" name="featuredImage" value=""  >
+	</li>
+	
+	</ul>
+	{% endblock %}
+	
+	
+	
+

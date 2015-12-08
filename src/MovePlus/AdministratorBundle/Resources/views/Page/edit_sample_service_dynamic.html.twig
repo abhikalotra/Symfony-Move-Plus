@@ -1,0 +1,236 @@
+	{% include '::administartor/header_administartor.html.twig' %}
+    	     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+               <!-- BEGIN SIDEBAR -->
+               <div class="page-sidebar-wrapper">
+			   
+                   {% include '::administartor/sidebar_administartor.html.twig' %}
+
+				 </div>
+               <!-- END SIDEBAR -->
+               <!-- BEGIN CONTENT -->
+	 {% for editservice in editsampleservices  %}	
+               <div class="page-content-wrapper">
+                  <div class="page-content">
+                     
+                     <!-- BEGIN PAGE HEADER-->
+                     <h3 class="page-title" style="margin-bottom: 41px;">
+                        {{ patetitle }}<!-- <small>form layouts</small> -->
+                     </h3>
+                     <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                           <li>
+                              <i class="fa fa-home"></i>
+                              <a href="{{ path('move_plus_administrator_dashboard') }}">Dashboard</a>
+                              <i class="fa fa-angle-right"></i>
+                           </li>
+                           <li>
+                              <a href="{{ path( 'move_plus_administrator_editsampleserviceDynamicscript', { 'id': editservice.id  }) }}">{{ patetitle }}</a>
+                           </li>                          
+                        </ul>
+                      
+                     </div>
+                     <!-- END PAGE HEADER-->
+                     <!-- BEGIN PAGE CONTENT-->
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="tabbable-line boxless tabbable-reversed">
+                              <ul class="nav nav-tabs">
+							  <li class="active" >
+                                    <a href="#tab_1_1" data-toggle="tab">
+                                     {{ patetitle }}</a>
+                                 </li>                 
+                             </ul>
+                              <div class="tab-content">
+					<div class="tab-pane active" id="tab_1_1">
+                
+						<div class="portlet-body form">
+							<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">	
+							<div class="form-body">	
+									  
+								
+						<div class="form-group">
+                          <label class="col-md-3 control-label">Select Service :</label>
+                          <div class="col-md-4">
+                            <select  name="service_slug_id"  class="form-control input-circle">
+                              <option value="">None</option>
+                              {% for service in services  %}
+							  <option value="{{ service.id }}" {% if service.title ==  editservice.service_name %}  selected {% endif %}>
+			  
+										{% if service.parent_id %} --- {% else %} {{ service.title }} {% endif %}
+										{% if service.parent_id %} {{ service.title }}  {% endif %}
+									
+                              </option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Select County:</label>
+                          <div class="col-md-4">
+                            <select  name="county_slug"  class="form-control input-circle">
+                              <option value="">Select County</option>
+                              {% for countys in county  %}
+                              <option value="{{ countys.id }}"  {% if countys.county_name ==  editservice.county_name %}  selected {% endif %}>
+                                {{ countys.county_name }}
+                              </option>
+                              {% endfor %}
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Title :</label>
+                          <div class="col-md-4">
+                            <input type="text" class="form-control input-circle" placeholder="Enter  Title"  name="title"  value="{{ editservice.title }}" >      
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Short Description :</label>
+                          <div class="col-md-4" style="width: 100%">
+                            <textarea class="form-control input-circle description" id="descTexteditor" placeholder="Enter Short Description" name="short_description" >
+                            {{ editservice.short_description	 }}
+                            </textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Description :</label>
+                          <div class="col-md-4" style="width: 100%;">
+                            <textarea class="form-control input-circle description"    placeholder="Enter Description" id="descTexteditor" name="description" >
+                            {{ editservice.description	 }}
+                            </textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Meta Title :</label>
+                          <div class="col-md-4">
+                            <input type="text" class="form-control input-circle" placeholder="Enter Meta Title"  name="meta_title"  value="{{ editservice.meta_title }}">       
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Meta Keyword :</label>
+                          <div class="col-md-4">
+                            <input type="text" class="form-control input-circle" placeholder="Enter Meta keywords"  name="meta_keywords"  value="{{ editservice.meta_keywords }}">  
+							
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Meta Description :</label>
+                          <div class="col-md-4">
+                            <textarea class="form-control input-circle" placeholder="Enter Meta Description" name="meta_description" style="width: 100%">{{ editservice.meta_description }}</textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Page Layout :</label>
+                          <div class="col-md-4">
+                            <select name="template" class="form-control input-circle">
+                              <option value='full-width' >Full Width</option>
+                              <option value='left-sidebar'>Left Sidebar</option>
+                              <option value='right-sidebar' >Right Sidebar</option>
+                              <option value='left-right-sidebar' >Left Right Sidebar</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Left Side Bar HTML :</label>
+                          <div class="col-md-4" style="width: 100%;">
+                            <textarea class="form-control input-circle description"  id="descTexteditor"  placeholder="Enter Left Side Bar HTML" name="leftsidebar" ></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Right Side Bar HTML :</label>
+                          <div class="col-md-4" style="width: 100%;">
+                            <textarea class="form-control input-circle description"  id="descTexteditor"  placeholder="Enter Right Side Bar HTML" name="rightsidebar" ></textarea>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Banner Image :</label>
+                          <div class="col-md-4">
+						   <img style="width:150px" src="{{ asset('theme/frontend/images') }}/{{ editservice.banner_img }}" alt="{{ editservice.banner_img }}">
+                            <input type="file" class="form-control input-circle" name="featured_image" value="{{ editservice.banner_img }}" >
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Banner Title :</label>
+                          <div class="col-md-4">
+						     <input type="text" class="form-control input-circle" placeholder="Enter banner Title" name="banner_text" value="{{ editservice.banner_text }}" > 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Banner Sub Title :</label>
+                          <div class="col-md-4">
+                          <input type="text" class="form-control input-circle" placeholder="Enter banner Sub Text" name="banner_sub_text" value="{{ editservice.banner_sub_text }}" > 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">How Its Work Widget:</label>
+                          <div class="col-md-4">
+                            
+                            <input type="checkbox" checked name="howitswork_widget" class="form-control input-circle" > 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Related Services Widget:</label>
+                          <div class="col-md-4">
+                            <input type="checkbox" checked name="relatedservices_widget" class="form-control input-circle" > 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Ready To Book Widget:</label>
+                          <div class="col-md-4">
+                            <input type="checkbox"  checked name="readytobook_widget"  class="form-control input-circle" > 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Blog Widget:</label>
+                          <div class="col-md-4">
+                            <input type="checkbox" checked name="blog_widget"   class="form-control input-circle" > 
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3 control-label">Customer Testimonial Widget:</label>
+                          <div class="col-md-4">
+                            <input type="checkbox" checked name="customertestimonial_widget"  class="form-control input-circle" > 
+                          </div>
+                        </div>
+							
+							</div>
+								<div class="form-actions">
+									<div class="row">
+									   <div class="col-md-offset-3 col-md-9">
+										  <!-- <button type="submit"  class="btn btn-circle blue">Submit</button> -->
+										   <input class="btn btn-circle blue widthSetAdmin" type="submit" name="submit"  value="Update">
+											<a href="{{ path('move_plus_administrator_sampleserviceDynamicscript') }}" class="btn btn-circle default">Cancel</a>
+									   </div>
+									</div>
+								 </div>
+							 </form>
+						</div>
+              </div>
+              <!--tab_1_2-->
+             			
+            
+              </div>
+       
+						   
+						   
+						   
+						   
+						   </div>
+                        </div>
+                     </div>
+                     <!-- END PAGE CONTENT-->
+                  </div>
+               </div>
+     {% endfor %}      
+
+		   <!-- END CONTENT -->
+            
+            </div>
+            <!-- END CONTAINER -->
+      	
+{% include '::administartor/footer_administartor.html.twig' %}
+
+
+	  

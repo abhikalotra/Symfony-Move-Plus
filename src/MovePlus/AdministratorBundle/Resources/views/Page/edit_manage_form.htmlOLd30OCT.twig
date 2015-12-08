@@ -1,0 +1,856 @@
+	{% include '::administartor/header_administartor.html.twig' %}
+   
+		  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+		  
+            <div class="page-container">
+              <div class="page-sidebar-wrapper">
+			   
+                   {% include '::administartor/sidebar_administartor.html.twig' %}
+
+				 </div>
+             
+               <div class="page-content-wrapper">
+                  <div class="page-content">
+                 
+                     <h3 class="page-title" style="margin-bottom: 41px;">
+                        Edit Page:{{ patetitle }}
+                     </h3>
+                     <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                           <li>
+                              <i class="fa fa-home"></i>
+                              <a href="{{ path('move_plus_administrator_dashboard') }}">Dashboard</a>
+                              <i class="fa fa-angle-right"></i>
+                           </li>
+                           <li>
+                              <a href="">Edit Page: {{ patetitle }}</a>
+                           </li>                          
+                        </ul>                      
+                     </div>
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="tabbable-line boxless tabbable-reversed">
+                              <ul class="nav nav-tabs">
+                                 <li class="active">
+                                    <a href="#tab_0" data-toggle="tab">
+                                    Edit Page: {{ patetitle }} Actions </a>
+                                 </li>
+                             </ul>
+                              <div class="tab-content">
+                                 <div class="tab-pane active" id="tab_0">
+                                    <div class="portlet box green">
+                                       <div class="portlet-title">
+                                          <div class="caption">
+                                             <i class="fa fa-gift"></i>Edit Fields: Step 1
+                                          </div>
+                                          <div class="tools">
+                                             <a href="javascript:;" class="collapse">
+                                             </a>                                      
+                                          </div>
+                                       </div>
+								
+										<div class="portlet-body form " id="new_attr" style="display:block">
+                                          <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                             
+											 
+
+											 
+											<div class="form-body" style="display:none;" id="addafter">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Add After :</label>
+                                                   <div class="col-md-4">
+													<select id='addafterme' class="form-control input-circle" >
+													<option value ='0'>First</option>
+													</select>														  
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body ">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Label :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Label" name="label" id="label">      
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body " >
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Name :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Name"  name="input_name" id="input_name">      
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body ">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Select Input Type :</label>
+                                                   <div class="col-md-4">
+														   <select name="type" id="type" onChange="updateoption(this.value)" class="form-control input-circle">
+															   <option  value=''>Select Input type</option>
+															   <option  value='text'>Text Box</option>
+															   <option  value='textarea'>Textarea</option>
+															   <option  value='radio'>Radio Button</option>
+															   <option  value='checkbox'>Check Box</option>
+															   <option  value='selectbox'>Select Box</option>
+															</select>
+                                                   </div>
+                                                </div>
+											</div>
+											<div class="form-body " id="optionsecion">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Option :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your option"  name="option" id="option"></br>"," Seprated like: Yes,No     
+                                                   </div>
+                                                </div>
+											</div>
+											<div class="form-body " >
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Is Required :</label>
+                                                   <div class="col-md-4">
+														  <input type="radio" name="is_required"  value="true"  class="form-control input-circle">Yes
+														  <input type="radio" name="is_required" value="false"  class="form-control input-circle"> NO
+                                                   </div>
+                                                </div>
+											</div>
+											<div class='row' id="addafter">			
+											</div>
+											
+											
+											
+                                             <div class="form-actions">
+                                                <div class="row">
+                                                   <div class="col-md-offset-3 col-md-9">                                                      
+													   <input type="button" class="btn btn-circle blue" value="Create" id="create" onClick="createfield()" />
+														<a href="{{ path('move_plus_administrator_testimonial') }}" class="btn btn-circle default">Cancel</a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </form>
+                                       </div> 
+									   
+									   
+                                    </div>
+                                   </div>
+                                </div>
+                         
+							 <!-- step  22222222222222222222222222222222222222222222222 Start-->
+
+							 
+								<div class="tab-content">
+								<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+								<div class="portlet-title">
+								  <div class="caption">
+									 <i class="fa fa-gift"></i>Edit Fields: Step 2
+								  </div>
+								  <div class="tools">
+									 <a href="javascript:;" class="collapse">
+									 </a>                                      
+								  </div>
+								</div>
+								<div class="portlet-body form" id="new_attr2" style="display:block">
+								   <form action="" method="post" enctype="multipart/form-data" class="form-horizontal"> 
+									<div class="form-body row" style="display:none;" id="addafter2">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Add After :</label>
+                                                   <div class="col-md-4">
+													<select id='addafterme2' class="form-control input-circle" >
+													<option value ='0'>First</option>
+													</select>														  
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body row">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Label :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Label" name="label" id="label2">      
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body row" >
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Name :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Name"  name="input_name2" id="input_name2">      
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body row">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Select Input Type :</label>
+                                                   <div class="col-md-4">
+														   <select id="type2" onChange="updateoption2(this.value)" class="form-control input-circle">
+															   <option  value=''>Select Input type</option>
+															   <option  value='text'>Text Box</option>
+															   <option  value='textarea'>Textarea</option>
+															   <option  value='radio'>Radio Button</option>
+															   <option  value='checkbox'>Check Box</option>
+															   <option  value='selectbox'>Select Box</option>
+															</select>
+                                                   </div>
+                                                </div>
+											</div>
+											<div class="form-body row" id="optionsecion2">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Option :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your option" name="option2" id="option2"></br>"," Seprated like: Yes,No     
+                                                   </div>
+                                                </div>
+											</div>
+											<div class="form-body row" >
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Is Required :</label>
+                                                   <div class="col-md-4">
+														  <input type="radio" name="is_required2"  value="true"  class="form-control input-circle">Yes
+														  <input type="radio" name="is_required2" value="false"  class="form-control input-circle"> NO
+                                                   </div>
+                                                </div>
+											</div>
+											<div class='row' id="addafter2">			
+											</div>
+									
+									 <div class="form-actions">
+										<div class="row">
+										   <div class="col-md-offset-3 col-md-9">                                                      
+											    <input type="button" class="btn btn-circle blue" value="create2" id="create2" onClick="createfield2()">
+												<a href="{{ path('move_plus_administrator_testimonial') }}" class="btn btn-circle default">Cancel</a>
+										   </div>
+										</div>
+									 </div>
+								   </form>
+								</div>
+								</div>
+								</div>
+								</div>
+                         
+
+						  <!-- step  33333333333333333333333333333333 Start-->
+
+							 
+								<div class="tab-content">
+								<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+								<div class="portlet-title">
+								  <div class="caption">
+									 <i class="fa fa-gift"></i>Edit Form: Step 3
+								  </div>
+								  <div class="tools">
+									 <a href="javascript:;" class="collapse">
+									 </a>                                      
+								  </div>
+								</div>
+								<div class="portlet-body form" id="new_attr3" style="display:block">
+								  <form action="" method="post" enctype="multipart/form-data" class="form-horizontal"> 
+									<div class="form-body row" style="display:none;" id="addafter3">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Add After :</label>
+                                                   <div class="col-md-4">
+													<select id='addafterme3' class="form-control input-circle" >
+													<option value ='0'>First</option>
+													</select>														  
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body row">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Label :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Label" name="label" id="label3">      
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body row" >
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Name :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Name"  name="input_name3" id="input_name3">      
+                                                   </div>
+                                                </div>
+											</div>
+											 <div class="form-body row">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Select Input Type :</label>
+                                                   <div class="col-md-4">
+														   <select id="type3" onChange="updateoption3(this.value)" class="form-control input-circle">
+															   <option  value=''>Select Input type</option>
+															   <option  value='text'>Text Box</option>
+															   <option  value='textarea'>Textarea</option>
+															   <option  value='radio'>Radio Button</option>
+															   <option  value='checkbox'>Check Box</option>
+															   <option  value='selectbox'>Select Box</option>
+															</select>
+                                                   </div>
+                                                </div>
+											</div>
+											<div class="form-body row" id="optionsecion3">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Option :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your option" name="option3" id="option3"></br>"," Seprated like: Yes,No     
+                                                   </div>
+                                                </div>
+											</div>
+											<div class="form-body row" >
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Is Required :</label>
+                                                   <div class="col-md-4">
+														  <input type="radio" name="is_required3"  value="true"  class="form-control input-circle">Yes
+														  <input type="radio" name="is_required3" value="false"  class="form-control input-circle"> NO
+                                                   </div>
+                                                </div>
+											</div>
+											<div class='row' id="addafter2">			
+											</div>
+									
+									 <div class="form-actions">
+										<div class="row">
+										   <div class="col-md-offset-3 col-md-9">                                                      
+											    <input type="button" class="btn btn-circle blue" value="create3" id="create3" onClick="createfield3()">
+												<a href="{{ path('move_plus_administrator_testimonial') }}" class="btn btn-circle default">Cancel</a>
+										   </div>
+										</div>
+									 </div>
+								   </form> 
+								</div>
+								</div>
+								</div>
+								</div>
+                         
+				<!-- Form Fields 1 show start  -->
+								<div class="tab-content" id="formattributs">
+									<div class="tab-pane active" id="tab_0">
+										<div class="portlet box green">
+											<div class="portlet-title">
+											  <div class="caption">
+												 <i class="fa fa-gift"></i>Form Fields 1 :- View
+											  </div>
+											  <div class="tools">
+												 <a href="javascript:;" class="collapse">
+												 </a>                                      
+											  </div>
+											</div>
+											<div class="portlet-body form" id="new_attr3" style="display:block">
+
+											 <div class="form-body row">
+												<div class="form-group">
+												   <label class="col-md-3 control-label">:</label>
+												   <div class="col-md-4">
+														  {{content.content|raw}}    
+												   </div>
+													
+												</div>
+											</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+										 
+				<!-- show Fields 1 show End  -->        
+				
+				<!-- Form Fields 2 show start  -->
+								<div class="tab-content" id="formattributs2">
+									<div class="tab-pane active" id="tab_0">
+										<div class="portlet box green">
+											<div class="portlet-title">
+											  <div class="caption">
+												 <i class="fa fa-gift"></i>Form Fields 2 :- View
+											  </div>
+											  <div class="tools">
+												 <a href="javascript:;" class="collapse">
+												 </a>                                      
+											  </div>
+											</div>
+											<div class="portlet-body form" id="new_attr3" style="display:block">
+
+											 <div class="form-body row">
+												<div class="form-group">
+												   <label class="col-md-3 control-label">:</label>
+												   <div class="col-md-4">
+														  {{content.content|raw}}    
+												   </div>
+													
+												</div>
+											</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+										 
+				<!-- show Fields 2 show End  -->
+				
+				<!-- Form Fields 3 show start  -->
+								<div class="tab-content" id="formattributs3">
+									<div class="tab-pane active" id="tab_0">
+										<div class="portlet box green">
+											<div class="portlet-title">
+											  <div class="caption">
+												 <i class="fa fa-gift"></i>Form Fields 3 :- View
+											  </div>
+											  <div class="tools">
+												 <a href="javascript:;" class="collapse">
+												 </a>                                      
+											  </div>
+											</div>
+											<div class="portlet-body form" id="new_attr3" style="display:block">
+
+											 <div class="form-body row">
+												<div class="form-group">
+												   <label class="col-md-3 control-label">:</label>
+												   <div class="col-md-4">
+														  {{content.content|raw}}    
+												   </div>
+													
+												</div>
+											</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+										 
+				<!-- show Fields 3 show End  -->
+						 
+						 
+						 
+						 
+						  <!-- step  Form Option Start-->
+
+							 
+								<div class="tab-content">
+								<div class="tab-pane active" id="tab_0">
+								<div class="portlet box green">
+								<div class="portlet-title">
+								  <div class="caption">
+									 <i class="fa fa-gift"></i>Form Option
+								  </div>
+								  <div class="tools">
+									 <a href="javascript:;" class="collapse">
+									 </a>                                      
+								  </div>
+								</div>
+								<div class="portlet-body form" >
+								 <form name="bookingform" id="bookingform" action="" method="post" class="form-horizontal"> 
+									<div class="form-body row" >
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Form Steps :</label>
+										   <div class="col-md-4">
+											  <input type="text"  name="number_steps" id="number_steps" value="{{content.number_steps}}" class="form-control input-circle"> 
+											  </div>
+										</div>
+									</div>
+									<div class="form-body row" >
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Form Title :</label>
+										   <div class="col-md-4">
+											  <input type="text"   name="title" id="title" value="{{content.title}}" class="form-control input-circle" > 
+											  </div>
+										</div>
+									</div>
+									<div class="form-body row" >
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Email Subject :</label>
+										   <div class="col-md-4">
+											  <input type="text"  name="email_subject" id="email_subject" value="{{content.email_subject}}" class="form-control input-circle" > 
+											  </div>
+										</div>
+									</div>
+									<div class="form-body row" >
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Email To :</label>
+										   <div class="col-md-4">
+											  <input type="text"  name="email_to" id="email_to" value="{{content.email_to}}" class="form-control input-circle" >
+											  </div>
+										</div>
+									</div>
+									<div class="form-body row" >
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Email Cc :</label>
+										   <div class="col-md-4">
+											  <input type="text"  name="email_cc" id="email_cc" value="{{content.email_cc}}" class="form-control input-circle" >
+											  </div>
+										</div>
+									</div>
+									<div class="form-body row" >
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Success Message :</label>
+										   <div class="col-md-4">											 
+											   <textarea name="sucess_message" id="sucess_message" class="form-control input-circle">{{content.sucess_message}}</textarea>
+											  </div>
+										</div>
+									</div>
+									<div class="form-body row" >
+										<div class="form-group">
+										   <label class="col-md-3 control-label">Catagory</label>
+										   <div class="col-md-4">											 
+											   <input type="text" name="catagory" id="catagory" value="{{content.catagory}}" class="form-control input-circle" readonly>
+											  </div>
+										</div>
+									</div>
+									
+									<div class='row' style="display:none">
+								   <textarea name="content" id="content"></textarea>
+								   </div>
+											
+									 <div class="form-actions">
+										<div class="row">
+										   <div class="col-md-offset-3 col-md-9">                                                      
+											    <input type="button" class="btn btn-circle blue widthSetAdmin" value="Update" id="updateform" onclick="updateformT()">											
+										   </div>
+										</div>
+									 </div>
+								  </form>
+								</div>
+								</div>
+								</div>
+								</div>
+                         
+						 
+						 
+						 </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            
+            </div>
+         
+	
+
+	<script>
+	updateaddfetr();
+	//updateaddfetr2();
+	function updateformT(){
+	 
+	var div1start = '<div class="step-1" id="step-1">';	
+	var div1end = '</div>'; 
+	var submitMovingFinal = ''; 
+	
+	var div2start = '<div class="step-2" id="step-2">';
+	var div2end = '</div>';
+	
+	var div3start = '<div class="step-3" id="step-3">';
+	var div3end = '</div>'; 
+	
+	
+	var contenthtml1 =  $('#formattributs').html();
+	var contenthtml2 =  $('#formattributs2').html();
+	var contenthtml3 =  $('#formattributs3').html();
+
+	var contenthtml = div1start+contenthtml1+div1end+div2start+contenthtml2+div2end+div3start+contenthtml3+div3end;
+	//var contenthtml = contenthtml1+contenthtml2;
+	
+	//alert(contenthtml); die;
+	console.log(contenthtml);
+  $('#content').val(contenthtml);
+  $( "#bookingform" ).submit();
+  
+  }
+	function toggleadd(){
+  $('#new_attr').toggle();
+  }
+  function updateoption(value){
+  if(value!='text' && value!='textarea'){
+  $('#optionsecion').show();
+  }else{
+  $('#optionsecion').hide();
+  $('#option').val('');
+  }
+  }
+  
+  function updateoption2(value){
+
+  if(value!='text' && value!='textarea'){
+  $('#optionsecion2').show();
+  }else{
+  $('#optionsecion2').hide();
+  $('#option2').val('');
+  }
+  }
+  function updateoption3(value){
+
+  if(value!='text' && value!='textarea'){
+  $('#optionsecion3').show();
+  }else{
+  $('#optionsecion3').hide();
+  $('#option3').val('');
+  }
+  }
+  
+  
+  function createfield()
+  {
+  var intype = $('#type').val(); 
+  
+  var addafterme = $('#addafterme').val();
+  var optionvalue = $('#option').val();
+  var optionvaluearray = optionvalue.split(',');
+  var rowid = $('#label').val().replace(' ','-');
+  var input_name = $('#input_name').val().replace(' ','-');
+  var is_required = $("input[name=is_required]:checked").val();
+
+  if(intype!='' && rowid !='' && input_name !=''){
+
+  var inputclass='';
+  var requredlabel ='';
+  if(is_required == 'true'){
+  inputclass = inputclass+" required";
+  requredlabel = "<span>*</span>";
+ 
+  }
+  
+  if(intype =='radio'){
+  if(optionvalue == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent=''
+  for(var j=0;j<optionvaluearray.length;j++){
+    inputcontent = inputcontent+"<input class='"+inputclass+"' type='radio' name='"+input_name+"'  value='"+optionvaluearray[j]+"'>"+optionvaluearray[j];
+  }
+  }  
+
+  if(intype =='checkbox'){
+  if(optionvalue == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent=''
+  for(var j=0;j<optionvaluearray.length;j++){
+   inputcontent = inputcontent+"<input class='"+inputclass+"' type='checkbox' name='"+input_name+"'  value='"+optionvaluearray[j]+"'>"+optionvaluearray[j];
+  }
+  }
+  
+  if(intype =='selectbox'){
+  if(optionvalue == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent="<select class='"+inputclass+"' name='"+input_name+"'><option value=''>Select One</option>";
+  for(var j=0;j<optionvaluearray.length;j++){
+   inputcontent = inputcontent+"<option  value='"+optionvaluearray[j]+"'>"+optionvaluearray[j]+"</option>";
+  }
+  inputcontent=inputcontent +"</select>";
+  }
+  
+  if(intype =='text'){
+   var inputcontent = "<input class='"+inputclass+"' type='text' name='"+input_name+"' id='"+$('#label').val()+"'>";
+  }
+  
+  if(intype =='textarea'){
+   var inputcontent = "<textarea class='"+inputclass+"' name='"+input_name+"' id='"+$('#label').val()+"'></textarea>";
+  }
+  
+  
+  if(addafterme == 0){
+  $( "#formattributs" ).append( "<div class='row' id='"+rowid+"'><label>"+$('#label').val()+requredlabel+"</label>"+inputcontent+"</div>" );
+   //alert(html1);
+  }else{ 
+   $("<div class='row' id='"+rowid+"'><label>"+$('#label').val()+"</label>"+inputcontent+requredlabel+"</div>").insertAfter("#"+addafterme);
+  }
+    
+  
+  updateaddfetr();
+  }
+  }
+	/*  step2 start  222222222222222222222222222222222222222222222222222222222222222 */
+  function createfield2()
+  {
+  var intype2 = $('#type2').val(); 
+  //alert(intype2);
+  var addafterme2 = $('#addafterme2').val(); 
+  var optionvalue2 = $('#option2').val();
+  var optionvaluearray2 = optionvalue2.split(',');
+  var rowid2 = $('#label2').val().replace(' ','-');
+  var input_name2 = $('#input_name2').val().replace(' ','-');
+  var is_required2 = $("input[name=is_required2]:checked").val();   //alert(is_required2);
+
+  if(intype2!='' && rowid2 !='' && input_name2 !=''){
+
+  var inputclass2='';
+  var requredlabel2 ='';
+  if(is_required2 == 'true'){
+  inputclass2 = inputclass2+" required";
+  requredlabel2 = "<span>*</span>";
+  }
+  
+  if(intype2 =='radio'){
+  if(optionvalue2 == ''){
+  alert('Please enter option');
+  die;
+  }
+  
+  var inputcontent2=''
+  for(var j=0;j<optionvaluearray2.length;j++){
+  //alert("enter");
+    inputcontent2 = inputcontent2+"<input class='"+inputclass2+"' type='radio' name='"+input_name2+"'  value='"+optionvaluearray2[j]+"'>"+optionvaluearray2[j];
+  }
+  }  
+
+  if(intype2 =='checkbox'){
+  if(optionvalue2 == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent2=''
+  for(var j=0;j<optionvaluearray2.length;j++){
+   inputcontent2 = inputcontent2+"<input class='"+inputclass2+"' type='checkbox' name='"+input_name2+"'  value='"+optionvaluearray2[j]+"'>"+optionvaluearray2[j];
+  }
+  }
+  
+  if(intype2 =='selectbox'){
+  if(optionvalue2 == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent2="<select class='"+inputclass2+"' name='"+input_name2+"'><option value=''>Select One</option>";
+  for(var j=0;j<optionvaluearray2.length;j++){
+   inputcontent2 = inputcontent2+"<option  value='"+optionvaluearray2[j]+"'>"+optionvaluearray2[j]+"</option>";
+  }
+  inputcontent2=inputcontent2 +"</select>";
+  }
+  
+  if(intype2 =='text'){
+   var inputcontent2 = "<input class='"+inputclass2+"' type='text' name='"+input_name2+"' id='"+$('#label2').val()+"'>";
+  }
+  
+  if(intype2 =='textarea'){
+   var inputcontent2 = "<textarea class='"+inputclass2+"' name='"+input_name2+"' id='"+$('#label2').val()+"'></textarea>";
+  }
+   
+   
+  if(addafterme2 == 0){
+   $( "#formattributs2" ).append( "<div class='row' id='"+rowid2+"'><label>"+$('#label2').val()+requredlabel2+"</label>"+inputcontent2+"</div>" );
+  }else{
+   $("<div class='row' id='"+rowid2+"'><label>"+$('#label2').val()+"</label>"+inputcontent2+requredlabel2+"</div>").insertAfter("#"+addafterme2);
+  }
+   
+  
+  updateaddfetr();
+  }
+  }
+  	/*  step2 end   */
+  
+  
+  	/*  step3 start  33333333 */
+  function createfield3()
+  {
+  var intype3 = $('#type3').val(); 
+  
+  var addafterme3 = $('#addafterme3').val(); 
+  var optionvalue3 = $('#option3').val();
+  var optionvaluearray3 = optionvalue3.split(',');
+  var rowid3 = $('#label3').val().replace(' ','-');
+  var input_name3 = $('#input_name3').val().replace(' ','-');
+  var is_required3 = $("input[name=is_required3]:checked").val();   //alert(is_required3);
+
+  if(intype3!='' && rowid3 !='' && input_name3 !=''){
+
+  var inputclass3='';
+  var requredlabel3 ='';
+  if(is_required3 == 'true'){
+  inputclass3 = inputclass3+" required";
+  requredlabel3 = "<span>*</span>"; 
+  }
+  
+  if(intype3 =='radio'){
+  if(optionvalue3 == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent3=''
+  for(var j=0;j<optionvaluearray3.length;j++){
+    inputcontent3 = inputcontent3+"<input class='"+inputclass3+"' type='radio' name='"+input_name3+"'  value='"+optionvaluearray3[j]+"'>"+optionvaluearray3[j];
+  }
+  }  
+
+  if(intype3 =='checkbox'){
+  if(optionvalue3 == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent3=''
+  for(var j=0;j<optionvaluearray3.length;j++){
+   inputcontent3 = inputcontent3+"<input class='"+inputclass3+"' type='checkbox' name='"+input_name3+"'  value='"+optionvaluearray3[j]+"'>"+optionvaluearray3[j];
+  }
+  }
+  
+  if(intype3 =='selectbox'){
+  if(optionvalue3 == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent3="<select class='"+inputclass3+"' name='"+input_name3+"'><option value=''>Select One</option>";
+  for(var j=0;j<optionvaluearray3.length;j++){
+   inputcontent3 = inputcontent3+"<option  value='"+optionvaluearray3[j]+"'>"+optionvaluearray3[j]+"</option>";
+  }
+  inputcontent3=inputcontent3 +"</select>";
+  }
+  
+  if(intype3 =='text'){
+   var inputcontent3 = "<input class='"+inputclass3+"' type='text' name='"+input_name3+"' id='"+$('#label3').val()+"'>";
+  }
+  
+  if(intype3 =='textarea'){
+   var inputcontent3 = "<textarea class='"+inputclass3+"' name='"+input_name3+"' id='"+$('#label3').val()+"'></textarea>";
+  }
+  
+   
+  if(addafterme3 == 0){
+   $( "#formattributs3" ).append( "<div class='row' id='"+rowid3+"'><label>"+$('#label3').val()+requredlabel3+"</label>"+inputcontent3+"</div>" );
+  }else{
+   $("<div class='row' id='"+rowid3+"'><label>"+$('#label3').val()+requredlabel3+"</label>"+inputcontent3+"</div>").insertAfter("#"+addafterme3);
+  }
+   
+  
+  updateaddfetr();
+  }
+  }
+  	/*  step3 end   */
+  
+  
+  
+  
+  function updateaddfetr(){
+  var rowcount = $( "#formattributs" ).length;
+  var optionval ='<option value="0">Select</option>';
+  
+   $( "#formattributs .row" ).each(function() {
+   optionval = optionval+'<option value="'+this.id+'">'+this.id+'</option>';
+  
+   })
+  var addafterhtml = "<label>Add After</label><select id='addafterme'>"+optionval+"</select>"
+  
+  $('#addafter').html(addafterhtml);
+  $('#addafter').show();
+  }
+  
+  /*function updateaddfetr2(){
+  var rowcount2 = $( "#formattributs2" ).length;
+  var optionval2 ='<option value="0">Select</option>';
+  
+   $( "#formattributs2 .row" ).each(function() {
+   optionval2 = optionval2+'<option value="'+this.id+'">'+this.id+'</option>';
+  
+   })
+  var addafterhtml2 = "<label>Add After</label><select id='addafterme2'>"+optionval2+"</select>"
+  
+  $('#addafter2').html(addafterhtml2);
+  $('#addafter2').show();
+  }*/
+  </script>
+
+ <style>
+.row {
+     margin-right: 0px !important; 
+    margin-left:  0px !important; 
+}
+	</style>
+{% include '::administartor/footer_administartor.html.twig' %}
+
+
+	  

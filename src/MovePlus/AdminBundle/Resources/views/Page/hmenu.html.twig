@@ -1,0 +1,133 @@
+{% extends '::admin-layout.html.twig' %}
+
+{% block body -%}
+<script>
+$( document ).ready(function() {
+
+$('.deleterow').click(function(){
+return confirm('Are you sure you want to delete this item?');
+})
+
+   
+});
+
+function updatemenutitle(sel){
+if(sel.value != '' || sel.value != null){
+var textval = $('#link_url').find('option:selected').text();
+textval = textval.replace('--- ', '');
+ $('#menutitle').val( textval.trim() );
+ $('#menu_link_url').val(sel.value);
+}
+}
+
+
+function pagetype(sel){
+
+if(sel.value == 'service'){
+$('#td_service').show();
+$('#td_link_url').hide();
+$('#menutitle').val( '' );
+ $('#menu_link_url').val('');
+}
+
+if(sel.value == 'external'){
+$('#td_service').hide();
+$('#td_link_url').show();
+$('#menutitle').val( '' );
+ $('#menu_link_url').val('');
+}
+}
+</script>
+    <h2 style="width:300px;float:left">{{ patetitle }}</h2>
+    
+    <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+    <thead>
+    <tr>
+    <th style="width:10%">Order No</th>
+    <th style="width:60%">Title</th>                            
+    <th style="width:30%">Action</th>                            
+    </tr>
+    </thead>
+    <tbody id="searchresult">
+    
+    {% for menu in menus  %}
+    <tr>
+    
+    <td>{% if menu.parent_id %} {% else %} {{ menu.order_no }} {% endif %}</td> 
+    <td> 
+    {% if menu.parent_id %} --- {% else %} {{ menu.title }} {% endif %}
+    {% if menu.parent_id %} {{ menu.title }}  {% endif %}
+     </td>                                                        
+    
+    <td>
+    <a href="{{ path( 'admin_delete_menu', { 'id': menu.id  }) }}" title="Delete" class="deleterow"> Delete </a> 
+    </td>
+    
+    
+    </tr>
+    {% endfor %}	
+    
+    
+    
+    </tbody>
+    </table>
+    <h2 style="width:300px;float:left">Add New</h2>
+    <table class="table table-striped table-hover table-bordered">
+    
+    <tbody>
+		<form action="" method="post">
+			
+			 <tr>
+			<select name="parent_id">
+			<option value='None'>Selelct Parent</option>
+			{% for menu1 in menus  %}
+			<option value='{{ menu1.id }}'> {{ menu1.title }}</option>
+			{% endfor %}	
+			</select>
+			</tr>
+			
+			
+			<tr>
+			<select onchange="pagetype(this)">
+				<option value=''>Selelct Page Type</option>
+				<option value='service'>Service Page</option>
+				<option value='external'>External Link</option>
+				
+				<option></option>
+			</select>
+			</tr>
+			<tr>
+			
+			<td style="width:10%">
+			<input type="text" name="order_no" placeholder="Order No.">
+			<input type="hidden" name="menu_type" value="header">
+			</td> 
+			
+			 <td id="td_service" style="width:40%;padding: 0 5px;"> 
+			 <select id="link_url" onchange="updatemenutitle(this);">
+			 <option value="">Select Service Page</option>
+			 {% for service in ppages  %}
+			 <option value="{{ path( 'content_services', { 'slug': service.slug  }) }}">
+			 {% if service.parent_id %} --- {% else %} {{ service.title }} {% endif %}
+			   {% if service.parent_id %} {{ service.title }}  {% endif %}</option>
+			 {% endfor %}
+			 </select>
+			 </td>
+			 <td id="td_link_url" style="width:40%; display:none;;padding: 0 5px;"> 
+			  <input type="text" name="link_url" id="menu_link_url" >
+			 </td>  
+			 <td style="width:40%"> 
+			   <input type="text" name="title" id="menutitle" placeholder="Title">
+			 </td>      
+
+			 
+			 <td style="width:10%"> 
+			  <input style="margin: 8px 0 20px;padding:7px 15px;" type="submit" name="submit" value="Add New">
+			 </td>
+			</tr>
+			
+		
+		</form>
+    </tbody>
+    </table>
+{% endblock %}

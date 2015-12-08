@@ -1,0 +1,509 @@
+  {% include '::administartor/header_administartor.html.twig' %}
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+  
+  <div class="page-container">
+    <div class="page-sidebar-wrapper">
+    {% include '::administartor/sidebar_administartor.html.twig' %}
+    </div>
+  
+  <div class="page-content-wrapper">
+  <div class="page-content">
+  
+  <h3 class="page-title" style="margin-bottom: 41px;">
+      Edit {{content.title}}
+  </h3>
+  <div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+        <i class="fa fa-home"></i>
+        <a href="{{ path('move_plus_administrator_dashboard') }}">Dashboard</a>
+        <i class="fa fa-angle-right"></i>
+        </li>
+    
+    </ul>                      
+  </div>
+  <div class="row">
+  <div class="col-md-12">
+  <div class="tabbable-line boxless tabbable-reversed">
+    <ul class="nav nav-tabs">
+      <li class="active">
+      <a href="#tab_0" data-toggle="tab">
+      Edit Page: {{ patetitle }} Actions </a>
+      </li>
+    </ul>
+    
+ 
+  
+  
+  <div class="tab-content">
+  <div class="tab-pane active" id="tab_0">
+  <div class="portlet box green">
+  <div class="portlet-title">
+  <div class="caption">
+  <i class="fa fa-gift"></i>Form Option
+  </div>
+  <div class="tools">
+  <a href="javascript:void(0);" class="collapse">
+  </a>                                      
+  </div>
+  </div>
+  <div class="portlet-body form" >
+  <form name="bookingform" id="bookingform" action="" method="post" class="form-horizontal"> 
+  <div class="form-body row" >
+ 
+  <label class="control-label">Form Steps :</label>
+  
+  <input type="text"  name="number_steps" id="number_steps" value="{{content.number_steps}}" class="form-control input-circle"> 
+  
+  
+  </div>
+  <div class="form-body row" >
+  
+  <label class=" control-label">Form Title :</label>
+  
+  <input type="text"   name="title" id="title" value="{{content.title}}" class="form-control input-circle" > 
+  
+ 
+  </div>
+  <div class="form-body row" >
+  
+  <label class="control-label">Email Subject :</label>
+  
+  <input type="text"  name="email_subject" id="email_subject" value="{{content.email_subject}}" class="form-control input-circle" > 
+ 
+ 
+  </div>
+  <div class="form-body row" >
+  
+  <label class=" control-label">Email To :</label>
+  
+  <input type="text"  name="email_to" id="email_to" value="{{content.email_to}}" class="form-control input-circle" >
+  
+ 
+  </div>
+  <div class="form-body row" >
+  
+  <label class="control-label">Email Cc :</label>
+  
+  <input type="text"  name="email_cc" id="email_cc" value="{{content.email_cc}}" class="form-control input-circle" >
+  
+ 
+  </div>
+  <div class="form-body row" >
+  
+  <label class=" control-label">Success Message :</label>
+  									 
+  <textarea name="sucess_message" id="sucess_message" class="form-control input-circle">{{content.sucess_message}}</textarea>
+  
+ 
+  </div>
+  <div class="form-body row" >
+  
+  <label class="control-label">Catagory</label>
+  										 
+  <input type="text" name="catagory" id="catagory" value="{{content.catagory}}" class="form-control input-circle" readonly>
+  
+  
+  </div>
+  
+  <div class='row' style="display:none">
+  <textarea name="content" id="content"></textarea>
+  </div>
+  
+  <div class="form-actions">
+  <div class="row">
+  <div class="col-md-offset-3 col-md-9">                                                      
+  <input type="button" class="btn btn-circle blue widthSetAdmin" value="Update" id="updateform" onclick="updateformT()">											
+  </div>
+  </div>
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <!-- Form Fields 1 show start  -->
+  <div class="tab-content" id="formattributs" style="width:48%;float:left;">
+  <div class="tab-pane active" id="tab_0">
+  <div class="portlet box green">
+  <div class="portlet-title">
+  <div class="caption">
+  <i class="fa fa-gift"></i>Form Fields
+  </div>
+  <div class="tools">
+  <a href="javascript:void(0);" class="collapse">
+  </a>                                      
+  </div>
+  </div>
+  
+  </div>
+  </div>
+  <div class="form-group" id="formattributcontent">
+  {{content.content|raw}}    
+  </div>
+  <a href="javascript:vois(0)" onClick="addnewstep();">Add New Step</a>
+  </div>
+  
+  
+   <div class="tab-content" style="width:48%;float:right;">
+  <div class="tab-pane active" id="tab_0">
+  <div class="portlet box green">
+    
+    <div class="portlet-title">
+      <div class="caption">
+      <i class="fa fa-gift"></i>Add New Fields
+      </div>
+      
+      <div class="tools">
+      <a href="javascript:;" class="collapse">
+      </a>                                      
+      </div>
+    </div>
+    
+   <div class="portlet-body form " id="new_attr" >
+  <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+  
+  
+  
+  <div class="form-body" id="stepsoptionval">
+  </div>
+  
+  
+  <div class="form-body" id="addafter">
+  
+  </div>
+  <div class="form-body ">
+  
+  <label class="control-label">Label :</label>
+  
+  <input type="text" class="form-control input-circle" placeholder="Enter Your Label" name="label" id="label">      
+  
+  </div>
+  <div class="form-body " >
+  
+  <label class="control-label">Name :</label>
+  
+  <input type="text" class="form-control input-circle" placeholder="Enter Your Name"  name="input_name" id="input_name">      
+  
+  </div>
+  <div class="form-body ">
+  
+  <label class="control-label">Select Input Type :</label>
+  
+  <select name="type" id="type" onChange="updateoption(this.value)" class="form-control input-circle">
+  <option  value=''>Select Input type</option>
+  <option  value='text'>Text Box</option>
+  <option  value='textarea'>Textarea</option>
+  <option  value='radio'>Radio Button</option>
+  <option  value='checkbox'>Check Box</option>
+  <option  value='selectbox'>Select Box</option>
+  </select>
+ 
+  </div>
+  <div class="form-body " id="optionsecion">
+  
+  <label class="control-label">Option :</label>
+  
+  <input type="text" class="form-control input-circle" placeholder="Enter Your option"  name="option" id="option"></br>"," Seprated like: Yes,No     
+  
+  </div>
+  <div class="form-body " >
+  
+  <label class="control-label">Is Required :</label>
+  
+  <input type="radio" name="is_required"  value="true"  class="form-control input-circle">Yes
+  <input type="radio" name="is_required" value="false"  class="form-control input-circle"> NO
+ 
+  
+  </div>
+  <div class='row' id="addafter">			
+  </div>
+  
+  
+  
+  <div class="form-actions">
+  <div class="row">
+  <div class="col-md-offset-3 col-md-9">                                                      
+  <input type="button" class="btn btn-circle blue" value="Create" id="create" onClick="createfield()" />
+  <a href="{{ path('move_plus_administrator_testimonial') }}" class="btn btn-circle default">Cancel</a>
+  </div>
+  </div>
+  </div>
+  </form>
+  </div> 
+  
+  
+  </div>
+  </div>
+  </div>
+  
+  
+  
+  
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  
+  </div>
+  
+  
+  
+  <script>
+  updateaddfetr();
+ 
+  function updateformT(){
+  
+  
+  $( "#formattributcontent .delformrow" ).each(function() {
+  
+  $( this ).remove();
+  })
+  
+  $( "#formattributcontent .step-heading" ).each(function() {
+  
+  $( this ).remove();
+  })
+  
+  
+  $('#number_steps').val($( "#formattributcontent .steps" ).length);
+  var contenthtml1 =  $('#formattributcontent').html();
+  $('#content').val(contenthtml1);
+  $( "#bookingform" ).submit();
+  
+  }
+  
+    
+  function updateoption(value){
+  if(value!='text' && value!='textarea'){
+  $('#optionsecion').show();
+  }else{
+  $('#optionsecion').hide();
+  $('#option').val('');
+  }
+  }
+  
+  
+  
+  
+  function createfield()
+  {
+  var formstep = $('#formstep').val();
+  var intype = $('#type').val(); 
+  
+  var addafterme = $('#addafterme').val();
+  var optionvalue = $('#option').val();
+  var optionvaluearray = optionvalue.split(',');
+  var rowid = $('#label').val().replace(' ','-');
+  var input_name = reformatid($('#input_name').val());
+  var is_required = $("input[name=is_required]:checked").val();
+  
+  if(intype!='' && rowid !='' && input_name !=''){
+  
+  var inputclass='';
+  var requredlabel ='';
+  if(is_required == 'true'){
+  inputclass = inputclass+" required";
+  requredlabel = "<span>*</span>";
+  
+  }
+  
+  if(intype =='radio'){
+  if(optionvalue == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent=''
+  for(var j=0;j<optionvaluearray.length;j++){
+  inputcontent = inputcontent+"<input class='"+inputclass+"' type='radio' name='"+input_name+"[]'  value='"+optionvaluearray[j]+"'>"+optionvaluearray[j];
+  }
+  inputcontent = '<div class="right-inout">'+inputcontent+'</div>';
+  }  
+  
+  if(intype =='checkbox'){
+  if(optionvalue == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent=''
+  for(var j=0;j<optionvaluearray.length;j++){
+  inputcontent = inputcontent+"<input class='"+inputclass+"' type='checkbox' name='"+input_name+"[]'  value='"+optionvaluearray[j]+"'>"+optionvaluearray[j];
+  }
+  
+  inputcontent = '<div class="right-inout">'+inputcontent+'</div>';
+  }
+  
+  if(intype =='selectbox'){
+  if(optionvalue == ''){
+  alert('Please enter option');
+  die;
+  }
+  var inputcontent="<select class='"+inputclass+"' name='"+input_name+"'><option value=''>Select One</option>";
+  for(var j=0;j<optionvaluearray.length;j++){
+  inputcontent = inputcontent+"<option  value='"+optionvaluearray[j]+"'>"+optionvaluearray[j]+"</option>";
+  }
+  inputcontent=inputcontent +"</select>";
+  }
+  
+  if(intype =='text'){
+  var inputcontent = "<input class='"+inputclass+"' type='text' name='"+input_name+"' id='"+reformatid(formstep+"-"+$('#label').val())+"'>";
+  }
+  
+  if(intype =='textarea'){
+  var inputcontent = "<textarea class='"+inputclass+"' name='"+input_name+"' id='"+reformatid(formstep+"-"+$('#label').val())+"'></textarea>";
+  }
+  
+  
+  if(addafterme == 0){
+  $( "#"+formstep ).append( "<div class='row' id='"+reformatid(formstep+"-"+rowid)+"'><label>"+$('#label').val()+requredlabel+"</label>"+inputcontent+"</div>" );
+  //alert(html1);
+  }else{ 
+  $("<div class='row' id='"+reformatid(formstep+"-"+rowid)+"'><label>"+$('#label').val()+requredlabel+"</label>"+inputcontent+"</div>").insertAfter("#"+addafterme);
+  }
+  
+  
+  updateaddfetr();
+  }
+  }
+  
+  
+  function reformatid(stringid){
+  var newstringid = stringid.replace(/\s/g, "-");
+  return newstringid.toLowerCase();
+  }
+  
+  
+  function delrow(rowid){
+  $('#'+rowid).remove();
+  }
+  
+  function addnewstep(){
+  
+  var newstep = parseInt($( "#formattributcontent .steps" ).length)+1;
+  $( "#formattributcontent" ).append('<div class="steps" id="step-'+newstep+'"></div>');
+  updateaddfetr();
+  
+  }
+  function updateaddfetr2(){
+  
+  var optionval ='<option value="0">Select</option>';
+  var formstep = $('#formstep').val();
+  alert(formstep);
+  $( "#"+formstep+" .row" ).each(function() {
+  optionval = optionval+'<option value="'+this.id+'">'+this.id+'</option>';
+  $("#"+this.id).find('.delformrow').remove();
+  $("#"+this.id ).append( "<span class='delformrow' onClick=delrow('"+this.id+"')>Del</span>" );
+  
+  
+  })
+  var addafterhtml = "<label class='control-label'>Add After</label><select id='addafterme'>"+optionval+"</select>"
+  
+  $('#addafter').html(addafterhtml);
+  
+  }
+  function updateaddfetr(){
+  
+  
+  var tsteps =$( "#formattributcontent .steps" ).length;
+  
+  if(tsteps == 0){
+  
+  $( "#formattributcontent" ).append('<div class="steps" id="step-1"></div>');
+  $( "#step-1" ).prepend('<div class="step-heading">step-1</div>');
+  var stepsoptionval ='<option value="step-1">Step 1</option>';
+  }else{
+  var stepsoptionval ='';
+  $( "#formattributcontent .steps" ).each(function() {
+  $(this).find('.step-heading').remove();
+  $( this ).prepend( '<div class="step-heading">'+this.id+'</div>' );
+  stepsoptionval = stepsoptionval+'<option value="'+this.id+'">'+this.id+'</option>';
+  
+  })
+  }
+ 
+  var stepsoptionvalhtml = "<label class='control-label'>Form Step</label><select onChange='updateaddfetr2()' id='formstep'>"+stepsoptionval+"</select>";
+  $('#stepsoptionval').html(stepsoptionvalhtml);
+  
+  var optionval ='<option value="0">Select</option>';
+  var formstep = $('#formstep').val();
+ 
+  $( "#formattributcontent .steps .row" ).each(function() {
+  optionval = optionval+'<option value="'+this.id+'">'+this.id+'</option>';
+  $("#"+this.id).find('.delformrow').remove();
+  $("#"+this.id ).append( "<span class='delformrow' onClick=delrow('"+this.id+"')>Del</span>" );
+  
+  
+  })
+  var addafterhtml = "<label class='control-label'>Add After</label><select id='addafterme'>"+optionval+"</select>"
+  
+  $('#addafter').html(addafterhtml);
+  $('#addafter').show();
+  
+  
+  
+  }
+  
+    
+  
+  </script>
+  
+  <style>
+  .row input[type="radio"],
+  .row input[type="checkbox"]{
+  height:0px!important;
+  margin:4px 9px 7px!important;
+  width:20px!important;
+  }
+  .steps{margin:10px 0px;}
+  .step-heading{
+  font-size:16px;
+  font-weight:bold;
+  text-transform:uppercase;
+  padding:5px 10px;
+  background:#e2e2e2;
+  }
+  #formattributcontent .row input,
+  #formattributcontent .row select{width:95%;}
+  .right-inout {
+    float: left;
+    padding: 10px 0;
+    width: 95%;
+}
+  .delformrow{
+  float:right;
+  padding:10px 0px;
+  cursor: pointer;
+  font-weight:bold;
+  }
+  #new_attr3 .row{
+    padding: 0 10px;
+    width: 100%;
+  }
+  #formattributs .row{
+    padding: 0 10px;
+    width: 100%;
+  }
+  .row select,.row input{margin-bottom:0px;border: 1px solid #e5e5e5;}
+  .form .form-body {
+    float: left;
+    padding: 0 10px;
+    width: 100%;
+}
+  .row {
+  
+  margin-right: 0px !important; 
+  margin-left:  0px !important; 
+  }
+  </style>
+  {% include '::administartor/footer_administartor.html.twig' %}
+  
+  

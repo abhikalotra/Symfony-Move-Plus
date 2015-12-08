@@ -1,0 +1,10 @@
+<div class="col-md-6 col-md-12 columns">
+          <ul class="footer-secondary-links">
+            {% for menu in fmenu %}
+            <li><a class="smaller" href="{{ menu.link_url }}" title="{{ menu.title }}">{{ menu.title }}</a></li>
+            {% endfor %}
+          </ul>
+</div>
+<div class="col-md-6 col-xs-12 col-md-12 columns footer-copyright-text">
+        {{ settings.copywrite|raw }}
+</div>

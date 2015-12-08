@@ -1,0 +1,111 @@
+move_plus_admin_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MovePlusAdminBundle:Default:index }
+
+move_plus_admin_admin:
+    pattern:  /admin
+    defaults: { _controller: MovePlusAdminBundle:Admin:dashboard }
+    requirements:  { _method:  get|post }
+
+admin_settings:
+    pattern:  /settings
+    defaults: { _controller: MovePlusAdminBundle:Admin:settings }
+    requirements:  { _method:  get|post }
+
+
+move_plus_admin_adminLogin:
+    pattern:  /admin/login
+    defaults: { _controller: MovePlusAdminBundle:Admin:login }
+    requirements:  { _method:  get|post }
+
+move_plus_admin_adminLogout:
+    pattern:  /admin/logout
+    defaults: { _controller: MovePlusAdminBundle:Admin:logout }
+    requirements:  { _method:  get|post }
+
+move_plus_admin_adminDashboard:
+    pattern:  /admin/dashboard
+    defaults: { _controller: MovePlusAdminBundle:Admin:dashboard }
+    requirements:  { _method:  get|post }
+
+admin_h_menu:
+    pattern:  /admin/h-menu
+    defaults: { _controller: MovePlusAdminBundle:Admin:hmenu }
+    requirements:  { _method:  get|post }
+
+
+admin_f_menu:
+    pattern:  /admin/f-menu
+    defaults: { _controller: MovePlusAdminBundle:Admin:fmenu }
+    requirements:  { _method:  get|post }
+
+admin_edit_menu:
+    pattern:  /admin/edit-menu
+    defaults: { _controller: MovePlusAdminBundle:Admin:editmenu }
+    requirements:  { _method:  get|post }
+
+admin_add_menu:
+    pattern:  /admin/add-menu/{type}
+    defaults: { _controller: MovePlusAdminBundle:Admin:addmenu }
+    requirements:  { _method:  get|post }
+
+
+admin_delete_menu:
+    pattern:  /admin/delete-menu/{id}
+    defaults: { _controller: MovePlusAdminBundle:Admin:deletemenu }
+    requirements:  { _method:  get|post }
+
+admin_all_pages:
+    pattern:  /admin/all-pages
+    defaults: { _controller: MovePlusAdminBundle:Admin:allServices }
+    requirements:  { _method:  get|post }
+
+admin_edit_page:
+    pattern:  /admin/edit-page/{id}
+    defaults: { _controller: MovePlusAdminBundle:Admin:editAllService }
+    requirements:  { _method:  get|post }
+
+admin_delete_page:
+    pattern:  /admin/delete-page/{id}
+    defaults: { _controller: MovePlusAdminBundle:Admin:deletepage }
+    requirements:  { _method:  get|post }
+
+
+admin_new_page:
+    pattern:  /admin/new-page
+    defaults: { _controller: MovePlusAdminBundle:Admin:createpage }
+    requirements:  { _method:  get|post }
+
+
+admin_county_pages:
+    pattern:  /admin/county-page
+    defaults: { _controller: MovePlusAdminBundle:Admin:countypage }
+    requirements:  { _method:  get|post }
+
+
+admin_city_pages:
+    pattern:  /admin/city-page
+    defaults: { _controller: MovePlusAdminBundle:Admin:citypage }
+    requirements:  { _method:  get|post }
+
+
+admin_edit_ccpages:
+    pattern:  /admin/edit-cc-page/{id}
+    defaults: { _controller: MovePlusAdminBundle:Admin:editccpage }
+    requirements:  { _method:  get|post }
+
+admin_edit_citypages:
+    pattern:  /admin/edit-citypages/{id}
+    defaults: { _controller: MovePlusAdminBundle:Admin:editcitypage }
+    requirements:  { _method:  get|post }
+
+
+move_plus_admin_sitemap:
+    pattern:  /sitemap.{_format}
+    defaults: { _controller: MovePlusAdminBundle:Admin:sitemap }
+    requirements:  { _method:  get|post }
+
+move_plus_admin_sitemap_inner:
+    pattern:  /sitemap-{slug}.{_format}
+    defaults: { _controller: MovePlusAdminBundle:Admin:sitemapinner }
+    requirements:  { _method:  get|post }

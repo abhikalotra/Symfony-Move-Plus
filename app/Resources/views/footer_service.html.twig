@@ -1,0 +1,64 @@
+
+{% if testmonialDetail.readytobook_widget == 1 %}
+<div class="row5">
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="col-lg-12 col-xs-12 text-center">
+        <div class="col-lg-6 col-sm-6 col-sm-12 text-center1">
+          <div class="book">
+            <h2> Ready to book now? </h2>
+            <div class="number"> <img src="/theme/frontend/images/phone.png" alt="phone" title="phone"> 07701038629 </div>
+          </div>
+          <div class="btn-group1"> 
+		        {% render controller('MovePlusServiceBundle:Default:recentServicePopUpBottom',  {'catagory': '' }) %}
+				 </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>	
+</div>
+{% endif %}
+<!-- blog section start here -->
+
+{% if testmonialDetail.blog_widget == 1 %}
+<div class="row">
+    <div class="container post">
+      <div class="col-md-12 text-center blog_h">
+      <h2>Recent updates from MovePlus Blog </h2>
+      
+      {% render controller('MovePlusServiceBundle:Default:recentpostCombined', {'catagory': '' })%}
+      </div>
+    </div>
+</div>
+{% endif %}
+
+
+<!-- blog section end here --> 
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<!-- footer section start here -->
+ 
+ <footer> 
+  <div class="container footerWrap">
+  
+			  {% render controller('MovePlusServiceBundle:Default:footerSide1Moving')%}
+			  
+  </div>
+  
+  <div class="row pad-top lower-footer">
+    <div class="container sub">
+      <div class="col-md-12">
+        {% render controller('MovePlusServiceBundle:Default:footersection') %}
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- script footer  start  -->
+
+</body>
+</html>

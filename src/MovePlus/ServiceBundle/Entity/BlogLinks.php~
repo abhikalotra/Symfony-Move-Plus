@@ -1,0 +1,109 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogLinks
+ *
+ * @ORM\Table(name="blog_links")
+ * @ORM\Entity
+ */
+class BlogLinks
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_url", type="string", length=255, nullable=false)
+     */
+    private $linkUrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_name", type="string", length=255, nullable=false)
+     */
+    private $linkName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_image", type="string", length=255, nullable=false)
+     */
+    private $linkImage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_target", type="string", length=25, nullable=false)
+     */
+    private $linkTarget;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_description", type="string", length=255, nullable=false)
+     */
+    private $linkDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_visible", type="string", length=20, nullable=false)
+     */
+    private $linkVisible;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="link_owner", type="bigint", nullable=false)
+     */
+    private $linkOwner;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="link_rating", type="integer", nullable=false)
+     */
+    private $linkRating;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="link_updated", type="datetime", nullable=false)
+     */
+    private $linkUpdated;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_rel", type="string", length=255, nullable=false)
+     */
+    private $linkRel;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_notes", type="text", nullable=false)
+     */
+    private $linkNotes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link_rss", type="string", length=255, nullable=false)
+     */
+    private $linkRss;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="link_id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $linkId;
+
+
+}

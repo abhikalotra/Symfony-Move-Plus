@@ -1,0 +1,10 @@
+{% if cmenu is defined %}
+<ul class="dropdownPrice"> 
+  {% for menu in cmenu %}
+    <li>
+    <a href="{{ menu.link_url }}" title="{{ menu.title }}" class="book{{ menu.title }}Nav" id="li_{{ menu.title }}">{{ menu.title }}</a>
+    {% render controller('MovePlusServiceBundle:Default:childmenu', {'parentid': menu.id })%}
+    </li>
+  {% endfor %}
+</ul>
+{% endif %}

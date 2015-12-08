@@ -1,0 +1,229 @@
+move_plus_administrator_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: MovePlusAdministratorBundle:Default:index }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_dynamicscript:
+    pattern:  /dynamicscript
+    defaults: { _controller: MovePlusAdminBundle:Admin:dynamicscript }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_sampleserviceDynamicscript:
+    pattern:  /administrator/sampleserviceDynamicscript
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:sampleserviceDynamicscript }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_viewsampleserviceDynamicscript:
+    pattern:  /administrator/view-sample-service/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:viewsampleserviceDynamicscript }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_editsampleserviceDynamicscript:
+    pattern:  /administrator/edit-sample-service/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editsampleserviceDynamicscript }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deletesampleserviceDynamicscript:
+    pattern:  /administrator/delete-sample-service
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deletesampleserviceDynamicscript }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_dymanicsampleserviceDynamicscript:
+    pattern:  /administrator/dynamic-sample-service/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:dymanicsampleserviceClick }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_login:
+    pattern:  /administrator/login
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:login }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_logout:
+    pattern:  /administrator/logout
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:logout }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_dashboard:
+    pattern:  /administrator
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:dashboard }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_dashboard:
+    pattern:  /administrator/
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:dashboard }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_media:
+    pattern:  /media
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:media }
+    requirements:  { _method:  get|post }
+
+
+move_plus_administrator_myProfile:
+    pattern:  /administrator/myprofile
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:myProfile }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_settings:
+    pattern:  /administrator/settings
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:settings }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_staticPages:
+    pattern:  /administrator/all-pages
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:allServices }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_addstaticPages:
+    pattern:  /administrator/add-service-pages
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:addService }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_getparentcatagortPages:
+    pattern:  /administrator/get-parent-catagort-page
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:getparentcatagortPages }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_editStaticPages:
+    pattern:  /administrator/edit-all-page/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editAllService }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_viewStaticPages:
+    pattern:  /administrator/view-all-page/{slug}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:viewAllService }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deleteStaticPages:
+    pattern:  /administrator/delete-all-page
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deleteAllService }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_countyPages:
+    pattern:  /administrator/county-pages
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:countyPages }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_addCountyPage:
+    pattern:  /administrator/add-new-county-page
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:addCountyPage }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_viewCountyPages:
+    pattern:  /administrator/view-county-page/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:viewCountyPage }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_editCountyPages:
+    pattern:  /administrator/edit-county-page/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editCountyPage }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deleteCountyPages:
+    pattern:  /administrator/delete-county-page
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deleteCountyPage }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_cityPages:
+    pattern:  /administrator/city-pages
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:cityPages }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_viewCityPages:
+    pattern:  /administrator/view-city-page/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:viewCityPage }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_editCityPages:
+    pattern:  /administrator/edit-city-page/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editCityPage }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deleteCityPages:
+    pattern:  /administrator/delete-city-page
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deleteCityPage }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_headerMenu:
+    pattern:  /administrator/header-menu
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:headerMenu }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deleteHeaderMenu:
+    pattern:  /administrator/delete-header-menu
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deleteHeaderMenu }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_footerMenu:
+    pattern:  /administrator/footer-menu
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:footerMenu }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deleteFooterMenu:
+    pattern:  /administrator/delete-footer-menu
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deleteFooterMenu }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_testimonial:
+    pattern:  /administrator/testimonial
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:testimonial }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_addTestimonial:
+    pattern:  /administrator/add-testimonial
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:addTestimonial }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_viewTestmonial:
+    pattern:  /administrator/view-testimonial/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:viewTestimonial }
+ 
+move_plus_administrator_editTestmonial:
+    pattern:  /administrator/edit-testimonial/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editTestimonial }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deleteTestmonial:
+    pattern:  /administrator/delete-testimonial
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deleteTestimonial }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_manageForm:
+    pattern:  /administrator/manageform
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:manageForm }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_editManageForm:
+    pattern:  /administrator/edit-manageform/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editManageForm }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_howItsWorkContent:
+    pattern:  /administrator/how-its-work-content
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:howItsWorkContent }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_editHowItsWorkContent:
+    pattern:  /administrator/edit-how-its-work-content/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editHowItsWorkContent }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_bannerPages:
+    pattern:  /administrator/banner-page
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:bannerPages }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_addBanner:
+    pattern:  /administrator/add-banner
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:addBanner }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_editBanner:
+    pattern:  /administrator/edit-banner/{id}
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:editBanner }
+    requirements:  { _method:  get|post }
+
+move_plus_administrator_deleteBanner:
+    pattern:  /administrator/delete-banner
+    defaults: { _controller: MovePlusAdministratorBundle:Administrator:deleteBanner }
+    requirements:  { _method:  get|post }

@@ -1,0 +1,81 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogGPolylines
+ *
+ * @ORM\Table(name="blog_g_polylines")
+ * @ORM\Entity
+ */
+class BlogGPolylines
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="map", type="integer", nullable=false)
+     */
+    private $map;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="data", type="text", nullable=false)
+     */
+    private $data;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="line_opacity", type="string", length=5, nullable=false)
+     */
+    private $lineOpacity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="line_color", type="string", length=7, nullable=false)
+     */
+    private $lineColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="line_width", type="string", length=5, nullable=false)
+     */
+    private $lineWidth;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hover_line_color", type="string", length=9, nullable=false)
+     */
+    private $hoverLineColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hover_line_opacity", type="string", length=9, nullable=false)
+     */
+    private $hoverLineOpacity;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

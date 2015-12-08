@@ -1,0 +1,46 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogCommentmeta
+ *
+ * @ORM\Table(name="blog_commentmeta")
+ * @ORM\Entity
+ */
+class BlogCommentmeta
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="comment_id", type="bigint", nullable=false)
+     */
+    private $commentId;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_key", type="string", length=255, nullable=true)
+     */
+    private $metaKey;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_value", type="text", nullable=true)
+     */
+    private $metaValue;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="meta_id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $metaId;
+
+
+}

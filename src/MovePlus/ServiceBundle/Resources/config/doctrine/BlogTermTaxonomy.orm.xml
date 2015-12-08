@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\BlogTermTaxonomy" table="blog_term_taxonomy">
+    <id name="termTaxonomyId" type="bigint" column="term_taxonomy_id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="termId" type="bigint" column="term_id" nullable="false"/>
+    <field name="taxonomy" type="string" column="taxonomy" length="32" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="parent" type="bigint" column="parent" nullable="false"/>
+    <field name="count" type="bigint" column="count" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,117 @@
+
+{% include '::header_service.html.twig' %}
+
+
+ <div class="container-fluid">
+   
+   <div class="containerBanners">
+		   
+			
+	<!--   if content.featuredImage 
+      <img src="{{ asset('theme/frontend/images') }}/" alt=" content.featuredImage" title=" content.featuredImage " >
+       else  %}	 -->
+      <img src="{{ asset('theme/frontend/images') }}/Banner_Man-and-Van-Hire.png" alt="cleaning" title="cleaning" >
+      <!--  endif %} -->
+			
+	
+     <div id="cleanings">
+         <div class="row2">
+            <div class="container">
+               <div class="col-lg-12 text-center head head_c">
+		   	   
+            <h1>
+			  
+				{% if content.banner_text %}
+					{{ content.banner_text }}
+				{% endif %}
+			
+			</h1>
+            <p style="color: white !important">
+				
+				{% if content.banner_sub_text %}
+					{{ content.banner_sub_text }}
+				{% endif %}
+			
+			  </p>
+            
+            <div class="btn-group" style=" top: -37px;">
+				
+              <button class="btn btn-default btn-lg dropdown-toggle see clean_b" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Book now </button>
+              <ul class="dropdown-menu">
+                ...
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	</div>
+  </div>
+  
+	
+	 
+		{% if content.short_description %}
+			{{ content.short_description| raw }}
+		{% endif %}
+	
+	 {% if content.description %}
+		
+		{{ content.description| raw }}
+		 
+		 
+		{% else  %}	
+		
+   </div>
+	
+		{% endif %}
+		
+
+
+<div class="works">
+   <h2> How it works </h2>
+</div>
+<div class="container_class">
+   <div class="row">
+      <div class="container">
+         <div class="growbusiness">
+            <div class="col-lg-4 col-sm-4 con">
+               <div class="cleaning_outer"> <img src="{{ asset('theme/frontend/images') }}/service-decide.png" alt="Decide which service you need" title="Decide which service you need" > </div>
+               <p> Decide which service you need </p>
+            </div>
+            <div class="col-lg-4 col-sm-4 con2" >
+               <div class="cleaning1_outer"> <img src="{{ asset('theme/frontend/images') }}/fill-the-on-line-quote-and-choose-the-date.png" alt="Fill the on-line quote and choose the date" title="Fill the on-line quote and choose the date" > </div>
+               <p> Fill the on-line quote and choose the date</p>
+            </div>
+            <div class="col-lg-4 col-sm-4 con3" > 
+               <div class="cleaning2_outer"> <img src="{{ asset('theme/frontend/images') }}/get-a-quotes.png" alt="Get a quote and book, Confirmation will be sent. Pic attached." title="Get a quote and book, Confirmation will be sent. Pic attached." > </div>
+               <p>Get a quote and book, Confirmation will be sent. Pic attached. </p>
+            </div>
+         </div>
+      </div>
+   </div> 
+</div>
+
+
+
+                     
+
+
+<style>
+.col-lg-4.col-sm-4.con3 {
+    margin-top: 2% !important;
+}
+
+.containerBanners img {
+    width: 100%;
+    height: 432px;
+    background-size: 100% 100%;
+}
+.containerBanners {
+    position: relative;
+}
+div#cleanings {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+</style>

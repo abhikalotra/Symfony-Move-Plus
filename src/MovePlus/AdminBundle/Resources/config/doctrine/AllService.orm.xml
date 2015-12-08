@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\AdminBundle\Entity\AllService" table="all_service">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="serviceName" type="string" column="service_name" length="255" nullable="true"/>
+    <field name="sortDesc" type="string" column="sort_desc" length="255" nullable="true"/>
+    <field name="fullDesc" type="string" column="full_desc" length="255" nullable="true"/>
+    <field name="image" type="string" column="image" length="255" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+  </entity>
+</doctrine-mapping>

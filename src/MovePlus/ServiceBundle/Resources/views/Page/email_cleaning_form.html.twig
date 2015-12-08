@@ -1,0 +1,88 @@
+{% include '::header_service.html.twig' %}
+
+
+
+<script type="text/javascript">
+ $(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            if($(this).attr("value")=="textbox"){
+                $(".box").not(".textbox").hide();
+                $(".textbox").show();
+            }
+            else if($(this).attr("value")=="radio"){
+                $(".box").not(".radio").hide();
+                $(".radio").show();
+            }
+            else if($(this).attr("value")=="blue"){
+                $(".box").not(".blue").hide();
+                $(".blue").show();
+            }
+            else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
+
+<div class="row">
+	<div class="container">
+		<div class="col-lg-12 you">
+		
+		<div id="login" style="top: 0px !important;">
+			<div id="content">
+			  <form  action="" method="post" enctype="multipart/form-data" class="form">
+									
+							<h2>Cleaning Form </h2>
+							
+									
+							<label>Title Name:</label> 
+								<input type="text" name="fieldTitle" id="fieldTitle" class="inputFields" >
+					 		<br>
+							 	
+						<select name="attrType">
+							<option>Choose Type</option>
+							<option value="textbox">Text box</option>
+							<option value="radio">Radio</option>
+							</select>
+
+							<div class="textbox box">Text Box
+							<input type="text" name="textbox" >
+							</div>
+
+							<div class="radio box">Radio   
+									
+							<input type="text" name="tags" id="tags">
+							</div>				
+<br>
+							<input type="submit" name="submit"  value="Submit"  class="btn btn-default widthSet">
+					
+				</form>
+				</div>	
+			</div>
+		
+		
+      </div>
+   </div>
+</div> 
+
+<script type="text/javascript">
+ $('#tags').keyup(function(){
+   var str = this.value.replace(/(\w)[\s,]+(\w?)/g, '$1, $2');
+   if (str!=this.value) this.value = str; 
+});
+</script>
+
+<style type="text/css">
+    .box{
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+        border: 1px solid #000;
+    }
+    .red{ background: #ff0000; }
+    .radio{ background: #00ff00; }
+    .blue{ background: #0000ff; }
+</style>
+

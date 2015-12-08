@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\Sampleservices" table="sampleservices">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="countyName" type="string" column="county_name" length="255" nullable="false"/>
+    <field name="serviceName" type="string" column="service_name" length="255" nullable="false"/>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+    <field name="slug" type="string" column="slug" length="255" nullable="false"/>
+    <field name="metaTitle" type="text" column="meta_title" nullable="false"/>
+    <field name="metaKeywords" type="text" column="meta_keywords" nullable="false"/>
+    <field name="metaDescription" type="text" column="meta_description" nullable="false"/>
+    <field name="shortDescription" type="text" column="short_description" nullable="false"/>
+    <field name="description" type="text" column="description" nullable="false"/>
+    <field name="bannerImg" type="text" column="banner_img" nullable="false"/>
+    <field name="bannerText" type="string" column="banner_text" length="255" nullable="false"/>
+    <field name="bannerSubText" type="string" column="banner_sub_text" length="255" nullable="false"/>
+    <field name="catagory" type="string" column="catagory" length="255" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="false"/>
+  </entity>
+</doctrine-mapping>

@@ -1,0 +1,155 @@
+service_index:
+    pattern:  /
+    defaults: { _controller: MovePlusServiceBundle:Service:index }
+    requirements:  { _method:  get|post }
+
+service_home:
+    pattern:  /home
+    defaults: { _controller: MovePlusServiceBundle:Service:home }
+    requirements:  { _method:  get|post }
+
+city_load_by_jquery:
+    pattern:  /loadcity/{county_slug}/{service_slug}/{start}
+    defaults: { _controller: MovePlusServiceBundle:Service:loadcity }
+    requirements:  { _method:  get|post }
+
+
+
+service_Error404:
+    pattern:  /error-404
+    defaults: { _controller: MovePlusServiceBundle:Service:Error404 }
+    requirements:  { _method:  get|post }
+
+service_getquoteform:
+    pattern:  /service/get-quote-form/{category}
+    defaults: { _controller: MovePlusServiceBundle:Service:getquoteform2 }
+    requirements:  { _method:  get|post }
+
+service_login:
+    pattern:  /service/login
+    defaults: { _controller: MovePlusServiceBundle:Service:login }
+    requirements:  { _method:  get|post }
+
+service_logout:
+    pattern:  /service/logout
+    defaults: { _controller: MovePlusServiceBundle:Service:logout }
+    requirements:  { _method:  get|post }
+
+service_allServices:
+    pattern:  /services
+    defaults: { _controller: MovePlusServiceBundle:Service:services }
+    requirements:  { _method:  get|post }
+
+service_movingPrice:
+    pattern:  /movingPrice
+    defaults: { _controller: MovePlusServiceBundle:Service:movingPrice }
+    requirements:  { _method:  get|post }
+
+service_cleaningPrice:
+    pattern:  /cleaningPrice
+    defaults: { _controller: MovePlusServiceBundle:Service:cleaningPrice }
+    requirements:  { _method:  get|post }
+
+service_packingPrice:
+    pattern:  /packingPrice
+    defaults: { _controller: MovePlusServiceBundle:Service:packingPrice }
+    requirements:  { _method:  get|post }
+
+move_plus_service_static:
+    pattern:  /service/static
+    defaults: { _controller: MovePlusServiceBundle:Service:static }
+    requirements:  { _method:  get|post }
+
+move_plus_service_packing_bannerSlider:
+    pattern:  /service/packingBanner
+    defaults: { _controller: MovePlusServiceBundle:Service:packingBanner }
+    requirements:  { _method:  get|post }
+
+move_plus_service_packing_movingSlider:
+    pattern:  /service/movingBanner
+    defaults: { _controller: MovePlusServiceBundle:Service:movingBanner }
+    requirements:  { _method:  get|post }
+
+service_packing_bookCleaning:
+    pattern:  /service/bookCleaning
+    defaults: { _controller: MovePlusServiceBundle:Service:bookCleaning } 
+    requirements:  { _method:  get|post }
+
+service_packing_bookMoving:
+    pattern:  /service/bookMoving
+    defaults: { _controller: MovePlusServiceBundle:Service:bookMoving }
+    requirements:  { _method:  get|post }
+
+service_packing_bookPacking:
+    pattern:  /service/bookPacking
+    defaults: { _controller: MovePlusServiceBundle:Service:bookPacking }
+    requirements:  { _method:  get|post }
+
+service_email_cleaningForm:
+    pattern:  /service/emailCleaningForm
+    defaults: { _controller: MovePlusServiceBundle:Service:emailCleaningForm } 
+    requirements:  { _method:  get|post }
+
+service_addBlogPost:
+    pattern:  /addBlogPost
+    defaults: { _controller: MovePlusServiceBundle:Service:addBlogPost } 
+    requirements:  { _method:  get|post }
+
+move_plus_service_testmonialView:
+    pattern:  /testmonial-view
+    defaults: { _controller: MovePlusServiceBundle:Service:testmonialView }
+    requirements:  { _method:  get|post }
+
+move_plus_sample_view:
+    pattern:  /sample-view-page/{pageID}
+    defaults: { _controller: MovePlusServiceBundle:Default:sampleview }
+    requirements:  { _method:  get|post }
+
+move_plus_bform:
+    pattern:  /bform/{formID}
+    defaults: { _controller: MovePlusServiceBundle:Default:bform }
+    requirements:  { _method:  get|post }
+
+content_pricePage:
+    pattern:  /price/{priceCatagory}
+    defaults: { _controller: MovePlusServiceBundle:Service:pricePage }
+    requirements:  { _method:  get|post }
+
+move_plus_search:
+    pattern:  /search/
+    defaults: { _controller: MovePlusServiceBundle:Service:search }
+    requirements:  { _method:  get|post }
+    
+content_services:
+    pattern:  /{slug}
+    defaults: { _controller: MovePlusServiceBundle:Service:content }
+    requirements:  { _method:  get|post }
+
+service_serviceEditSlug:
+    pattern:  /editSlug/{slug}
+    defaults: { _controller: MovePlusServiceBundle:Service:serviceEditSlug }
+    requirements:  { _method:  get|post }
+
+
+move_plus_service_county:
+    pattern:  /{county_slug}/{service_slug}
+    defaults: { _controller: MovePlusServiceBundle:Service:countypage }
+    requirements:  { _method:  get|post }
+
+move_plus_city_pages:
+    pattern:  /{service_slug}/{county_slug}/{city_slug}
+    defaults: { _controller: MovePlusServiceBundle:Service:countycitypage }
+    requirements:  { _method:  get|post }
+
+
+
+move_plus_service_searchCityPage:
+    pattern:  /search/cityPage
+    defaults: { _controller: MovePlusServiceBundle:Service:cityPage }
+    requirements:  { _method:  get|post }
+
+move_plus_service_searchCityName:
+    pattern:  /search/searchCityName
+    defaults: { _controller: MovePlusServiceBundle:Service:searchCityName }
+    requirements:  { _method:  get|post }
+

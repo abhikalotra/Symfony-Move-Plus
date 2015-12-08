@@ -1,0 +1,177 @@
+<html>
+  
+  <head>
+      	{% block head %}
+     <meta charset="UTF-8" />
+     <title>{% block title %}Test Application{% endblock %}</title>
+      
+	   
+	   {% if content.metaDescription is defined %}
+			<meta name ="description" content="{{ content.metaDescription }}" />
+       {% else %} 
+			<meta name ="description" content="If your in need of any type of services in London or anywhere in the uk then Move plus company is the answer." />
+	   {% endif %}
+
+		{% if content.metaKeyword is defined %}
+			<meta name="keywords" content="{{ content.metaKeyword }}">
+        {% else %}
+			<meta name="keywords" content="Man with van Manchester, Birmingham, Newcastle">
+		{% endif %}
+		
+         <link href="{{ asset('theme/frontend/css/style.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+		<link rel="stylesheet" href="{{ asset('theme/frontend/css/bootstrap.css') }}" type="text/css">
+		<link rel="stylesheet" href="{{ asset('theme/frontend/css/bootstrap.min.css') }}" type="text/css">
+		<link rel="stylesheet" type="text/css" href="{{ asset('theme/frontend/css/media.css') }}">
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ asset('theme/frontend/js/bootstrap.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('theme/frontend/js/bootstrap.min.js') }}"></script>
+
+	<link href="{{ asset('theme/frontend/css/banner.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+
+{% endblock %}
+    </head>
+  
+		<body>
+		
+		
+		{% block body %}
+	
+			{% block header %}
+		
+		<div class="container-fluid">
+			
+		<div class="rightAdminLogin">			
+			{% if app.session.get('userId')   %}
+					
+					{% if slug == 'empty'  %}					
+						
+					{% else %}
+						<a href="{{ asset('editSlug') }}/{{slug}} "> Edit </a>
+					{% endif %}
+					
+			{{app.session.get('userFirstName') }} 
+			<a href="{{ asset('service/static') }} "> Static  </a> |
+			<a href="{{ asset('service/logout') }}"> Logout </a>
+			{% else %}
+				
+			{% endif %}
+		</div>
+		<div align="center" class="container">
+		<nav class="navbar navbar-default">
+		<div class="fluids">
+		<div class="navbar-header">
+		<button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+		<a href="{{ asset('/') }}" class="navbar-brand"><img src="{{ asset('theme/frontend/images') }}/logo.png" alt=""></a> </div>
+		<div class="navbar-collapse collapse pull-right top" id="navbar">
+		<ul class="nav navbar-nav">
+		<li><a href="{{ asset('moving') }}">Moving</a></li>
+		<li><a href="{{ asset('packing') }}">Packing</a></li>
+		<li><a href="{{ asset('cleaning') }}">Cleaning</a></li>
+		<li><a href="#">BLOG</a></li>
+		<li><a href="#">CONTACT US</a></li>
+		</ul>
+		</div>
+		<div class="input-group">
+		<input type="text" class="form-control" placeholder="Search"/>
+		<span class="input-group-addon"> <i class="img"><img src="{{ asset('theme/frontend/images') }}/icon.png"> </i> </span> </div>
+		</div>
+		<!--/.container-fluid --> 
+		</nav>
+		</div>
+		</div>
+		
+		{% endblock %}
+		
+  
+  
+  
+  <!-- footer Start -->
+ {% block footer %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+<!-- footer section start here -->
+<footer>
+  <div class="container footerWrap">
+    <div class="row">
+      <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay help">
+        <h5>Help Center</h5>
+        <ul class="list-unstyled foot">
+          <li><a href="#"> About us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Be a Professional</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Money-Back Guarantee</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+       
+
+  <div class="footer-social-icon-row small-12 columns col-sm-3 col-sm-offset-5 social">
+<a target="_blank" class="icon-link" href="#"><i class="fa fa-twitter"></i>
+</a><a target="_blank" class="icon-link" href="#"><i class="fa fa-facebook"></i>
+</a><a target="_blank" class="icon-link" href="#"><i class="fa fa-instagram"></i>
+</a><a target="_blank" class="icon-link" href="#"><i class="fa fa-google-plus"></i>
+</a></div><div class="small-12 columns">
+
+</div>
+        
+      </div>
+      <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay city">
+        <h5>CITIES</h5>
+        <ul class="list-unstyled foot1">
+          <li><a href="#">London</a></li>
+          <li><a href="#">Birmingham</a></li>
+          <li><a href="#">Manchester</a></li>
+          <li><a href="#">Leeds</a></li>
+          <li><a href="#">Sheffield</a></li>
+          <li><a href="#">Bradford</a></li>
+          <li><a href="#">Newcastle</a></li>
+          <li><a href="#">Peterborough</a></li>
+          <li><a href="#">Plymouth</a></li>
+          <li><a href="#">Coventry</a></li>
+          <li><a href="#">Leicester</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay services">
+        <h5>POPULAR SERVICES</h5>
+        <ul class="list-unstyled foot2">
+          <li><a href="#">Cleaning</a></li>
+          <li><a href="#">Handyman</a></li>
+          <li><a href="#">Plumbing</a></li>
+          <li><a href="#">Electrical</a></li>
+          <li><a href="#">Moving Help</a></li>
+          <li><a href="#">Painting</a></li>
+          <li><a href="#">Furniture Assembly</a></li>
+          <li><a href="#">See all services</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br>
+
+  <div class="row pad-top lower-footer">
+  <div class="container sub">
+  <div class="col-md-12">
+<div class="col-md-6 col-xs-12 col-md-12 columns">
+<ul class="footer-secondary-links">
+<li><a class="smaller" href="/privacy">Privacy</a></li>
+<li><a class="smaller" href="/cookies">Cookies</a></li>
+<li><a class="smaller" href="/terms">Terms</a></li>
+</ul>
+</div>
+<div class="col-md-6 col-xs-12 col-md-12 columns footer-copyright-text">
+© 2015 Move plus. All rights reserved.
+</div>
+</div></div>
+
+</div>
+</footer>
+
+  
+  {% endblock %}
+  <!-- footer End -->
+ {% endblock %}
+ </body>
+</html> 

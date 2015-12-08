@@ -1,0 +1,190 @@
+
+{% if content.howitswork_widget == 1 %}
+{% render controller('MovePlusServiceBundle:Default:howitworks') %}
+{% endif %}
+
+
+{% if content.relatedservices_widget == 1 %}
+	<div class="row1 rowheight">
+  <div class="container">
+    <div class="col-lg-12 text-center footer">
+      <h2 class="related"> Related Services of {{ content.catagory|title }} </h2>
+      <div class="container footerWrap">
+        <div class="row">        
+       <ul class="list-unstyled colorRelated"> 
+		   {% for movingSericesRecord in movingSericesRecords  %}
+           <li style="width:25%;margin:0px;margin-top:15px;">
+				<a href="{{ asset('/') }}{{ movingSericesRecord.slug }}" title="{{ movingSericesRecord.title }}">  {{ movingSericesRecord.title }}</a>
+		  </li>
+         {% endfor %}	
+        </ul>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- blog section start here -->
+
+<div class="row1">
+  <div class="container">
+    <div class="col-lg-12 text-center footer">
+      <h2> City we cover </h2>
+      <input type="hidden" id="loadurl" value="loadcity/{{ content.county_slug }}/{{ content.service_slug }}">
+      <input type="hidden" id="limit" value="{{ limit }}">
+      <input type="hidden" id="start" value="{{ start }}">
+      <input type="hidden" id="loadinglist" value="0">
+      
+      <div class="container footerWrap">
+        <div class="row">
+        
+       <!-- <ul class="list-unstyled">  -->
+			<div class="wrap">
+				<ul class="list-unstyled" id="loadmorecitylist">
+					  {% for city in cityPages %}
+					
+						 <li class="item" id="item-{{city.id}}" style="width:25%;margin:0px;margin-top:15px;">
+								<a href="{{ path('move_plus_city_pages', { 'service_slug': city.service_slug,'county_slug': city.county_slug,'city_slug': city.city_slug }) }}"> {{city.city}}</a>
+						  </li>
+					  {% endfor %}
+				 </ul>
+		   </div>
+		   <div class="loadmore"><img src='/theme/frontend/images/loading-img.gif'></div>
+       </div>
+		
+		          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+{% if content.customertestimonial_widget == 1 %}
+  {% render controller('MovePlusServiceBundle:Default:gettestimonial') %}
+{% endif %}
+
+{% if content.readytobook_widget == 1 %}
+<div class="row5">
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="col-lg-12 col-xs-12 text-center">
+        <div class="col-lg-6 col-sm-6 col-sm-12 text-center1">
+          <div class="book">
+            <h2> Ready to book now? </h2>
+            <div class="number"> <img src="/theme/frontend/images/phone.png" alt="phone" title="phone"> 07701038629</div>
+          </div>
+          <div class="btn-group1">
+          <!-- <button type="submit"   class="btn btn-default bookMoving">Book a Moving</button>  -->
+			  {% render controller('MovePlusServiceBundle:Default:recentServicePopUpBottom',  {'catagory': content.catagory }) %}		
+			  
+          </div>
+   
+        </div>
+      </div>
+    </div>
+  </div>	
+</div>
+{% endif %}
+
+{% if content.blog_widget == 1 %}
+<div class="row">
+    <div class="container post">
+      <div class="col-md-12 text-center blog_h">
+      <h2>Recent updates from MovePlus Blog </h2>
+      {% render controller('MovePlusServiceBundle:Default:recentpostCombined', {'catagory': content.catagory })%}
+        
+      </div> 
+    </div>
+</div>
+{% endif %}
+
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+
+ <footer>
+  <div class="container footerWrap">
+  
+  	  {% render controller('MovePlusServiceBundle:Default:footerSide1Moving') %}
+ 
+   </div>
+   
+  <div class="row pad-top lower-footer">
+    <div class="container sub">
+      <div class="col-md-12">
+        {% render controller('MovePlusServiceBundle:Default:footersection') %}
+      </div>
+    </div>
+  </div>
+</footer>
+
+	 
+
+ <script type="text/javascript" src="{{ asset('theme/frontend/js/jquery.bxslider.min.js') }}"></script>
+
+<script>
+   $('.testimonials-slider').bxSlider({
+   slideWidth: 800,
+   minSlides: 1,
+   maxSlides: 1,
+   slideMargin: 32,
+   auto: true,
+   autoControls: true
+   });
+   
+   
+  
+
+var element_position = $('.loadmore').offset().top;
+
+$(window).on('scroll', function() {
+    var y_scroll_pos = window.pageYOffset;
+    var scroll_pos_test = element_position;
+
+    if(y_scroll_pos > scroll_pos_test) {
+    
+    if($('#loadinglist').val() == 0){
+    $('.loadmore').remove();
+    $('#loadinglist').val('1');
+    $('#start').val(parseInt($('#start').val())+20);
+              var url = "http://moveplus.co.uk/"+$('#loadurl').val()+"/"+$('#start').val();
+              var posting = $.post(url);
+
+                /* Put the results in a div */
+                posting.done(function(data) {
+                    $('#loadmorecitylist').append(data);
+                    if(data){
+                    $('#loadinglist').val('0');
+                    $('#loadmorecitylist').append("<div class='loadmore'><img src='/theme/frontend/images/loading-img.gif'></div>");
+                    }
+                    
+                    
+                });
+                
+     }   
+    }
+});
+
+
+
+
+</script>   
+	
+
+	
+<style>	 
+.loaderWidthImage{
+    float: left;
+    margin-left: 37%;
+	width: 100%;
+}
+</style>	 
+
+</body>
+</html>

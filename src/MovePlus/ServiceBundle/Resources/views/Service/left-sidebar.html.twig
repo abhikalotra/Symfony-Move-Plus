@@ -1,0 +1,84 @@
+{% include '::hf/header_service.html.twig' %}
+
+
+
+
+ <div class="container-fluid">
+   <div class="containerBanners">
+      {% if content.featuredImage %}   
+      <img src="{{ asset('theme/frontend/images') }}/{{ content.featuredImage }}" alt="{{ content.featuredImage }}" title="{{ content.featuredImage }}" >
+      {% else  %}	
+      <img src="{{ asset('theme/frontend/images') }}/cleaning.png" alt="cleaning" title="cleaning" >
+      {% endif %}
+      <div id="cleanings">
+         <div class="row2">
+            <div class="container">
+               <div class="col-lg-12 text-center head head_c">
+                  <h1>
+                     {% if content.bannerTitle %}
+                     {{ content.bannerTitle }}
+                     {% endif %}
+                  </h1>
+                  <p style="color: #fff !important">
+                     {% if content.bannerSortDesc %}
+                     {{ content.bannerSortDesc }}
+                     {% endif %}
+                  </p>
+              {% render controller('MovePlusServiceBundle:Default:recentServicePopUpBottom',  {'catagory': catagory }) %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<div class="left-side-bar">
+<div class="row">
+   <div class="container">
+{{ content.leftsidebar| raw }}
+   </div>
+</div>
+</div>
+<div class="left-sidebar-contnet">
+ {% if content.shortDescription %}
+<div class="row">
+   <div class="container">	
+     
+      {{ content.shortDescription| raw }}
+      
+   </div>
+</div>
+{% endif %}
+
+{% if content.description %}
+<div class="row">
+   <div class="container">
+      {{ content.description| raw }}
+   </div >
+</div>
+
+{% endif %}
+ 
+</div>
+
+	
+
+{% include '::hf/footer_service.html.twig' %}
+
+
+
+
+
+{% if (content.slug == 'contact-us') or (content.slug == 'about-us') or (content.slug == 'terms-conditions') %}
+<style>
+button.btn.btn-default {
+display: none;
+}
+.row5 {
+display: none;
+}
+</style>
+{% endif %}
+
+

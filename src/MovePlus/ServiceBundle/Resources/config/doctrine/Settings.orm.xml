@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\Settings" table="settings">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="logo" type="text" column="logo" nullable="false"/>
+    <field name="contactNumber" type="text" column="contact_number" nullable="false"/>
+    <field name="contactEmail" type="text" column="contact_email" nullable="false"/>
+    <field name="copywrite" type="text" column="copywrite" nullable="false"/>
+    <field name="socialicon" type="text" column="socialicon" nullable="false"/>
+    <field name="analyticCode" type="text" column="analytic_code" nullable="false"/>
+  </entity>
+</doctrine-mapping>

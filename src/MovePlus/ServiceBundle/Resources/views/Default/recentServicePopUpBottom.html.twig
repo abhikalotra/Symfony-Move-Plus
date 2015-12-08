@@ -1,0 +1,19 @@
+{% if formdata is defined %}
+<input type="hidden" id="selected_service"  class="selected_service" value="{{ formdata }}">
+<select class="btn btn-default selectDropdown" id="selectDropdown">			 
+<option value="" >Select Services</option>
+<option value="moving" {% if formdata == 'moving' %} selected {% endif %}>Moving</option>
+<option value="cleaning" {% if formdata == 'cleaning' %} selected {% endif %}>Cleaning</option>
+<option value="packing" {% if formdata == 'packing' %} selected {% endif %}>Packing</option>
+</select>
+<button type="button" onClick="showquotefor()" class="moving box btn btn-default showquoteforbutton">Request a Quote</button>
+{% else %}
+<input type="hidden" id="selected_service" class="selected_service" value="">
+<select class="btn btn-default selectDropdown" id="selectDropdown">			 
+<option value="" >Select Services</option>
+<option value="moving" >Moving</option>
+<option value="cleaning" >Cleaning</option>
+<option value="packing" >Packing</option>
+</select>
+<button style="display:none" type="button" onClick="showquotefor()" class="moving box btn btn-default showquoteforbutton">Request a Quote</button>
+{% endif %}

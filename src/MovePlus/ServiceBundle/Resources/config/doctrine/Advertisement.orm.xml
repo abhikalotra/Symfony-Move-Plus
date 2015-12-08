@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\Advertisement" table="advertisement">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="title" type="string" column="title" length="255" nullable="false"/>
+    <field name="description" type="string" column="description" length="255" nullable="false"/>
+    <field name="image" type="string" column="image" length="255" nullable="false"/>
+    <field name="catagoryId" type="integer" column="catagory_id" nullable="false"/>
+    <field name="catagoryName" type="string" column="catagory_name" length="255" nullable="false"/>
+    <field name="link" type="string" column="link" length="255" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="false"/>
+  </entity>
+</doctrine-mapping>

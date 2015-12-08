@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-default">
+      <div class="fluids">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          
+          <a href="{{ asset('/') }}" class="navbar-brand" title="MovePlus">
+          <img src="{{ settings.logo|raw }}" alt="MovePlus" title="MovePlus">
+          </a>
+          
+           </div>
+        <div class="navbar-collapse collapse pull-right top" id="navbar">
+          <ul class="nav navbar-nav">
+          
+           {% for menu in hmenu %}
+          <li>
+          <a href="{{ menu.link_url }}" title="{{ menu.title }}">{{ menu.title }}</a>
+          {% render controller('MovePlusServiceBundle:Default:childmenu', {'parentid': menu.id })%}
+          </li>
+          {% endfor %}
+          
+          
+          
+           
+          </ul>
+        </div>
+		 <div class="input-group">
+		 <div class="rightAdminLogin">	
+      {{ settings.contact_number|raw }}
+		</div>
+		<form name="search" id="search-form" action="/search" method="get">
+          <input type="text" name="s" class="form-control" placeholder="Search"/>
+          <span class="input-group-addon"> <i class="img">
+		      <img onclick="document.getElementById('search-form').submit();" src="{{ asset('theme/frontend/images') }}/icon.png" alt="icon" title="icon" class="serchIon"> </i> </span> 
+    </form>
+    </div>
+      </div>
+      <!--/.container-fluid --> 
+    </nav>

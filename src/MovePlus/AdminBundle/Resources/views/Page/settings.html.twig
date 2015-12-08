@@ -1,0 +1,51 @@
+{% extends '::admin-layout.html.twig' %}
+
+{% block body -%}
+
+
+    <h2 style="width:200px;float:left">{{ patetitle }}</h2>
+    
+    
+    
+    <form action="" method="post" enctype="multipart/form-data">
+    
+    
+      <div class="row">
+      <label> Logo:</label>
+      <img style="width:150px" src="{{ setting.logo }}"><br />
+      <input type="hidden" name="old_logo" value="{{ setting.logo }}" >
+      <input type="file" name="logo" value="" >
+      </div>
+      
+      <div class="row">
+      <label>Contact Number:</label> 
+      <input type="text" name="contact_number" value="{{ setting.contact_number }}" >
+      </div>
+      
+      <div class="row">
+      <label> Contact Email:</label>
+      <input type="text" name="contact_email" value="{{ setting.contact_email }}" >
+      </div>
+      
+      <div class="row">
+      <label>Social Iocn:</label>
+      <textarea   name="socialicon" >{{ setting.socialicon }}</textarea>
+      </div>
+      
+      <div class="row">
+      <label>Copywrite Text:</label>
+      <textarea   name="copywrite" >{{ setting.copywrite }}</textarea> 
+      </div>
+      
+      <div class="row">
+      <label>Google Analytic Code:</label>
+      <textarea   name="analytic_code" >{{ setting.analytic_code }}</textarea>
+      </div>
+      
+      <div class="row">
+      <label>&nbsp;</label>
+      <input style="margin: 8px 0 20px;padding:7px 15px;" type="submit" name="submit" value="Update">
+      </div>
+    </form>
+   
+{% endblock %}

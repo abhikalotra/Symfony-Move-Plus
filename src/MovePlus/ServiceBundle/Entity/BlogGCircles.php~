@@ -1,0 +1,130 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogGCircles
+ *
+ * @ORM\Table(name="blog_g_circles")
+ * @ORM\Entity
+ */
+class BlogGCircles
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="map", type="integer", nullable=false)
+     */
+    private $map;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="center_lat", type="string", length=255, nullable=false)
+     */
+    private $centerLat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="center_lng", type="string", length=255, nullable=false)
+     */
+    private $centerLng;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="radius", type="string", length=255, nullable=false)
+     */
+    private $radius;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="line_width", type="string", length=5, nullable=false)
+     */
+    private $lineWidth;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="line_opacity", type="string", length=5, nullable=false)
+     */
+    private $lineOpacity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="line_color", type="string", length=7, nullable=false)
+     */
+    private $lineColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fill_color", type="string", length=7, nullable=false)
+     */
+    private $fillColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fill_opacity", type="string", length=7, nullable=false)
+     */
+    private $fillOpacity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hover_line_opacity", type="string", length=5, nullable=false)
+     */
+    private $hoverLineOpacity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hover_line_color", type="string", length=7, nullable=false)
+     */
+    private $hoverLineColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hover_fill_color", type="string", length=7, nullable=false)
+     */
+    private $hoverFillColor;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="hover_fill_opacity", type="string", length=7, nullable=false)
+     */
+    private $hoverFillOpacity;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="show_marker", type="integer", nullable=false)
+     */
+    private $showMarker;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

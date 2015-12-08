@@ -1,0 +1,120 @@
+<a href="javascript:void(0)" onclick="ClosePopupDiv()" class="closepopup">
+<img src="{{ asset('theme/frontend/images') }}/close_4-512.png" alt="Close" title="Close">
+</a>
+{% if sucessMessage is defined %}
+<p class="message">{{ form.sucess_message }}</p>
+{% endif %}
+
+<form action="/service/get-quote-form/catagory='{{form.catagory|trim}}'" method="post" id="quoteform">
+{{form.content|raw}}
+<div id="stepsnavigation">
+<a class=' btn' id="previousbtn" href='javascript:void(0)'>Prev</a>
+<a class=' btn' id="nextbtn" href='javascript:void(0)'>Next</a>
+</div>
+<div id="submitbuttons">
+
+<input name="submitform" type="hidden" value="submitform" >
+<input class="btn" name="submit" type="submit" value="Submit" >
+</div>
+</form>
+<input type="hidden" id="c_step" value="1" >
+
+     
+<script>
+
+$(document).ready(function(){
+
+$( "input[name=needthisservice]" ).datepicker();
+$( ".datepicker" ).datepicker();
+$('#previousbtn').click(function(){
+var c_stepvalue = parseInt($('#c_step').val());
+if(c_stepvalue > 1){
+$("#step-"+parseInt($('#c_step').val())).hide();
+$('#c_step').val(c_stepvalue-1);
+$("#step-"+parseInt($('#c_step').val())).show();
+}
+if(c_stepvalue == {{ form.number_steps }}){
+$('#submitbuttons').show();
+}else{
+$('#submitbuttons').hide();
+}
+
+})
+
+$('#nextbtn').click(function(){
+var error=0;
+$("#step-"+parseInt($('#c_step').val())).find('.required').each(function() { 
+if($(this).val() == '' || $(this).val() ==null){
+$(this).addClass('errorelement');
+error++;
+}else{
+$(this).removeClass('errorelement');
+}
+})
+
+if(error == 0){
+var c_stepvalue = parseInt($('#c_step').val());
+if(c_stepvalue < {{ form.number_steps }}){
+$("#step-"+parseInt($('#c_step').val())).hide();
+$('#c_step').val(c_stepvalue+1);
+$("#step-"+parseInt($('#c_step').val())).show();
+}
+if(c_stepvalue == {{ form.number_steps }}){
+$('#submitbuttons').show();
+}else{
+$('#submitbuttons').hide();
+}
+}
+})
+
+});
+
+if({{ form.number_steps }} ==1 ){
+$('#submitbuttons').show();
+$('#stepsnavigation').hide();
+}else{
+$('#submitbuttons').hide();
+$('#stepsnavigation').show();
+}
+for(var i=1;i <={{ form.number_steps }};i++){
+if(i >1){
+ $("#step-"+i).hide();
+}
+}
+            /* attach a submit handler to the form */
+            $("#quoteform").submit(function(event) {
+            
+               
+
+                /* stop form from submitting normally */
+                event.preventDefault();
+                var error=0;
+                $("#quoteform").find('.required').each(function() { 
+                
+               // alert($(this).val());
+                if($(this).val() == '' || $(this).val() ==null){
+                $(this).addClass('errorelement');
+                error++;
+                }else{
+                $(this).removeClass('errorelement');
+                }
+                })
+                
+                if(error == 0){
+
+
+                /* get some values from elements on the page: */
+                var $form = $(this),
+                    term = $form.find('input[name="s"]').val(),
+                    url = $form.attr('action');
+
+                /* Send the data using post */
+                var posting = $.post(url, $("#quoteform").serialize());
+
+                /* Put the results in a div */
+                posting.done(function(data) {
+                    $('#quoteformhtml').html(data);
+                });
+          }
+            });
+        </script>

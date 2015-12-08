@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MovePlus Admin Section</title>
+   
+        
+        
+     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="{{asset('bundles/ajax/typeahead.min.js')}}"></script>
+     <script type="text/javascript" src="{{asset('bundles/tinymce/js/tinymce/tinymce.min.js')}}"></script>
+     
+     <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea.description"
+        });
+    </script>
+   <style>
+
+
+.header .left{
+text-align: left;
+font-size: 24px;
+padding:20px;
+width:40%;
+float:left;
+}
+
+.header .right{
+font-size: 18px;
+padding:20px;
+text-align: right;
+width:40%;
+float:right;
+}
+
+hr{
+margin-bottom: 30px;
+}
+
+input[type=text],[type=password],textarea,select {
+width: 99%;
+height: 34px;
+padding-left: 1%;
+margin-bottom: 20px;
+margin-top: 8px;
+border: 1px solid #e2e2e2;
+color: #000;
+font-size: 16px;
+float:left;
+}
+textarea{height:200px;}
+
+label{
+color: #464646;
+text-shadow: 0 1px 0 #fff;
+font-size: 14px;
+font-weight: bold;
+width:100%;
+float: left;
+}
+
+.main{width:1200px;margin:0 auto;}
+.row{width:100%;float:left;clear:both;}
+.header{width:100%;float:left;border-bottom:1px solid #e2e2e2;}
+.inner-main{width:100%;float:left;border-bottom:1px solid #e2e2e2;}
+.inner-left{width:15%;float:left;}
+.inner-center{padding:10px;width:60%;float:left;min-height:500px;border-left:1px solid #e2e2e2;border-right:1px solid #e2e2e2;}
+.inner-right{width:20%;float:right;}
+.main ul li{
+border-bottom: 1px solid #e2e2e2;
+    list-style: outside none none;
+    padding: 5px 0;
+    width: 98%;
+    float:left;
+}
+.main ul{padding:0px;margin:0px;}
+a{
+color:#000;
+font-size:16px;
+text-decoration:none;
+}
+a:hover{
+color:#e2e2e2;
+text-decoration:none;
+}
+
+.main ul li a{
+color:#000;
+font-size:16px;
+text-decoration:none;
+}
+.main ul li a:hover{
+color:#e2e2e2;
+text-decoration:none;
+}
+h3 {
+    float: left;
+    margin: 5px 0;
+    padding: 0;
+}
+h3 a{
+color:#000;
+font-size:20px;
+text-decoration:none;
+}
+h3 a:hover{
+color:#e2e2e2;
+text-decoration:none;
+}
+.mce-tinymce{
+clear: both !important;
+    float: left;
+    margin-bottom: 10px !important;
+    margin-top: 30px !important;
+    position: relative !important;
+    width: 100% !important;
+}
+h2{padding-top:0px;margin-top:0px;}
+
+.button{padding:5px 15px;float:right;}
+
+li.button-li{width:100%!important;float:left;border-bottom:0px!important;}
+table{width:100%;}
+table th{background:#e2e2e2;}
+table tr td{border-bottom:1px solid #e2e2e2;padding: 5px 0;}
+
+</style>
+
+    </head>
+    <body>
+    <div class="main">
+        
+        <div class="header">
+        <div class="left"><img title="logo" alt="logo" src="/theme/frontend/images/logo.png"></div>
+        <div class="right">
+        {% if app.session.get('userId')   %}
+        Welcome Admin | <a href="{{ path('move_plus_admin_adminLogout') }}">Logout</a>
+        {% else %}
+        <a href="{{ path('move_plus_admin_adminLogin') }}">Login</a>
+        {% endif %}
+        </div>
+        </div>
+        <div class="inner-main">
+          <div class="inner-left">
+          <h3><a  href="{{ path( 'move_plus_admin_adminDashboard' ) }}" title="Dashboard">Dashboard</a></h3>
+          <h3>General Settings</h3>
+          
+          <ul>
+              
+             <li><a  href="{{ path( 'admin_settings' ) }}" title="Global Setting">Global Setting</a> </li>
+              
+          
+          </ul>
+          <h3>Menu</h3>
+          
+          <ul>
+              
+              <li><a  href="{{ path( 'admin_h_menu' ) }}" title="Edit">Header Menu</a> </li>
+              <li><a  href="{{ path( 'admin_f_menu' ) }}" title="Edit">Footer Menu </a> </li>
+              
+          
+          </ul>
+          <h3>Pages</h3>
+          
+          <ul>
+              
+              <li><a  href="{{ path( 'admin_all_pages' ) }}" title="Edit">Static Pages </a> </li>
+              <li><a  href="{{ path( 'admin_county_pages' ) }}" title="Edit">County Pages </a> </li>
+              <li><a  href="{{ path( 'admin_city_pages' ) }}" title="Edit">City Pages </a> </li>
+          </ul>
+          
+        
+          </div>
+          
+          <div class="inner-center">
+          &nbsp;
+          {% block body %}{% endblock %}
+          </div>
+          
+          <div class="inner-right">
+               {% block rightpanel %}{% endblock %}
+          </div>
+        </div>
+        <footer>
+            <div class="row">
+              <div class="col-lg-12">
+                  <p>Copyright &copy; BankingDB.com 2015</p>
+              </div>
+            </div>
+        <!-- /.row -->
+        </footer>
+        
+        </div>
+        
+    </body>
+</html>

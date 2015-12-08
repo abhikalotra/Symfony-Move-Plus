@@ -1,0 +1,12 @@
+
+{% for post in mypostsMov %}
+ <div class="col-md-4 col-sm-4 text-center con r_post">
+  <div class="cleaning1_outer blog_image_seting"> <a href="{{ post.permalink}}" title="{{ post.post_title|raw}}">{{ post.thumbnail|raw }} </a></div>
+  <h5> {{ post.post_title|raw}} </h5>
+  <p> {{ post.excerpt|raw}} </p>
+   <a href="{{ post.permalink}}" title="{{ post.post_title|raw}}">READ MORE</a>
+</div>
+{% endfor %}
+		
+	
+		

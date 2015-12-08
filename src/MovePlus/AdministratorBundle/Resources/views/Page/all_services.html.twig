@@ -1,0 +1,129 @@
+{% include '::administartor/header_administartor.html.twig' %}
+
+            <div class="page-container">
+               <!-- BEGIN SIDEBAR -->
+               <div class="page-sidebar-wrapper">
+              
+					{% include '::administartor/sidebar_administartor.html.twig' %}
+
+				 </div>
+               <!-- END SIDEBAR -->
+               <!-- BEGIN CONTENT -->
+               <div class="page-content-wrapper">
+                  <div class="page-content">
+             
+                     <!-- BEGIN PAGE HEADER-->
+                     <h3 class="page-title" style="margin-bottom: 41px;">
+                       {{ patetitle }} 
+                     </h3>
+                     <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                           <li>
+                              <i class="fa fa-home"></i>
+                               <a href="{{ path('move_plus_administrator_dashboard') }}">Dashboard</a>
+                              <i class="fa fa-angle-right"></i>
+                           </li>
+                           <li>
+                               <a href="{{ path('move_plus_administrator_staticPages') }}">{{ patetitle }}</a>
+                             
+                           </li>
+                          
+                        </ul>
+                
+                     </div>
+                     <!-- END PAGE HEADER-->
+                     <!-- BEGIN PAGE CONTENT-->
+                     <div class="row">
+                        <div class="col-md-12">
+                           <!-- BEGIN EXAMPLE TABLE PORTLET-->
+                           <div class="portlet box blue">
+                              <div class="portlet-title">
+                                 <div class="caption">
+                                    <i class="fa fa-edit"></i> {{ patetitle }} 
+                                 </div>
+                                 <div class="tools">
+                                    <a href="javascript:;" class="collapse">
+                                    </a>
+                                 </div>
+                              </div>
+                              <div class="portlet-body">
+							   {% for flashMessage in app.session.flashbag.get('addSucessFull') %}
+											</br><span class="addSucessFull" >{{ flashMessage }}</span>
+								{% endfor %}
+								
+                               <div class="table-toolbar">
+                                    <div class="row">
+                                    <div class="col-md-6">
+                                          <div class="btn-group">                                            
+											 <a href="{{ path('move_plus_administrator_addstaticPages') }}" class="btn green"> Add New Page  <i class="fa fa-plus"></i></a>
+                                          </div>
+                                     </div>
+									
+                                    </div>
+                                 </div>
+                                 <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+                                    <thead>
+                                       <tr>
+                                          <th>
+                                             Id
+                                          </th>
+                                          <th>
+                                             Title
+                                          </th>
+                                          <th>
+                                             Action Perform
+                                          </th>
+                                         
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+									 {% for service in allServices  %}
+										<tr>
+										  <td>
+											{{ loop.index }} 
+										  </td>
+										  <td>
+											{% if service.parent_id %} --- {% else %} {{ service.title }} {% endif %}
+											{% if service.parent_id %} {{ service.title }}  {% endif %}
+										  </td>									  
+										  <td>
+										   <a href="http://moveplus.co.uk/{{ service.slug }}" TARGET="_blank" class="View" title="View" > View </a> |
+										  
+										  <a href="{{ path( 'move_plus_administrator_editStaticPages', { 'id': service.id  }) }}" class="edit" title="Edit" > Edit </a> |
+																					
+											<a onclick="deleteStaticPages('{{service.id}}')" title="Delete" class="delete" id="deleterow" > Delete </a>
+										  </td>									 
+									   </tr>
+									   {% endfor %}		   
+                                    </tbody>
+                                 </table>
+                              </div>
+                           </div>
+                           <!-- END EXAMPLE TABLE PORTLET-->
+                        </div>
+                     </div>
+                     <!-- END PAGE CONTENT -->
+                  </div>
+               </div>
+            
+            </div>
+            <!-- END CONTAINER -->
+			
+            {% include '::administartor/footer_administartor.html.twig' %} 
+		   
+	  
+	
+	
+	
+       
+	   <script> 
+               jQuery(document).ready(function() {   
+              //    Metronic.init(); // init metronic core components
+              // Layout.init(); // init current layout
+             //  QuickSidebar.init(); // init quick sidebar
+            //   Demo.init(); // init demo features
+                  TableEditable.init();
+               });
+               
+            </script>
+        

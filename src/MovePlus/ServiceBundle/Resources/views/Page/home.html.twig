@@ -1,0 +1,579 @@
+
+{% include '::header_service.html.twig' %}
+
+
+
+
+<script src="{{ asset('bundles/framework/FullSlider/jquery-1.9.1.min.js') }}"></script>
+
+
+<script src="{{ asset('bundles/framework/FullSlider/jssor.js') }}"></script>
+<script src="{{ asset('bundles/framework/FullSlider/jssor.slider.js') }}"></script>	
+<script>
+        jQuery(document).ready(function ($) {
+
+            var _CaptionTransitions = [];
+            _CaptionTransitions["L"] = { $Duration: 900, x: 0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["R"] = { $Duration: 900, x: -0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["T"] = { $Duration: 900, y: 0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["B"] = { $Duration: 900, y: -0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["ZMF|10"] = { $Duration: 900, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 };
+            _CaptionTransitions["RTT|10"] = { $Duration: 900, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+            _CaptionTransitions["RTT|2"] = { $Duration: 900, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 0.5} };
+            _CaptionTransitions["RTTL|BR"] = { $Duration: 900, x: -0.6, y: -0.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+            _CaptionTransitions["CLIP|LR"] = { $Duration: 900, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 };
+            _CaptionTransitions["MCLIP|L"] = { $Duration: 900, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+            _CaptionTransitions["MCLIP|R"] = { $Duration: 900, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+
+            var options = {
+                $FillMode: 2,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
+                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+                $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+                $SlideEasing: $JssorEasing$.$EaseOutQuint,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+                $SlideDuration: 800,                               //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+                //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+                $DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+                $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+                $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+                $CaptionSliderOptions: {                            //[Optional] Options which specifies how to animate caption
+                    $Class: $JssorCaptionSlider$,                   //[Required] Class to create instance to animate caption
+                    $CaptionTransitions: _CaptionTransitions,       //[Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
+                    $PlayInMode: 1,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
+                    $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
+                },
+
+                $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                    $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                    $SpacingX: 8,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $SpacingY: 8,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+                    $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                },
+
+                $ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizes
+            function ScaleSlider() {
+                var bodyWidth = document.body.clientWidth;
+                if (bodyWidth)
+                    jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1920));
+                else
+                    window.setTimeout(ScaleSlider, 30);
+            }
+            ScaleSlider();
+
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>
+    <!-- Jssor Slider Begin -->
+    <!-- To move inline styles to css file/block, please specify a class name for each element. --> 
+    <div id="slider1_container" style="position: relative; margin: 0 auto;
+        top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+        <!-- Loading Screen -->
+        
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px;
+            height: 500px; overflow: hidden;">
+            <div>
+                <img u="image" src="{{ asset('bundles/framework/FullSlider/img/1920/red.jpg') }}" />
+                
+                <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px;
+                        color: #FFFFFF;">Touch Swipe Slider One
+                </div>
+                <div style="position: absolute; width: 480px; height: 120px; top: 300px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 36px; font-size: 30px;
+                        color: #FFFFFF;">
+                        Build your slider with anything, includes image, content, text, html, photo, picture
+                </div>
+            </div>
+            <div>
+                <img u="image" src="{{ asset('bundles/framework/FullSlider//img/1920/purple.jpg') }}" />
+                <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px;
+                        color: #FFFFFF;">Touch Swipe Slider Two
+                </div>
+                <div style="position: absolute; width: 480px; height: 120px; top: 300px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 36px; font-size: 30px;
+                        color: #FFFFFF;">
+                        Build your slider with anything, includes image, content, text, html, photo, picture
+                </div>
+            </div>
+            <div>
+                <img u="image" src="{{ asset('bundles/framework/FullSlider/img/1920/blue.jpg') }}" />
+                <div style="position: absolute; width: 480px; height: 120px; top: 30px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 60px; text-transform: uppercase; font-size: 50px;
+                        color: #FFFFFF;">Touch Swipe Slider Three
+                </div>
+                <div style="position: absolute; width: 480px; height: 120px; top: 300px; left: 30px; padding: 5px;
+                    text-align: left; line-height: 36px; font-size: 30px;
+                        color: #FFFFFF;">
+                        Build your slider with anything, includes image, content, text, html, photo, picture
+                </div>
+            </div>
+        </div>
+                
+        <!--#region Bullet Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+        <style>
+            /* jssor slider bullet navigator skin 21 css */
+            /*
+            .jssorb21 div           (normal)
+            .jssorb21 div:hover     (normal mouseover)
+            .jssorb21 .av           (active)
+            .jssorb21 .av:hover     (active mouseover)
+            .jssorb21 .dn           (mousedown)
+            */
+            .jssorb21 {
+                position: absolute;
+            }
+            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+                position: absolute;
+                /* size of bullet elment */
+                width: 19px;
+                height: 19px;
+                text-align: center;
+                line-height: 19px;
+                color: white;
+                font-size: 12px;
+                background: url(../img/b21.png) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .jssorb21 div { background-position: -5px -5px; }
+            .jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
+            .jssorb21 .av { background-position: -65px -5px; }
+            .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
+        </style>
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb21" style="bottom: 26px; right: 6px;">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype"></div>
+        </div>
+        <!--#endregion Bullet Navigator Skin End -->
+        
+        <!--#region Arrow Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
+        <style>
+            /* jssor slider arrow navigator skin 21 css */
+            /*
+            .jssora21l                  (normal)
+            .jssora21r                  (normal)
+            .jssora21l:hover            (normal mouseover)
+            .jssora21r:hover            (normal mouseover)
+            .jssora21l.jssora21ldn      (mousedown)
+            .jssora21r.jssora21rdn      (mousedown)
+            */
+            .jssora21l, .jssora21r {
+                display: block;
+                position: absolute;
+                /* size of arrow element */
+                width: 55px;
+                height: 55px;
+                cursor: pointer;
+                background: url(../img/a21.png) center center no-repeat;
+                overflow: hidden;
+            }
+            .jssora21l { background-position: -3px -33px; }
+            .jssora21r { background-position: -63px -33px; }
+            .jssora21l:hover { background-position: -123px -33px; }
+            .jssora21r:hover { background-position: -183px -33px; }
+            .jssora21l.jssora21ldn { background-position: -243px -33px; }
+            .jssora21r.jssora21rdn { background-position: -303px -33px; }
+        </style>
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora21l" style="top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora21r" style="top: 123px; right: 8px;">
+        </span>
+        <!--#endregion Arrow Navigator Skin End -->
+        <a style="display: none" href="http://www.jssor.com">Bootstrap Slider</a>
+    </div>
+  
+ 
+ <!--
+  <div class="container-fluid">
+  <div id="banner">
+    <div class="row2">
+      <div class="container">
+        <div class="col-lg-12 text-center head">
+          <h1>We are a Creative Digital Agency</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse <br>
+            rhoncus, lacus ac commodo volutpat, 
+            felis odio pulvinar enim.</p>
+          <div class="btn-group">
+            <button class="btn btn-default btn-lg dropdown-toggle see" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> See All Services <span class="caret"></span> </button>
+            <ul class="dropdown-menu">
+              ...
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+<div class="container_class">
+  <div class="row">
+    <div class="container">
+      <div class="col-md-4 col-sm-4 amet text-center">
+        <h3> Packing </h3>
+        <div class="packing1_outer"> <img src="{{ asset('theme/frontend/images') }}/Untitled-1.png"> </div>
+       
+				<p> We provide all kinds of packing related services, designed to suit not only your budget but individual timelines. We bring all packing material to wrap your precious belonging using latest equipment and methodologies. Utmost care is taken while loading, transporting and unloading them to the required destination.</p>
+	
+       <h5><a href="{{ asset('service/packing') }}" style=" color: #fc5f04;"> READ MORE</a> </h5>
+      </div>
+      
+      <div class="col-md-4 col-sm-4 amet text-center">
+        <h3> Moving </h3>
+        <div class="moving1_out"> <img src="{{ asset('theme/frontend/images') }}/Untitled-2.png"> </div>
+        <p> At Move Plus we are committed to providing quality service while moving. We offer nationwide coverage for - house removals, long distance move, office and all kinds of moving related services. With our technical expertise, we aim to make your entire move as smooth as possible.</p>
+      <h5><a href="{{ asset('service/moving') }}" style=" color: #fc5f04;"> READ MORE </a></h5>
+      </div>
+      <div class="col-md-4 col-sm-4 amet text-center">
+        <h3> Cleaning </h3>
+        <div class="cleaning1_out"> <img src="{{ asset('theme/frontend/images') }}/Untitled-3.png"> </div>
+        <p>Our team of experienced and trained professionals brings high-quality cleaning services at your doorstep, anytime you need. Moves Plus has team of cleaning specialists who carry out all kinds of cleaning related services. This includes - end of tenancy, domestic, office and contract cleaning service at affordable rate. </p>
+         <h5><a href="{{ asset('service/cityCleaning') }}" style=" color: #fc5f04;"> READ MORE  </a></h5>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="container">
+    <div class="col-lg-12">
+      <h2> Move Plus is a complete can do company for all your <br>
+        moving and cleaning needs. </h2>
+      <div class="col-lg-12 col-xs-12 text-center">
+        <div class="col-lg-6 col-sm-6 col-sm-12 text-center">
+          <div class="pack">
+            <h4> 1 </h4>
+            <h3> Packing </h3>
+            <p> We provide all kinds of packing related services, designed to suit not only your budget but individual timelines. We bring all packing material to wrap your precious belonging using latest equipment and methodologies. Utmost care is taken while loading, transporting and unloading them to the required destination.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-12 text-center img">
+          <div class="packing"> <img src="{{ asset('theme/frontend/images') }}/box1.png"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="col-lg-12 col-xs-12 text-center">
+        <div class="col-lg-6 col-sm-6 col-sm-12 text-center">
+          <div class="move">
+            <h4> 2 </h4>
+            <h3> Moving </h3>
+            <p>  At Move Plus we are committed to providing quality service while moving. We offer nationwide coverage for - house removals, long distance move, office and all kinds of moving related services. With our technical expertise, we aim to make your entire move as smooth as possible.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-12 text-center">
+          <div class="moveimg"> <img src="{{ asset('theme/frontend/images') }}/box2.png"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="col-lg-12 col-xs-12 text-center">
+        <div class="col-lg-6 col-sm-6 col-sm-12 text-center">
+          <div class="clean">
+            <h4> 3 </h4>
+            <h3> Cleaning </h3>
+            <p> Our team of experienced and trained professionals brings high-quality cleaning services at your doorstep, anytime you need. Moves Plus has team of cleaning specialists who carry out all kinds of cleaning related services. This includes - end of tenancy, domestic, office and contract cleaning service at affordable rate.</p>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-6 col-xs-12 text-center">
+          <div class="cleanimg"> <img src="{{ asset('theme/frontend/images') }}/box3.png"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row1">
+  <div class="container">
+    <div class="col-lg-12 text-center footer">
+      <h1> Areas we cover </h1>
+      <div class="container footerWrap">
+        <div class="row">
+          <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay">
+            <ul class="list-unstyled">
+              <li><a href="#"> Ashford (Spelthorne)</a></li>
+              <li><a href="#"> Borehamwood (Spelthorne) Ashford</a></li>
+              <li><a href="#">(Spelthorne) Ashford</a></li>
+              <li><a href="#">(Spelthorne) Ashford</a></li>
+              <li><a href="#">(Spelthorne) Ashford</a></li>
+              <li><a href="#">(Spelthorne) Ashford</a></li>
+              <li><a href="#">(Spelthorne) Ashford</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay">
+            <ul class="list-unstyled">
+              <li><a href="#">Barking and shford</a></li>
+              <li><a href="#">Barnet</a></li>
+              <li><a href="#">Bexley</a></li>
+              <li><a href="#">Borehamwood</a></li>
+              <li><a href="#">Barking and shford</a></li>
+              <li><a href="#">Barnet</a></li>
+              <li><a href="#">Bexley</a></li>
+              <li><a href="#">Borehamwood</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay">
+            <ul class="list-unstyled">
+              <li><a href="#">Enfield</a></li>
+              <li><a href="#">Esher</a></li>
+              <li><a href="#">Greenwich</a></li>
+              <li><a href="#">Enfield</a></li>
+              <li><a href="#">Esher</a></li>
+              <li><a href="#">Greenwich</a></li>
+              <li><a href="#">Enfield</a></li>
+              <li><a href="#">Esher</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-offset-2 col-sm-3 col-sm-offset-0 bay">
+            <ul class="list-unstyled">
+              <li><a href="#">Greenwich</a></li>
+              <li><a href="#">Barking and shford</a></li>
+              <li><a href="#">Ashford (Spelthorne)</a></li>
+              <li><a href="#">Greenwich</a></li>
+              <li><a href="#">Barking and shford</a></li>
+              <li><a href="#">Ashford (Spelthorne)</a></li>
+              <li><a href="#">Greenwich</a></li>
+              <li><a href="#">Barking and shford</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+
+<div class="row3">
+  <div class="container">
+    <div class="col-lg-12 text-center testimonial test">
+      <h1> Testimonial </h1>
+      <p> <i> "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus, lacus ac commodo <br>
+        volutpat, felis odio pulvinar enim, non dapibus mauris nulla sed ipsum. Lorem ipsum dolor sit amet, <br>
+        consectetur adipiscing elit. Suspendisse rhoncus, lacus ac commodo volutpat, felis odio pulvinar enim," <br>
+        non dapibus mauris nulla sed ipsum. </i> </p>
+    </div>
+  </div>
+</div>
+<div class="row4">
+  <div class="container">
+    <div class="col-lg-12 text-center anna">
+      <h4> - Anna </h4>
+      <img src="{{ asset('theme/frontend/images') }}/anna_-img.png"> 
+     </div>
+	<div class="round"> 
+		<img src="{{ asset('theme/frontend/images') }}/round.png"> <img src="{{ asset('theme/frontend/images') }}/round.png"> <img src="{{ asset('theme/frontend/images') }}/round.png"> <img src="{{ asset('theme/frontend/images') }}/round2.png">
+	 </div>
+    
+  </div>
+-->
+
+
+ <div class="container">
+		 <div class="testimonials-slider">                
+                      <div class="slide">
+							
+                                <div class="testimonials-carousel-content col-lg-12 text-center testimonial test"><p><i>Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo.Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo.</i></p></div>
+                                <div class="anna">
+									<h4> - Anna </h4>								
+                                </div>
+                                	<div class="annaImage"><img width="120" alt="" src="{{ asset('theme/frontend/images') }}/anna_-img.png"> </div>
+                           
+                      </div>
+                      
+                      <div class="slide">
+							
+                                <div class="testimonials-carousel-content col-lg-12 text-center testimonial test"><p><i>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo.</i></p></div>
+                                 <div class="anna">
+									<h4> - Anna </h4>
+									
+                                </div>
+                                	<div class="annaImage"><img width="120" alt="" src="{{ asset('theme/frontend/images') }}/anna_-img.png"> </div>
+                           
+                      </div>
+                      
+                      <div class="slide">
+							<div class="testimonials-carousel-content col-lg-12 text-center testimonial test"><p><i>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal..</i></p></div>
+							  <div class="anna">
+									<h4> - Anna </h4>
+									
+                                </div>
+                                	<div class="annaImage"><img width="120" alt="" src="{{ asset('theme/frontend/images') }}/anna_-img.png"> </div>
+					
+							
+                           
+                      </div>
+                      
+                </div>
+                
+					<!-- END DEMO -->
+                <div class="clearfix"></div>
+ 
+ </div>               
+                
+                
+<script>
+     $('.testimonials-slider').bxSlider({
+			slideWidth: 800,
+			minSlides: 1,
+			maxSlides: 1,
+			slideMargin: 32,
+			auto: true,
+			autoControls: true
+		  });
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40730469-1', 'webdesigntunes.com');
+  ga('send', 'pageview');
+
+</script>
+<div style="display:none;">
+<script id="_wau49x">var _wau = _wau || []; _wau.push(["small", "l2ejtaf1o4ra", "49x"]);
+(function() {var s=document.createElement("script"); s.async=true;
+s.src="http://widgets.amung.us/small.js";
+document.getElementsByTagName("head")[0].appendChild(s);
+})();
+</script>
+  </div>
+  
+  
+<!--
+
+<div class="row3">
+  <div class="container">
+    <div class="col-lg-12 text-center testimonial test">
+      <h1> Testimonial </h1>
+      <p> <i> "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse rhoncus, lacus ac commodo <br>
+        volutpat, felis odio pulvinar enim, non dapibus mauris nulla sed ipsum. Lorem ipsum dolor sit amet, <br>
+        consectetur adipiscing elit. Suspendisse rhoncus, lacus ac commodo volutpat, felis odio pulvinar enim," <br>
+        non dapibus mauris nulla sed ipsum. </i> </p>
+    </div>
+  </div>
+</div>
+<div class="row4">
+  <div class="container">
+    <div class="col-lg-12 text-center anna">
+      <h4> - Anna </h4>
+      <img src="{{ asset('theme/frontend/images') }}/anna_-img.png"> 
+     </div>
+	<div class="round"> 
+		<img src="{{ asset('theme/frontend/images') }}/round.png"> <img src="{{ asset('theme/frontend/images') }}/round.png"> <img src="{{ asset('theme/frontend/images') }}/round.png"> <img src="{{ asset('theme/frontend/images') }}/round2.png">
+	 </div>
+    
+  </div>
+-->
+
+
+<div class="row5">
+  <div class="container">
+    <div class="col-lg-12">
+      <div class="col-lg-12 col-xs-12 text-center">
+        <div class="col-lg-6 col-sm-6 col-sm-12 text-center1">
+          <div class="book">
+            <h2> Ready to book now? </h2>
+            <div class="number"> <img src="{{ asset('theme/frontend/images') }}/phone.png"> 030-3408-4251 </div>
+          </div>
+          <div class="btn-group1">
+            <button type="submit" class="btn btn-default">Book a Cleaning</button>
+          </div>
+          <div class="btn-group2">
+            <button type="submit" class="btn btn-default">See All Services</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+                     
+{% include '::footer_service.html.twig' %}
+
+
+
+
+
+
+
+<style>
+.bx-wrapper .testimonials-thumbnail{ margin: 0px 0px 15px; }
+.bx-wrapper .testimonials-title{ text-align: center;  margin: 25px 15px 3px; font-size: 24px; line-height: 1; }
+.bx-wrapper .testimonials-carousel-thumbnail{ max-width: 35%; float: left; margin-right: 20px; }
+.bx-wrapper .testimonials-carousel-thumbnail img{ display: block;   margin-right: 20px;width: 100px;}
+.bx-wrapper .testimonials-carousel-context{ overflow: hidden; }
+.bx-wrapper .testimonials-name{ font-size: 18px; margin-bottom: 15px; color:#000000; font-weight:400;}
+
+.bx-wrapper {position: relative;margin: 30px auto;padding: 0;width:100%;*zoom: 1;}
+.bx-wrapper .slide {padding:0;margin:0;display: block;}
+.bx-wrapper .bx-viewport {padding:10px;margin-left:0;z-index:1;width:100%;}
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {position: absolute;display:none;bottom: -30px;width: 100%;}
+.bx-wrapper .bx-loading {min-height: 50px;background: url(images/bx_loader.gif) center center no-repeat #fff;height: 100%;width: 100%;position: absolute;top: 0;left: 0;z-index: 2000;}
+.bx-wrapper .bx-pager {text-align: center;font-size: .85em;font-weight: bold;color: #666;padding-top: 20px;}
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {display: inline-block;*zoom: 1;*display: inline;}
+.bx-wrapper .bx-pager.bx-default-pager a {background: #666;text-indent: -9999px;display: block;width: 10px;height: 10px;margin: 0 5px;outline: 0;-moz-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {background: #000;}
+.bx-wrapper .bx-next {position: absolute;top: 0;right: 0;width: 30px;border-left:1px solid #ddd;height: 30px;cursor: pointer;background: #FC5F04 url(theme/frontend/images/caousel-next.png) no-repeat 0 0 ;}
+.bx-wrapper .bx-prev {position: absolute;top: 0px;right: 30px;border-right:1px solid #ddd;width: 30px;height: 30px;cursor: pointer;background: #FC5F04 url(theme/frontend/images/caousel-prev.png) no-repeat 0 0 ;}
+.bx-wrapper .bx-controls-direction a {position: absolute;top: 0;margin-top: 0;margin-right: 0px;outline: 0;width: 30px;height: 30px;text-indent: -9999px;z-index: 9999;}
+
+ .anna > h4{
+	    color: #696969 !important;
+    font-family: Raleway !important;
+    font-size: 22px !important;
+    margin-top: 50px;
+}
+.annaImage {
+    width: 57%;
+    float: right;
+}
+</style>
+

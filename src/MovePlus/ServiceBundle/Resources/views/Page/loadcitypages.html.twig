@@ -1,0 +1,6 @@
+{% for city in cityPages %}
+					
+						 <li class="item" id="item-{{city.id}}" style="width:25%;margin:0px;margin-top:15px;">
+								<a href="{{ path('move_plus_city_pages', { 'service_slug': city.service_slug,'county_slug': city.county_slug,'city_slug': city.city_slug }) }}"> {{city.city}}</a>
+						  </li>
+{% endfor %}

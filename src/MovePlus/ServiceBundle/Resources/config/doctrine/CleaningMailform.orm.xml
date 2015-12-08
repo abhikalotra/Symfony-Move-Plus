@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="MovePlus\ServiceBundle\Entity\CleaningMailform" table="cleaning_mailform">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="formId" type="integer" column="form_id" nullable="true"/>
+    <field name="attrName" type="string" column="attr_name" length="255" nullable="true"/>
+    <field name="attrType" type="string" column="attr_type" length="255" nullable="true"/>
+    <field name="attrOption" type="text" column="attr_option" nullable="true"/>
+    <field name="title" type="string" column="title" length="255" nullable="true"/>
+    <field name="fieldName" type="string" column="field_name" length="22255" nullable="true"/>
+    <field name="fieldNameId" type="string" column="field_name_id" length="255" nullable="true"/>
+    <field name="status" type="integer" column="status" nullable="true"/>
+  </entity>
+</doctrine-mapping>

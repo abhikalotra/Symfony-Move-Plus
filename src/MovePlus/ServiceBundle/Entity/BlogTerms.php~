@@ -1,0 +1,46 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogTerms
+ *
+ * @ORM\Table(name="blog_terms")
+ * @ORM\Entity
+ */
+class BlogTerms
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=200, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=200, nullable=false)
+     */
+    private $slug;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="term_group", type="bigint", nullable=false)
+     */
+    private $termGroup;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="term_id", type="bigint")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $termId;
+
+
+}

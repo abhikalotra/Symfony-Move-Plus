@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       {% if content.meta_title is defined %} 
+			<title>{{ content.meta_title }}</title>
+       {% else %}  
+			<title>Packing, Moving and Cleaning Services in UK - Move Plus </title>
+	   {% endif %}
+	   
+	   
+	   {% if content.meta_description is defined %}
+			<meta name ="description" content="{{ content.meta_description }}" />
+       {% else %} 
+			<meta name ="description" content="Move Plus is a comprehensive provider of packing, moving and cleaning services in UK. Let us take all the stress with tailored services designed specifically to suit all your moving needs." />
+	   {% endif %}
+
+		{% if content.	meta_keywords is defined %}
+			<meta name="keywords" content="{{ content.meta_keywords }}">
+        {% else %}
+			<meta name="keywords" content="Packing, Moving and Cleaning Services in UK - Move Plus">
+		{% endif %}
+		
+         <link href="{{ asset('theme/frontend/css/style.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+		<link rel="stylesheet" href="{{ asset('theme/frontend/css/bootstrap.css') }}" type="text/css">
+		<link rel="stylesheet" href="{{ asset('theme/frontend/css/bootstrap.min.css') }}" type="text/css">
+		<link rel="stylesheet" type="text/css" href="{{ asset('theme/frontend/css/media.css') }}">
+<link rel="icon" href="{{ asset('theme/frontend/images') }}/favicon_movePlus.png"  >
+ 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ asset('theme/frontend/js/bootstrap.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('theme/frontend/js/bootstrap.min.js') }}"></script>
+
+	<link href="{{ asset('theme/frontend/css/banner.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+	
+	<link rel="stylesheet" href="{{ asset('theme/frontend/css/jquery-ui.css') }}">
+  <script src="{{ asset('theme/frontend/js/jquery-1.10.2.js') }}"></script>
+  <script src="{{ asset('theme/frontend/js/jquery-ui.js') }}"></script>
+  
+  <script type="text/javascript" src="{{ asset('theme/frontend/js/quoteform.js') }}"></script>
+	<link href="{{ asset('theme/frontend/css/quoteform.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+	
+	{% render controller('MovePlusServiceBundle:Default:analyticcode') %}
+
+    </head>
+	<body>
+{% if editslug is defined %}
+      {% if adminuserSession != '' %}
+        <div class="admin-header-bar">You are Logged In as Admin: 
+          {% if editslug is defined %}
+              <a href="/administrator/{{ editslug }}" target="_blank"> Edit This page |</a>
+          {% endif %}
+          <a href="/administrator/settings" target="_blank"> Global Setting |</a>
+          <a href="/administrator/manageform" target="_blank"> Manage Booking Form |</a>
+          <a href="/administrator/testimonial" target="_blank"> Manage Testimonial |</a>
+          <a href="/administrator/logout" target="_blank"> LogOut</a>
+          
+        </div>
+      {% endif %}
+    {% endif %}
+    
+<div id="quoteformhtml" style="display:none"></div>
+<div class="container-fluid"> 
+  <div align="center" class="container">
+     
+		{% render controller('MovePlusServiceBundle:Default:headersection') %}
+	</div>
+</div>

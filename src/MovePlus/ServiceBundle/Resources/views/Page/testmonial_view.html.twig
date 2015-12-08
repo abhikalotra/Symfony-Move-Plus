@@ -1,0 +1,79 @@
+{% include '::hf/header_service.html.twig' %}
+
+		
+ <div class="container-fluid">
+   <div class="containerBanners">  
+      <img src="/theme/frontend/images/Banner_Testmonial.png" alt="Banner_Testmonial" title="Banner_Testmonial" >
+    
+      <div id="cleanings">
+         <div class="row2">
+            <div class="container">
+               <div class="col-lg-12 text-center head head_c">
+                  <h1>
+                   {{  testmonialTitleName }}
+                  </h1>
+                  <p style="color: white !important">
+                  
+                  </p>
+				
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+				
+ {% for testmonialView in testmonialView  %}	 
+<div class="row">
+   <div class="container">	   
+		<div class="growbusiness">
+		  <div class="col-lg-4 col-sm-4 con1 pull-left">
+			<div class="bot"> </div>
+			<div class="cleaning_head testmonialTitle">
+			  <h2>
+			  {% if testmonialView.star_rating %}
+					{% for i in 1..testmonialView.star_rating %}
+						<img src="{{ asset('theme/frontend/images') }}/Favorites.png" alt="Star Favorites {{ testmonialView.title }}" title="{{ testmonialView.title }} Star Favorites">
+					{% endfor %}
+				{% endif %}
+			  
+			  {{testmonialView.title}} 
+			  </h2>
+			</div>
+			<p>  {{testmonialView.description}} </p>
+		  </div>
+		  <div class="footerTestmonial">
+			<div class="footerTestRight">
+				<div class="footerTestImage">
+				<img width="120" alt="" src="{{ asset('uploads/testimonial') }}/{{ testmonialView.image }}"  alt="anna_" title="anna_"> 
+				</div>
+				<div class="footerTestBY">
+				- By {{testmonialView.writer_name}} 
+				</div>
+				<div class="footerTestDate">
+				-{{testmonialView.date}} 
+				</div>
+				
+			
+			</div>
+		  </div>
+		 
+		</div>		
+   </div>
+</div>
+	   {% endfor %}	
+
+</div>
+
+
+<style>
+img.testmonialDataIamgeSize {
+    width: 111px;
+    height: 98px;
+}
+</style>
+
+
+
+{% include '::footer_service.html.twig' %}
+

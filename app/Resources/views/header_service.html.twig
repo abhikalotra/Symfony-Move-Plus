@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+		 <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       {% if content.metaTitle is defined %} 
+			<title>{{ content.metaTitle }}</title>
+       {% else %}  
+			<title>Packing, Moving and Cleaning Services in UK - Move Plus </title>
+	   {% endif %}
+	   
+	   
+	   {% if content.metaDescription is defined %}
+			<meta name ="description" content="{{ content.metaDescription }}" />
+       {% else %} 
+			<meta name ="description" content="Move Plus is a comprehensive provider of packing, moving and cleaning services in UK. Let us take all the stress with tailored services designed specifically to suit all your moving needs." />
+	   {% endif %}
+
+		{% if content.metaKeyword is defined %}
+			<meta name="keywords" content="{{ content.metaKeyword }}">
+        {% else %}
+			<meta name="keywords" content="Packing, Moving and Cleaning Services in UK - Move Plus">
+		{% endif %}
+		
+    <link href="{{ asset('theme/frontend/css/style.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+		<link rel="stylesheet" href="{{ asset('theme/frontend/css/bootstrap.css') }}" type="text/css">
+		<link rel="stylesheet" type="text/css" href="{{ asset('theme/frontend/css/media.css') }}">
+
+		<link rel="icon" href="{{ asset('theme/frontend/images') }}/favicon_movePlus.png"  >
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="{{ asset('theme/frontend/js/bootstrap.js') }}"></script>
+	
+	<link href="{{ asset('theme/frontend/css/banner.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+	
+  <link rel="stylesheet" href="{{ asset('theme/frontend/css/jquery-ui.css') }}">
+  <script src="{{ asset('theme/frontend/js/jquery-1.10.2.js') }}"></script>
+  <script src="{{ asset('theme/frontend/js/jquery-ui.js') }}"></script>
+
+	<script type="text/javascript" src="{{ asset('theme/frontend/js/quoteform.js') }}"></script>
+	<link href="{{ asset('theme/frontend/css/quoteform.css') }}"  rel="stylesheet" type="text/css" media="all"/>
+
+{% render controller('MovePlusServiceBundle:Default:analyticcode') %}
+    </head>
+	<body>
+
+<div id="quoteformhtml" style="display:none"></div>
+<div class="container-fluid"> 
+  <div align="center" class="container">
+		
+		
+    <nav class="navbar navbar-default">
+      <div class="fluids">
+        <div class="navbar-header">
+          <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          
+          {% render controller('MovePlusServiceBundle:Default:headerlogo') %}
+          
+           </div>
+        <div class="navbar-collapse collapse pull-right top" id="navbar">
+          <ul class="nav navbar-nav">
+           <li><a href="{{ path('content_services', { 'slug': 'moving' }) }}" title="Moving">Moving</a></li>
+           <li><a href="{{ path('content_services', { 'slug': 'packing' }) }}" title="Packing">Packing</a></li>
+            <li><a href="{{ path('content_services', { 'slug': 'cleaning' }) }}" title="Cleaning">Cleaning</a></li>
+             <!-- <li><a href="http://blog.moveplus.co.uk/" title="Blog">Blog</a></li> -->
+            <!-- <li><a href="{{ path('content_services', { 'slug': 'contact-us' }) }}" title="Contact Us">Contact Us</a></li> -->
+            <!-- <li><a href="{{ path('content_services', { 'slug': 'about-us' }) }}" title="About US">About US</a></li> -->
+            <li><a href="javascript:void(0)" title="Services">Request Quote</a>
+			 <ul class="dropdown">
+                <li><a href="javascript:void(0)" class="bookMovingNav" id="li_Moving">Moving</a></li>
+                <li><a href="javascript:void(0)" class="bookCleaningNav"  id="li_Cleaning">Cleaning</a></li>
+                <li><a href="javascript:void(0)" class="bookPackingNav"  id="li_Packing">Packing</a></li>
+            </ul>
+			</li>
+            <li><a href="javascript:void(0)" title="Pricing">Pricing</a>
+			 <ul class="dropdownPrice">
+                <li><a href="{{ path('content_pricePage', { 'priceCatagory': 'moving-prices' }) }}" title="Moving Pricing">Moving Pricing</a></li>
+                <li><a href="{{ path('content_pricePage', { 'priceCatagory': 'cleaning-prices' }) }}" title="Cleaning Pricing">Cleaning Pricing</a></li>
+                <li><a href="{{ path('content_pricePage', { 'priceCatagory': 'packing-prices' }) }}" title="Packing Pricing">Packing Pricing</a></li>
+            </ul> 
+			</li>
+          </ul>
+        </div>
+		 <div class="input-group">
+		 <div class="rightAdminLogin">	
+    {% render controller('MovePlusServiceBundle:Default:headertop') %}	
+		</div>
+		<form name="search" id="search-form" action="/search" method="get">
+          <input type="text" name="s" class="form-control" placeholder="Search"/>
+          <span class="input-group-addon"> <i class="img">
+		      <img onclick="document.getElementById('search-form').submit();" src="{{ asset('theme/frontend/images') }}/icon.png" alt="icon" title="icon" class="serchIon"> </i> </span> 
+    </form>
+    </div>
+      </div>
+      <!--/.container-fluid --> 
+    </nav>
+  </div>
+</div>

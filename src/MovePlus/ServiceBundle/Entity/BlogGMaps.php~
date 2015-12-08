@@ -1,0 +1,200 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * BlogGMaps
+ *
+ * @ORM\Table(name="blog_g_maps")
+ * @ORM\Entity
+ */
+class BlogGMaps
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=50, nullable=false)
+     */
+    private $type;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="zoom", type="integer", nullable=false)
+     */
+    private $zoom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="min_zoom", type="string", length=55, nullable=false)
+     */
+    private $minZoom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="max_zoom", type="string", length=55, nullable=false)
+     */
+    private $maxZoom;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="border_radius", type="integer", nullable=false)
+     */
+    private $borderRadius;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="center_lat", type="string", length=255, nullable=false)
+     */
+    private $centerLat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pan_controller", type="string", length=5, nullable=false)
+     */
+    private $panController;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zoom_controller", type="string", length=5, nullable=false)
+     */
+    private $zoomController;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type_controller", type="string", length=5, nullable=false)
+     */
+    private $typeController;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="scale_controller", type="string", length=5, nullable=false)
+     */
+    private $scaleController;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street_view_controller", type="string", length=5, nullable=false)
+     */
+    private $streetViewController;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="overview_map_controller", type="string", length=5, nullable=false)
+     */
+    private $overviewMapController;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="center_lng", type="string", length=255, nullable=false)
+     */
+    private $centerLng;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="width", type="string", length=5, nullable=false)
+     */
+    private $width;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="height", type="string", length=5, nullable=false)
+     */
+    private $height;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="align", type="string", length=11, nullable=false)
+     */
+    private $align;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="info_type", type="string", length=9, nullable=false)
+     */
+    private $infoType;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="traffic_layer", type="string", length=55, nullable=false)
+     */
+    private $trafficLayer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="bike_layer", type="string", length=55, nullable=false)
+     */
+    private $bikeLayer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="transit_layer", type="string", length=55, nullable=false)
+     */
+    private $transitLayer;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="styling_hue", type="text", nullable=false)
+     */
+    private $stylingHue;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="styling_lightness", type="string", length=55, nullable=false)
+     */
+    private $stylingLightness;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="styling_gamma", type="string", length=55, nullable=false)
+     */
+    private $stylingGamma;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="styling_saturation", type="string", length=55, nullable=false)
+     */
+    private $stylingSaturation;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

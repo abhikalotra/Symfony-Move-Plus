@@ -1,0 +1,207 @@
+<?php
+
+namespace MovePlus\ServiceBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CityPages
+ *
+ * @ORM\Table(name="city_pages")
+ * @ORM\Entity
+ */
+class CityPages
+{
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="service_slug", type="string", length=255, nullable=false)
+     */
+    private $serviceSlug;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="county_slug", type="string", length=255, nullable=false)
+     */
+    private $countySlug;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city_slug", type="string", length=255, nullable=false)
+     */
+    private $citySlug;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_title", type="text", nullable=false)
+     */
+    private $metaTitle;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_keywords", type="text", nullable=false)
+     */
+    private $metaKeywords;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="meta_description", type="text", nullable=false)
+     */
+    private $metaDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_img", type="text", nullable=false)
+     */
+    private $bannerImg;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_text", type="text", nullable=false)
+     */
+    private $bannerText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="banner_sub_text", type="text", nullable=false)
+     */
+    private $bannerSubText;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="short_description", type="text", nullable=false)
+     */
+    private $shortDescription;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
+     */
+    private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="status", type="integer", nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="county", type="string", length=255, nullable=false)
+     */
+    private $county;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255, nullable=false)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="service_name", type="string", length=255, nullable=false)
+     */
+    private $serviceName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="catagory", type="string", length=255, nullable=false)
+     */
+    private $catagory;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="zip", type="string", length=255, nullable=false)
+     */
+    private $zip;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="template", type="string", length=255, nullable=false)
+     */
+    private $template;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="leftsidebar", type="text", nullable=false)
+     */
+    private $leftsidebar;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="rightsidebar", type="text", nullable=false)
+     */
+    private $rightsidebar;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="howitswork_widget", type="integer", nullable=false)
+     */
+    private $howitsworkWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="relatedservices_widget", type="integer", nullable=false)
+     */
+    private $relatedservicesWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="readytobook_widget", type="integer", nullable=false)
+     */
+    private $readytobookWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="blog_widget", type="integer", nullable=false)
+     */
+    private $blogWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="customertestimonial_widget", type="integer", nullable=false)
+     */
+    private $customertestimonialWidget;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+
+}

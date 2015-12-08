@@ -1,0 +1,112 @@
+	{% include '::administartor/header_administartor.html.twig' %}
+
+		  
+            <!-- BEGIN CONTAINER -->
+            <div class="page-container">
+               <!-- BEGIN SIDEBAR -->
+               <div class="page-sidebar-wrapper">
+			   
+                   {% include '::administartor/sidebar_administartor.html.twig' %}
+
+				 </div>
+               <!-- END SIDEBAR -->
+               <!-- BEGIN CONTENT -->
+	
+               <div class="page-content-wrapper">
+                  <div class="page-content">
+        {% for content in contentQueryPages  %}	             
+                     <!-- BEGIN PAGE HEADER-->
+                     <h3 class="page-title" style="margin-bottom: 41px;">
+                        Edit Content: <!-- <small>form layouts</small> -->
+                     </h3>
+                     <div class="page-bar">
+                        <ul class="page-breadcrumb">
+                           <li>
+                              <i class="fa fa-home"></i>
+                              <a href="{{ path('move_plus_administrator_dashboard') }}">Dashboard</a>
+                              <i class="fa fa-angle-right"></i>
+                           </li>
+                           <li>
+                              <a href="{{ path( 'move_plus_administrator_editHowItsWorkContent', { 'id': content.id  }) }}">Edit Content:</a>
+                           </li>                          
+                        </ul>
+                      
+                     </div>
+                     <!-- END PAGE HEADER-->
+                     <!-- BEGIN PAGE CONTENT-->
+		
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="tabbable-line boxless tabbable-reversed">
+                              <ul class="nav nav-tabs">
+                                 <li class="active">
+                                    <a href="#tab_0" data-toggle="tab">
+                                    Edit Content:  Actions </a>
+                                 </li>
+                             </ul>
+                              <div class="tab-content">
+                                 <div class="tab-pane active" id="tab_0">
+                                    <div class="portlet box green">
+                                       <div class="portlet-title">
+                                          <div class="caption">
+                                             <i class="fa fa-gift"></i>Edit Content:
+                                          </div>
+                                          <div class="tools">
+                                             <a href="javascript:;" class="collapse">
+                                             </a>                                  
+                                          </div>
+                                       </div>
+                                       <div class="portlet-body form">
+                                          <!-- BEGIN FORM-->
+                                          <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                             <div class="form-body">
+                                                <div class="form-group">
+                                                   <label class="col-md-3 control-label">Title :</label>
+                                                   <div class="col-md-4">
+														  <input type="text" class="form-control input-circle" placeholder="Enter Your Page Title" name="title" value="{{ content.title }}" >                                      
+                                                   </div>
+                                                </div>
+                                              
+												<div class="form-group">
+                                                   <label class="col-md-3 control-label">Left Side Bar HTML :</label>
+                                                   <div class="col-md-4" style="width: 100%;">
+														  <textarea class="form-control input-circle description"  id="descTexteditor"  placeholder="Enter Left Side Bar HTML" name="content" >{{ content.content }}</textarea>
+                                                   </div>
+                                                </div>
+												
+												
+										 </div>
+                                             <div class="form-actions">
+                                                <div class="row">
+                                                   <div class="col-md-offset-3 col-md-9">
+                                                      <!-- <button type="submit"  class="btn btn-circle blue">Submit</button> -->
+													   <input class="btn btn-circle blue widthSetAdmin" type="submit" name="submit"  value="Update">
+                                                     	<a href="{{ path('move_plus_administrator_howItsWorkContent') }}" class="btn btn-circle default">Cancel</a>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </form>
+                                          <!-- END FORM-->
+                                       </div>
+                                    </div>
+                                   </div>
+                                </div>
+                           </div>
+                        </div>
+                     </div>
+					
+                     <!-- END PAGE CONTENT-->
+                  </div>
+               </div>
+      {% endfor %}    
+
+		   <!-- END CONTENT -->
+            
+            </div>
+            <!-- END CONTAINER -->
+         
+			
+{% include '::administartor/footer_administartor.html.twig' %}
+
+
+	  
